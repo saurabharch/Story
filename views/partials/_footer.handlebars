@@ -4,9 +4,12 @@
             <div class="col l6 s12">
                 <h5 class="white-text">Story Books</h5>
                 <p class="grey-text text-lighten-4">Share your story with the world</p>
+                {{#if user}} 
+                
+                {{else}}
                 <div class="container1 card grey darken-3">
                     <header>
-                        <h6  style="margin-top:5px;margin-left:5px;margin-bottom:5px;">Follow Us On Social Media</h6>
+                        <h6 style="margin-top:5px;margin-left:5px;margin-bottom:5px;">Follow Us On Social Media</h6>
                     </header>
                     <ul class="accordion">
                         <li class="tab">
@@ -66,6 +69,7 @@
                         </li>
                     </ul>
                 </div>
+                {{/if}}
             </div>
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
@@ -87,9 +91,9 @@
         <div class="container">
             <div class="col s12 m8 pull-m4">
                 <p>
-                   
-                        <img src="https://cdn.iconscout.com/public/images/icon/premium/png-256/story-book-open-36e6148c22052e3d-256x256.png" alt="StoryBook - Share your Story to the world"
-                            title="StoryBook - Share your Story to the world" class="logo" />  StoryBook is made with
+
+                    <img src="https://cdn.iconscout.com/public/images/icon/premium/png-256/story-book-open-36e6148c22052e3d-256x256.png" alt="StoryBook - Share your Story to the world"
+                        title="StoryBook - Share your Story to the world" class="logo" /> StoryBook is made with
                     <span class="heart">❤</span> in
                     <span class="GMS-52-9-0-N-5-23-0-E">
                         <a href="https://en.wikipedia.org/wiki/India" target="_blank" style="text-decoration:none;color:white;"> The India
@@ -98,7 +102,8 @@
                                 <rect width="9" height="4" fill="#FFF"></rect>
                                 <rect width="9" height="2" fill="orange"></rect>
                             </svg>
-                        </a> </span>
+                        </a>
+                    </span>
                 </p>
             </div>
             © 2018 StoryBooks
