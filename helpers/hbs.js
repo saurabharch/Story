@@ -30,5 +30,16 @@ module.exports = {
         } else {
             return '';
         }
+    },
+    likeCount: function(storyUser,loogedUser,storyId, floating=false) {
+        if(storyUser == loggedUser){
+            if(floating) {
+                return ``;
+            } else {
+                return ``;
+            }
+        } else {
+            return '';
+        }
     }
 }

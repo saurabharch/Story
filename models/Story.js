@@ -40,6 +40,10 @@ const StorySchema = new Schema({
     date:{
         type: Date,
         default: Date.now()
+    },
+    likeCount:{
+        type: Number,
+        default : 0
     }
 });
 
