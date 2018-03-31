@@ -41,10 +41,20 @@ const StorySchema = new Schema({
         type: Date,
         default: Date.now()
     },
-    likeCount:{
-        type: Number,
-        default : 0
-    }
+    likes: [{
+        likeCount: {
+            type: Number,
+            default: 0
+        },
+        likeDate: {
+            type: Date,
+            default: Date.now()
+        },
+        likeUser: {
+            type: Schema.Types.ObjectId,
+            ref: 'users'
+        }
+    }],
 });
 
 // Create collection and add schema

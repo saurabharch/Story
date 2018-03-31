@@ -1,4 +1,6 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
+
 const mongoose = require('mongoose');
 const keys = require('./keys');
 // Load user model
@@ -41,6 +43,25 @@ module.exports = function (passport) {
       })
     })
   );
+  
+  passport.use(new FacebookStrategy({
+    clientID: keys.clientID,
+    clientSecret: keys.clientSecret,
+    callbackURL: '/auth/facebook/callback',
+    enableProof: true
+  }, (accessToken, refreshToken, profile, done) => {
+      process.nextTick(function () {
+        console.log(accessToken);
+        console.log(profile);
+        //Check whether the User exists or not using profile.id
+        // if (config.use_database === 'true') {
+        //   //Further code of Database.
+        // }
+        console.log(profile);
+        return done(null, profile);
+      });
+    }
+  ));
 
   passport.serializeUser((user, done) => {
     done(null, user.id);

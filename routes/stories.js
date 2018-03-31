@@ -24,6 +24,7 @@ router.get('/show/:id', (req, res) => {
     })
     .populate('user')
     .populate('comments.commentUser')
+    .populate('likes.likeUser')
     .then(story => {
         if(story.status == 'public') {
             res.render('stories/show' , {
@@ -32,6 +33,7 @@ router.get('/show/:id', (req, res) => {
         } else {
            if(req.user){
                if(req.user.id == story.user._id){
+
                    res.render('stories/show', {
                        story: story
                    });
@@ -43,6 +45,7 @@ router.get('/show/:id', (req, res) => {
                res.redirect('/stories');
            }
         }
+        console.log(story.likes);
     });
 });
 
@@ -80,17 +83,21 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
         .then(story => {
             if (story.user != req.user.id) {
                 res.redirect('/stories');
+
             } else {
                 res.render('stories/edit', {
                     story: story
                 });
+                
             }
         });
 });
 
+
 //Process Add Story
 router.post('/', ensureAuthenticated, (req, res) => {
     let allowComments;
+    let likes = 0;
     if(req.body.allowComments){
         allowComments= true;
     } else {
@@ -101,7 +108,8 @@ router.post('/', ensureAuthenticated, (req, res) => {
         body: req.body.body,
         status: req.body.status,
         allowComments: allowComments,
-        user: req.user.id
+        user: req.user.id,
+        likes: likes
     };
 
     //Create Story
@@ -129,7 +137,6 @@ router.put('/:id', (req, res) => {
             story.body = req.body.body;
             story.status = req.body.status;
             story.allowComments = allowComments;
-
             story.save()
                 .then(story => {
                     res.redirect('/dashboard');
@@ -137,7 +144,30 @@ router.put('/:id', (req, res) => {
         }); 
 });
 
-//Delete Story
+router.post("/thumbup/:id", (req, res) => {
+    Story.findById({
+        _id: req.params.id
+    })
+        .then(story => {
+            if(req.params.id === story.likes.likeUser && story.likes._id !== req.param.id){
+                const newlike = {
+                    likeCount: 1,
+                    likeUser: req.user.id
+                }
+                //Add to comments array
+                story.likes.unshift(newlike);
+
+                story.save()
+                    .then(story => {
+                        res.redirect(`/stories/show/${story.id}`);
+                    });
+            } else {
+                res.redirect(`/stories/show/${story.id}`); 
+            }
+        }
+    );
+});
+//Delete Story/
 router.delete(('/:id'), (req, res) => {
     Story.remove({_id: req.params.id})
         .then(() => {
@@ -155,7 +185,6 @@ router.post('/comment/:id', (req, res) => {
             commentBody: req.body.commentBody,
             commentUser: req.user.id
         }
-
         //Add to comments array
         story.comments.unshift(newComment);
 

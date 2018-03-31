@@ -8,6 +8,14 @@ router.get('/google/callback',
     passport.authenticate('google', { failureRedirect: '/' }), (req, res) => {
         res.redirect('/dashboard');
     });
+    
+router.get('/facebook', passport.authenticate('facebook', { scope: ['user_friends', 'manage_pages']}));
+
+router.get('/facebook/callback',
+    passport.authenticate('facebook', { failureRedirect: '/' }), (req, res) => {
+        // Successful authentication, redirect home. 
+        res.redirect('/dashboard');
+    });
 
 router.get('/verify', (req, res) => {
     if (req.user) {

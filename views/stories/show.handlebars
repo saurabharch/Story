@@ -5,8 +5,20 @@
         </h3>
         <div class="card story">
             <div class="card-content">
-                <span class="card-title">{{formateDate story.date 'MMMM Do YYYY'}}</span>
+                <small class="card-title">{{formateDate story.date 'MMMM Do YYYY'}}</small>
                 {{{story.body}}}
+            </div>
+            <div class="card-action">
+                <form method="post" action="/stories/thumbup/{{story.id}}">
+                <i class="fa fa-sign-language"></i>
+                <small>{{story.likes.likeCount}}</small>
+                    <input type="submit" value="Submit" class="btn">     
+                </form>
+                 {{#each story.likes}}
+                
+                    <i class="fa fa-thumbs-up"></i> <small>{{story.likes.likeCount}}</small>
+               
+                {{/each}}
             </div>
         </div>
 
@@ -38,7 +50,6 @@
                 </div>
                 <br>
                 <small>Posted: {{formateDate commentDate 'MMMM Do YYYY'}}</small>
-                
             </div>
         </div>
         {{/each}} {{/if}}

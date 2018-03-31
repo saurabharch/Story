@@ -1,8 +1,12 @@
 <h1>Welcome</h1>
-<p>Welcome to StoryBook 1.0.0</p>
-<p>Post stories from the best and worst of your life and choose for them to be read by the world or completley private as your
-    own personal diary
-</p>
+<p>StoryBook 1.0.0</p>
+<div class="row" style="margin:20px;">
+    <div class="placeholder" data-large="https://cdn-images-1.medium.com/max/1800/1*sg-uLNm73whmdOgKlrQdZA.jpeg">
+        <img src="data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQBQCdASoqABwAP/3+/3+/urWyMBVYA/A/iWIAAR7p/Y3etgh4KD8QqXEZj6waibITSIAA/cndnUz4/z4LEgByYUql75Cq/12W33KFIKQpc8L0Dt19C7NFXin0tKlxd70dzSF978msbuqLjDgAAA=="
+            class="img-small">
+        <div style="padding-bottom:66.6%;"></div>
+    </div>
+</div>
 {{#if user}} {{else}}
 <a href="/auth/google" class="btn white darken-1" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;">Login With
     <svg class="svg" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
@@ -14,5 +18,13 @@
             fill-rule="evenodd" fill="#fbbc05"></path>
         <path d="M9.003 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.465.891 11.429 0 9.003 0 5.485 0 2.44 2.017.96 4.958L3.967 7.29c.708-2.127 2.692-3.71 5.036-3.71z"
             fill-rule="evenodd" fill="#ea4335"></path>
-    </svg></a>
+    </svg>
+</a>
+    <a href="/auth/facebook" class="btn white darken-1" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;">LOGIN WITH <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 48 48" style="fill:#000000;">
+        <g id="surface1">
+            <path style=" fill:#3F51B5;" d="M 42 37 C 42 39.761719 39.761719 42 37 42 L 11 42 C 8.238281 42 6 39.761719 6 37 L 6 11 C 6 8.238281 8.238281 6 11 6 L 37 6 C 39.761719 6 42 8.238281 42 11 Z "></path>
+            <path style=" fill:#FFFFFF;" d="M 34.367188 25 L 31 25 L 31 38 L 26 38 L 26 25 L 23 25 L 23 21 L 26 21 L 26 18.589844 C 26.003906 15.082031 27.460938 13 31.59375 13 L 35 13 L 35 17 L 32.714844 17 C 31.105469 17 31 17.601563 31 18.722656 L 31 21 L 35 21 Z "></path>
+        </g>
+    </svg>
+    </a>
 {{/if}}
