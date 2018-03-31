@@ -25,9 +25,15 @@
 ```}```
 
 1. * In config folder 
-        *keys_dev.js
-        *keys_prod.js updated only clienID and clientSecrete respectively in keys_dev.js or keys_prod.js
-1. Open url in browser at http://localhost:5000
+
+        * keys_dev.js
+
+        * keys_prod.js 
+        
+        updated only clienID and clientSecrete respectively in keys_dev.js or keys_prod.js
+
+1. ```Open url in browser at http://localhost:5000```
 
 
+# Story
 # Story
