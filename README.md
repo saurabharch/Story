@@ -34,6 +34,4 @@
 
 1. ```Open url in browser at http://localhost:5000```
 
-
-# Story
 # Story
