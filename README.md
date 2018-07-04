@@ -34,4 +34,4 @@
 
 1. ```Open url in browser at http://localhost:5000```
 
-# Story
+##### Note: Reference Education Purpose only and facebook authenctication is only success at https://

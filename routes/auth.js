@@ -12,10 +12,7 @@ router.get('/google/callback',
 router.get('/facebook', passport.authenticate('facebook', { scope: ['user_friends', 'manage_pages']}));
 
 router.get('/facebook/callback',
-    passport.authenticate('facebook', { failureRedirect: '/' }), (req, res) => {
-        // Successful authentication, redirect home. 
-        res.redirect('/dashboard');
-    });
+    passport.authenticate('facebook', { successRedirect: '/dashboard', failureRedirect: '/'}));
 
 router.get('/verify', (req, res) => {
     if (req.user) {

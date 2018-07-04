@@ -1,6 +1,5 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
-
 const mongoose = require('mongoose');
 const keys = require('./keys');
 // Load user model
@@ -48,19 +47,32 @@ module.exports = function (passport) {
     clientID: keys.clientID,
     clientSecret: keys.clientSecret,
     callbackURL: '/auth/facebook/callback',
-    enableProof: true
+    profileFields:['id','displayName','photos','email']
   }, (accessToken, refreshToken, profile, done) => {
-      process.nextTick(function () {
-        console.log(accessToken);
+        const image = profile.photos[0].value;
         console.log(profile);
-        //Check whether the User exists or not using profile.id
-        // if (config.use_database === 'true') {
-        //   //Further code of Database.
-        // }
-        console.log(profile);
-        return done(null, profile);
-      });
-    }
+        const newUser = {
+          googleID: profile.id,
+          firstName: profile.displayName,
+          lastName: profile.familyName,
+          email: profile.email,
+          image: image
+        }
+         // Check for existing user
+         User.findOne({
+           googleID: profile.id
+         }).then(user => {
+           if (user) {
+             // Return user
+             done(null, user);
+           } else {
+             // Create user
+             new User(newUser)
+               .save()
+               .then(user => done(null, user));
+           }
+         })
+     }
   ));
 
   passport.serializeUser((user, done) => {
