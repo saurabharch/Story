@@ -147,8 +147,7 @@ router.put('/:id', (req, res) => {
 router.post("/thumbup/:id", (req, res) => {
     Story.findById({
         _id: req.params.id
-    })
-        .then(story => {
+    }).then(story => {
             if(req.params.id === story.likes.likeUser && story.likes._id !== req.param.id){
                 const newlike = {
                     likeCount: 1,
@@ -165,7 +164,7 @@ router.post("/thumbup/:id", (req, res) => {
                 res.redirect(`/stories/show/${story.id}`); 
             }
         }
-    );
+    )
 });
 //Delete Story/
 router.delete(('/:id'), (req, res) => {

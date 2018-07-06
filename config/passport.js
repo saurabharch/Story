@@ -50,7 +50,6 @@ module.exports = function (passport) {
     profileFields:['id','displayName','photos','email']
   }, (accessToken, refreshToken, profile, done) => {
         const image = profile.photos[0].value;
-        console.log(profile);
         const newUser = {
           sociaID: profile.id,
           firstName: profile.displayName,
@@ -60,7 +59,7 @@ module.exports = function (passport) {
         }
          // Check for existing user
          User.findOne({
-           googleID: profile.id
+           sociaID: profile.id
          }).then(user => {
            if (user) {
              // Return user

@@ -1,6 +1,6 @@
-<h1>Welcome {{user.firstName}}</h1>
-<h4>Your Stories</h4>
+{{!-- <h1>Welcome {{user.firstName}}</h1> --}}
 {{#if stories}}
+<h4>Your Stories</h4>
     <table class="striped">
         <thead>
             <tr>
@@ -29,5 +29,45 @@
         </tbody>
     </table>
 {{else}}
-    <p>You have not created any story yet</p>
+<section class="container">
+    <div class="content1">
+        <h1 id="title">Welcome {{user.firstName}}</h1></h1>
+        <p id="steps">Simple Three fingers Rules setting before publish your Story on StoryBook</p>
+    </div>
+</section>
+
+<section class="container">
+    <div class="content1">
+        <h1 id="title">Step 1</h1>
+        <p id="steps">Add Your Title of your Story In title area</p>
+    </div>
+</section>
+
+<section class="container">
+    <div class="content1">
+        <h1 id="title">Step 2</h1>
+        <p id="steps" >Three Option for Story moderation Select any one of them</p>
+    </div>
+</section>
+
+<section class="container">
+    <div class="content1">
+        <h1 id="title">Step 3</h1>
+        <p id="steps" >Final Setting option for allow comment on story</p>
+    </div>
+</section>
+
+<section class="container">
+    <div class="content1">
+        <h1 id="title">Let's Start</h1>
+        <br/> <br/>
+        <a href="/stories/add" class="btn darken btn-start" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;">Click Here <i class="fa fa-pencil"></i></a>
+    </div>
+</section>
+
+<div id="set-height"></div>
+
+<video id="v0" tabindex="0" , autobuffer preload>
+    <source type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' src="fingers.mp4"></source>
+</video>
 {{/if}}
