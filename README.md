@@ -1,6 +1,6 @@
 # StoryBook
 
-*This is a Simple Story Blog page with google auth service api*
+*This is a Simple Story Blog page with google & facebook auth service api*
 
 ### Steps
 
