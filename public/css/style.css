@@ -370,3 +370,132 @@ font-size:1.3rem;
         opacity: 1;
     }
 }
+
+
+
+ /* Blog Layout */
+
+ /* Create two unequal columns that floats next to each other */
+
+ /* Left column */
+
+ .leftcolumn {
+     float: left;
+     width: 75%;
+ }
+
+ /* Right column */
+
+ .rightcolumn {
+     float: left;
+     width: 25%;
+     padding-left: 20px;
+ }
+
+ /* Fake image */
+
+ .fakeimg {
+     background-color: #eee8e88f;
+     width: 100%;
+     padding: 8px;
+    border-radius: 20px 20px 20px 20px;
+    background: linear-gradient(214deg, #eee8e88f, #fffff1);
+     -webkit-animation: loadcontentAnimation 12s ease infinite;
+     -moz-animation: loadcontentAnimation 12s ease infinite;
+     -o-animation: loadcontentAnimation 12s ease infinite;
+     animation: loadcontentAnimation 12s ease infinite;
+ }
+  .fakeimg1 {
+      background-color: #aaa;
+  }
+
+  .imageEffect{
+      border-radius: 10px 10px 10px 10px;
+      background: linear-gradient(214deg, #eee8e88f, #ffffff);
+      -webkit-animation: loadcontentAnimation 12s ease infinite;
+      -moz-animation: loadcontentAnimation 12s ease infinite;
+      -o-animation: loadcontentAnimation 12s ease infinite;
+      animation: loadcontentAnimation 12s ease infinite;
+  }
+
+  @-webkit-keyframes loadcontentAnimation {
+      0% {
+          background-position: 99% 0%
+      }
+      50% {
+          background-position: 2% 100%
+      }
+      100% {
+          background-position: 99% 0%
+      }
+  }
+
+  @-moz-keyframes loadcontentAnimation {
+      0% {
+          background-position: 99% 0%
+      }
+      50% {
+          background-position: 2% 100%
+      }
+      100% {
+          background-position: 99% 0%
+      }
+  }
+
+  @-o-keyframes loadcontentAnimation {
+      0% {
+          background-position: 99% 0%
+      }
+      50% {
+          background-position: 2% 100%
+      }
+      100% {
+          background-position: 99% 0%
+      }
+  }
+
+  @keyframes loadcontentAnimation {
+      0% {
+          background-position: 99% 0%
+      }
+      50% {
+          background-position: 2% 100%
+      }
+      100% {
+          background-position: 99% 0%
+      }
+  }
+ /* Add a card effect for articles */
+
+ .card {
+     background-color: white;
+     padding: 20px;
+     margin-top: 20px;
+ }
+
+ /* Clear floats after the columns */
+
+ .row:after {
+     content: "";
+     display: table;
+     clear: both;
+ }
+
+ /* Footer */
+
+ .footer {
+     padding: 20px;
+     text-align: center;
+     background: #ddd;
+     margin-top: 20px;
+ }
+
+ /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+
+ @media screen and (max-width: 800px) {
+     .leftcolumn,
+     .rightcolumn {
+         width: 100%;
+         padding: 0;
+     }
+ }

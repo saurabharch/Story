@@ -34,50 +34,61 @@
     <script src="sticky.js"></script>
         <script>
            document.addEventListener('DOMContentLoaded', function () {
-               enterView({
-                   selector: 'section',
-                   enter: function (el) {
-                       el.classList.add('entered');
-                   }
-               })
+               try {
+                   enterView({
+                       selector: 'section',
+                       enter: function (el) {
+                           el.classList.add('entered');
+                       }
+                   })
 
-               var frameNumber = 0, // start video at frame 0
-                   // lower numbers = faster playback
-                   playbackConst = 1000,
-                   // get page height from video duration
-                   setHeight = document.getElementById("set-height"),
-                   // select video element         
-                   vid = document.getElementById('v0');
-               // var vid = $('#v0')[0]; // jquery option
-               // dynamically set the page height according to video length
-               vid.addEventListener('loadedmetadata', function () {
-                   setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
-               });
-               // Use requestAnimationFrame for smooth playback
-               function scrollPlay() {
-                   var frameNumber = window.pageYOffset / playbackConst;
-                   vid.currentTime = frameNumber;
+                   var frameNumber = 0, // start video at frame 0
+                       // lower numbers = faster playback
+                       playbackConst = 1000,
+                       // get page height from video duration
+                       setHeight = document.getElementById("set-height"),
+                       // select video element         
+                       vid = document.getElementById('v0');
+                   // var vid = $('#v0')[0]; // jquery option
+                   // dynamically set the page height according to video length
+                   vid.addEventListener('loadedmetadata', function () {
+                       setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+                   });
+                   // Use requestAnimationFrame for smooth playback
+                   function scrollPlay() {
+                       var frameNumber = window.pageYOffset / playbackConst;
+                       vid.currentTime = frameNumber;
+                       window.requestAnimationFrame(scrollPlay);
+                   }
                    window.requestAnimationFrame(scrollPlay);
                }
-               window.requestAnimationFrame(scrollPlay);
+               catch(err) {
+                   console.log(err)
+               }
   
             }); 
         </script>
     <script>
         $(document).ready(() => {
-            $('.button-collapse').sideNav();
-            $('select').material_select();
-            CKEDITOR.replace('body');
-          // tinymce.init({ selector: 'textarea' });
-          var elem = document.querySelector('.slider');
-            var instance = M.Slider.init(elem, options);
+           try {
+                $('.button-collapse').sideNav();
+               $('select').material_select();
+               CKEDITOR.replace('body');
+               // tinymce.init({ selector: 'textarea' });
+               var elem = document.querySelector('.slider');
+               var instance = M.Slider.init(elem, options);
 
-            // Or with jQuery
+               // Or with jQuery
 
-            $(document).ready(function () {
-                $('.slider').slider();
-            });
-        
+               $(document).ready(function () {
+                   $('.slider').slider();
+               });
+                
+           } 
+           catch(err)
+           {
+               console.log(err)
+           }
         });
     </script>
     <script>

@@ -11,6 +11,9 @@ const StorySchema = new Schema({
         type: String,
         required: true
     },
+    bodyImage:{
+         type: String
+    },
     status: {
         type: String,
         default: 'public'

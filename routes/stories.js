@@ -106,6 +106,7 @@ router.post('/', ensureAuthenticated, (req, res) => {
     const newStory = {
         title: req.body.title,
         body: req.body.body,
+        bodyImage: req.body.bodyImage,
         status: req.body.status,
         allowComments: allowComments,
         user: req.user.id,
@@ -136,6 +137,7 @@ router.put('/:id', (req, res) => {
             story.title = req.body.title;
             story.body = req.body.body;
             story.status = req.body.status;
+            story.bodyImage = req.body.bodyImage;
             story.allowComments = allowComments;
             story.save()
                 .then(story => {
