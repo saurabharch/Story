@@ -57,6 +57,7 @@ module.exports = function (passport) {
           email: profile.email,
           image: image
         }
+        console.log(profile);
          // Check for existing user
          User.findOne({
            sociaID: profile.id
