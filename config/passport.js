@@ -116,6 +116,26 @@ module.exports = function (passport) {
     },
     function (accessToken, refreshToken, profile, done) {
      console.log(profile);
+     const image = profile.photos[0].value;
+     const newUser = {
+       sociaID: profile.id,
+       firstName: profile.displayName,
+       email: profile.email,
+       image: image
+     }
+     User.findOne({
+       sociaID: profile.id
+     }).then(user => {
+       if (user) {
+         // Return user
+         done(null, user);
+       } else {
+         // Create user
+         new User(newUser)
+           .save()
+           .then(user => done(null, user));
+       }
+     })
     }
   ));
 
