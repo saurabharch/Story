@@ -1,5 +1,7 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
+const TwitterStrategy = require('passport-twitter').Strategy;
+const PinterestStrategy = require('passport-pinterest').Strategy;
 const mongoose = require('mongoose');
 const keys = require('./keys');
 // Load user model
@@ -47,7 +49,7 @@ module.exports = function (passport) {
     clientID: keys.clientID,
     clientSecret: keys.clientSecret,
     callbackURL: '/auth/facebook/callback',
-    profileFields:['id','displayName','photos','email']
+    profileFields:['id','displayName','photos','email','familyName']
   }, (accessToken, refreshToken, profile, done) => {
         const image = profile.photos[0].value;
         const newUser = {
@@ -57,7 +59,6 @@ module.exports = function (passport) {
           email: profile.email,
           image: image
         }
-        console.log(profile);
          // Check for existing user
          User.findOne({
            sociaID: profile.id
@@ -73,6 +74,49 @@ module.exports = function (passport) {
            }
          })
      }
+  ));
+
+
+  passport.use(new TwitterStrategy({
+      consumerKey: keys.ConsumerKey,
+      consumerSecret: keys.ConsumerSecret,
+      callbackURL: "/auth/twitter/callback"
+    },
+    function (token, tokenSecret, profile, done) {
+  // console.log(profile);
+     const image = profile.photos[0].value;
+     const newUser = {
+       sociaID: profile.id,
+       firstName: profile.displayName,
+       email: profile.email,
+       image: image
+     }
+       User.findOne({
+         sociaID: profile.id
+       }).then(user => {
+         if (user) {
+           // Return user
+           done(null, user);
+         } else {
+           // Create user
+           new User(newUser)
+             .save()
+             .then(user => done(null, user));
+         }
+       })
+    }
+  ));
+
+  passport.use(new PinterestStrategy({
+      clientID: keys.AppID,
+      clientSecret: keys.AppSecret,
+      scope: ['read_public', 'read_relationships'],
+      callbackURL: "/auth/pinterest/callback",
+      state: true
+    },
+    function (accessToken, refreshToken, profile, done) {
+     console.log(profile);
+    }
   ));
 
   passport.serializeUser((user, done) => {

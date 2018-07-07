@@ -9,10 +9,38 @@ router.get('/google/callback',
         res.redirect('/dashboard');
     });
     
-router.get('/facebook', passport.authenticate('facebook', { scope: ['user_friends', 'manage_pages']}));
+router.get('/facebook', passport.authenticate('facebook', {
+    scope: ['email', 'read_stream', 'publish_actions']
+}));
 
 router.get('/facebook/callback',
     passport.authenticate('facebook', { successRedirect: '/dashboard', failureRedirect: '/'}));
+
+router.get('/twitter',
+    passport.authenticate('twitter'));
+
+router.get('/twitter/callback',
+    passport.authenticate('twitter', {
+        failureRedirect: '/'
+    }),
+    function (req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/dashboard');
+    });
+
+router.get('/pinterest',
+    passport.authenticate('pinterest')
+);
+
+router.get('/pinterest/callback',
+    passport.authenticate('pinterest', {
+        failureRedirect: '/'
+    }),
+    function (req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/dashboard');
+    }
+);
 
 router.get('/verify', (req, res) => {
     if (req.user) {
