@@ -146,7 +146,7 @@ router.put('/:id', (req, res) => {
         }); 
 });
 
-router.post("/thumbup/:id", (req, res) => {
+router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
     Story.findById({
         _id: req.params.id
     }).then(story => {
