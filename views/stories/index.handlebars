@@ -2,7 +2,7 @@
 <div class="row">
     {{#each stories}}
         <div class="col s12 m4">
-            <div class="card">
+            <div class="card card1">
                 <div class="card-image">
                     {{#if user}}
                         {{{editIcon user.id ../user.id id}}}
@@ -20,8 +20,38 @@
                             <a class="btn grey" href="/stories/show/{{id}}"><i class="fa fa-bookmark"></i> Read More</a>
                        </div>
                             <div class="row">
-                                
+                                <div class="col">
+                                    <a href="" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;">
+                                        <i class="material-icons text-grey text-left">
+                                            remove_red_eye {{story.viewcount}}
+                                        </i>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;">
+                                        <div class="stars-outer">
+                                            <div class="stars-inner"></div>
+                                        </div>
+                                        <span class="number-rating"></span>
+                                        {{!-- <i class="material-icons text-grey text-left iconColor">
+                                             star_border
+                                        </i>
+                                        <i class="material-icons text-grey text-left iconColor">
+                                            star_border
+                                        </i>
+                                        <i class="material-icons text-grey text-left iconColor">
+                                            star_border
+                                        </i>
+                                        <i class="material-icons text-grey text-left iconColor">
+                                            star_border
+                                        </i>
+                                        <i class="material-icons text-grey text-left iconColor">
+                                            star_border
+                                        </i> --}}
+                                    </a>
+                                </div>
                             </div>
+                            
                     </div>
                 </div>
             </div>
