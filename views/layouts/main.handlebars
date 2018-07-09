@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
+<html lang="en" lang="en" dir="ltr" xmlns:article="http://ogp.me/ns/article#" xmlns:book="http://ogp.me/ns/book#" xmlns:product="http://ogp.me/ns/product#"
+xmlns:profile="http://ogp.me/ns/profile#" xmlns:video="http://ogp.me/ns/video#" prefix="content: http://purl.org/rss/1.0/modules/content/
+dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema#
+schema: http://schema.org/ sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core#
+xsd: http://www.w3.org/2001/XMLSchema# " style="" class=" supports no-touchevents cssanimations backgroundcliptext cssfilters
+csstransforms csstransforms3d csstransitions cors">
 
 <head>
     <meta charset="UTF-8">
@@ -13,6 +18,20 @@
         crossorigin="anonymous"> --}}
         <link rel="stylesheet" href="/css/style.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="shortlink" href="https://www.new-storybook.herokuapp.com/">
+        <link rel="canonical" href="https://www.new-storybook.herokuapp.com/" />
+        <link rel="hreflang" hreflang="en-SG" href="https://www.new-storybook.herokuapp.com/sg/">
+        <link rel="hreflang" hreflang="en-IN" href="https://www.new-storybook.herokuapp.com/in/">
+        <link rel="hreflang" hreflang="en-GB" href="https://www.new-storybook.herokuapp.com/uk/">
+        <link rel="hreflang" hreflang="en-AU" href="https://www.new-storybook.herokuapp.com/au/">
+        <link rel="hreflang" hreflang="en-AE" href="https://www.new-storybook.herokuapp.com/ae/">\
+        <link rel="hreflang" hreflang="de" href="https://www.new-storybook.herokuapp.com">
+        <link rel="alternate" hreflang="en" href="https://www.new-storybook.herokuapp.com/en">
+        <link rel="mask-icon" href="/themes/custom/themekit/images/favicon/safari-pinned-tab.svg" color="#0098e3">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <link rel="manifest" href="site.webmanifest">
+        <meta name="theme-color" content="#0098e3">
+        <meta name="msapplication-config" content="browserconfig.xml">
     <title>StoryBooks</title>
 {{!-- SEO AREA START --}}
 
@@ -70,12 +89,13 @@
     var dataLayer = dataLayer || [];//]]> /* ]]> */</script>
 <meta name="description" content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."
 />
-<link rel="canonical" href="https://www.new-storybook.herokuapp.com/" />
+
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="StoryBook - Stories who inspire" />
 <meta property="og:description" content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."
 />
+<meta property="og:image" content="Octicons-book.svg.png">
 <meta property="og:url" content="https://www.new-storybook.herokuapp.com/" />
 <meta property="og:site_name" content="StoryBook" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -115,7 +135,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js"></script>
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    {{!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> --}}
     <script src="sticky.js"></script>
         <script>
            document.addEventListener('DOMContentLoaded', function () {
