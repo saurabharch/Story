@@ -34,7 +34,7 @@ footer{
 }
 .heart{
     color:red;
-     background-color: rgba(68, 68, 68, 0);
+     background-color: rgba(68, 68, 68, 0.712);
 }
 
 * {

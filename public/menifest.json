@@ -1,11 +1,12 @@
 {
     "name": "StoryBook",
-    "short_name": "StoryBook",
+    "short_name": "SBook",
     "start_url": "https://new-storybook.herokuapp.com",
     "display": "standalone",
     "orientation": "portrait",
     "background_color": "#ccc",
-    "theme_color": "#5FAAE5",
+    "theme_color": "#0098e3",
+   "scope ": " /public/ ",
     "icons": [
         {
             "src": "/img/book-96X96.png",

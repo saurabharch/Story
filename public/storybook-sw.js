@@ -1,18 +1,21 @@
 
 importScripts('cache-manager.js');
 
-const VERSION = '1';
+const VERSION = '3';
 const staticCache = `caches-v${VERSION}`;
 const staticAssets = [
         './',
         './app.js',
         './sticky.js',
         './css/style.css',
+        './cache-manager.js',
+        '/menifest.json',
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js',
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js',
         './fallback.json',
+        './fingers.mp4',
         'https://fonts.googleapis.com/icon?family=Material+Icons',
         'https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/genericons-regular-webfont.woff',
         'https://use.fontawesome.com/releases/v5.0.8/css/all.css',
@@ -21,7 +24,7 @@ const staticAssets = [
         'https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js',
         'https://cdn.iconscout.com/public/images/icon/premium/png-256/story-book-open-36e6148c22052e3d-256x256.png'
     ];
-const dynamicCache = `dynamicCache`;
+const dynamicCache = `StoryDynamicCache`;
 let cachedAssets;
 
 const imageTest = /^.*\.(jpg|jpeg|png|gif)$/;
@@ -59,7 +62,7 @@ self.addEventListener('fetch', (event) => {
     const url = new URL(event.request.url);
     if (url.pathname === '/') {
         caches.open(staticCache).then((cache) => {
-            return cache.match('index.html');
+            return cache.match('/stories');
         })
     } else if (staticAssets.includes(url.pathname.substring(1))) {
         event.respondWith(caches.match(event.request));
