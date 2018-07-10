@@ -28,11 +28,10 @@
                                     </a>
                                 </div>
                                 <div class="col">
-                                    <a href="" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;">
-                                        <div class="stars-outer">
-                                            <div class="stars-inner"></div>
-                                        </div>
-                                        <span class="number-rating"></span>
+                                   
+                                         {{#if user}}
+                                         {{{ratingIcon user.id ../user.id id}}} {{/if}}
+                                         
                                         {{!-- <i class="material-icons text-grey text-left iconColor">
                                              star_border
                                         </i>
@@ -48,7 +47,6 @@
                                         <i class="material-icons text-grey text-left iconColor">
                                             star_border
                                         </i> --}}
-                                    </a>
                                 </div>
                             </div>
                             

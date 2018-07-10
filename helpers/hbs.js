@@ -30,5 +30,22 @@ module.exports = {
         } else {
             return '';
         }
-    }
+    },
+    ratingIcon: function (storyUser, loggedUser, storyId, floating = true) {
+        if (storyId) {
+            if (floating && loggedUser) {
+                return `<a href="/stories/rate/${storyId}" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;"> <div class="stars-outer">
+                                            <div class="stars-inner"></div>
+                                        </div>
+                                        <span class="number-rating"></span></a>`;
+            } else {
+                return `<a href="#" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;"> <div class="stars-outer">
+                                            <div class="stars-inner"></div>
+                                        </div>
+                                        <span class="number-rating"></span></a>`;
+            }
+        } else {
+            return '';
+        }
+    },
 }
