@@ -5,9 +5,9 @@ for ideas and code
 */
 'use strict';
 
-const DB_PREFIX = 'demo-cache-';
+const DB_PREFIX = 'StoryBook-Caches-';
 const DB_VERSION = 1;
-const STORE_NAME = 'store';
+const STORE_NAME = 'StoryBook';
 const URL_PROPERTY = 'url';
 const ENTER_TIMESTAMP_PROP = 'enterTimestamp';
 const USED_TIMESTAMP_PROP = 'usedTimestamp';
