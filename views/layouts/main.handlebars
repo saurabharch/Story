@@ -8,10 +8,14 @@ csstransforms csstransforms3d csstransitions cors">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="keywords" content="story,book,horror,biograpghy,travel,guide,manual,syllabus,brochure,designe,art,sculpture">
+    <meta name="author" content="Saurabh Kashyap">
     <meta name="description" content="StoryBook a app Share your Day story to the world. alpha version">
     <!-- Compiled and minified CSS -->
+    <link rel='shortcut icon' type='image/x-icon' href='/img/fevicon.ico' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     {{!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
@@ -36,7 +40,7 @@ csstransforms csstransforms3d csstransitions cors">
 {{!-- SEO AREA START --}}
 
 {{!-- HTTP TO HTTPS REDIRECT --}}
-<script>if (document.location.protocol != "https:") { document.location = document.URL.replace(/^http:/i, "https:"); }</script>
+{{!-- <script>if (document.location.protocol != "https:") { document.location = document.URL.replace(/^http:/i, "https:"); }</script> --}}
 <script type='text/javascript'>/* <![CDATA[ */ var monsterinsights_frontend = { "js_events_tracking": "true", "is_debug_mode": "false", "download_extensions": "doc,exe,js,pdf,ppt,tgz,zip,xls", "inbound_paths": "\/recommended\/", "home_url": "https:\/\/www.new-storybook.herokuapp.com", "track_download_as": "event", "internal_label": "aff", "hash_tracking": "false" }; /* ]]> */</script>
 
 <script type='text/javascript'>/* <![CDATA[ */ var advanced_ads_responsive = { "reload_on_resize": "0" }; /* ]]> */</script>
@@ -212,8 +216,10 @@ csstransforms csstransforms3d csstransitions cors">
                 // 2: load large image
                 var imgLarge = new Image();
                 imgLarge.src = placeholder.dataset.large;
+                imgLarge.alt = "Full Image Load";
                 imgLarge.onload = function () {
                     imgLarge.classList.add('loaded');
+                    
                 };
                 placeholder.appendChild(imgLarge);
             } 

@@ -1,7 +1,7 @@
 
 importScripts('cache-manager.js');
 
-const VERSION = '3';
+const VERSION = '4';
 const staticCache = `caches-v${VERSION}`;
 const staticAssets = [
         './',
@@ -10,6 +10,7 @@ const staticAssets = [
         './css/style.css',
         './cache-manager.js',
         '/menifest.json',
+        '/img/fevicon.ico',
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js',
