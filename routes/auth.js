@@ -42,6 +42,18 @@ router.get('/pinterest/callback',
     }
 );
 
+router.get('/instagram',
+    passport.authenticate('instagram'));
+
+router.get('/instagram/callback',
+    passport.authenticate('instagram', {
+        failureRedirect: '/'
+    }),
+    function (req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/dashboard');
+    });
+
 router.get('/verify', (req, res) => {
     if (req.user) {
         console.log(req.user);

@@ -15,5 +15,9 @@ module.exports = {
 
     //Pinterest App Credential
     AppID: '4976540289092039020',
-    AppSecret: 'd153b1a9fa994120e1af50507ea506ba7fe2845a9b655ae45daf587053bd3516'
+    AppSecret: 'd153b1a9fa994120e1af50507ea506ba7fe2845a9b655ae45daf587053bd3516',
+
+    // Instagram Crendential
+    InstaId: '58c897b525e44caabc52ceefbda8dbce',
+    InstaSecret: '77c94fab96cb484bbda4289c41d92bc7'
 }

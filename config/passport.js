@@ -2,6 +2,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 const PinterestStrategy = require('passport-pinterest').Strategy;
+const InstagramStrategy = require('passport-instagram').Strategy;
 const mongoose = require('mongoose');
 const keys = require('./keys');
 // Load user model
@@ -136,6 +137,21 @@ module.exports = function (passport) {
            .then(user => done(null, user));
        }
      })
+    }
+  ));
+
+  passport.use(new InstagramStrategy({
+      clientID: keys.InstaId,
+      clientSecret: keys.InstaSecret,
+      callbackURL: "/auth/instagram/callback"
+    },
+    function (accessToken, refreshToken, profile, done) {
+      console.log(profile);
+      // User.findOrCreate({
+      //   instagramId: profile.id
+      // }, function (err, user) {
+      //   return done(err, user);
+      // });
     }
   ));
 
