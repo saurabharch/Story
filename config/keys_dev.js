@@ -18,8 +18,8 @@ module.exports = {
     AppSecret: 'd153b1a9fa994120e1af50507ea506ba7fe2845a9b655ae45daf587053bd3516',
 
     // Instagram Crendential
-    InstaId: '58c897b525e44caabc52ceefbda8dbce',
-    InstaSecret: '77c94fab96cb484bbda4289c41d92bc7'
+    InstaId: 'db83127f2f8c43cdb9bc94da0d5182a6',
+    InstaSecret: 'd694a3104d214b1db4c55860220fafa0'
 }
 
 //storybooks-prod

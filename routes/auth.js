@@ -10,7 +10,7 @@ router.get('/google/callback',
     });
     
 router.get('/facebook', passport.authenticate('facebook', {
-    scope: ['email', 'read_stream', 'publish_actions']
+    scope: [{ scope: ['email', 'public_profile', 'user_location']]
 }));
 
 router.get('/facebook/callback',
