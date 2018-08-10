@@ -1,4 +1,6 @@
-<h3>Stories</h3>
+<div>
+    <h3 class="titlename">Stories</h3>
+</div>
 <div class="row">
     {{#each stories}}
         <div class="col s12 m4">
@@ -9,11 +11,11 @@
                     {{/if}}
                 </div>
                 <div class="card-content center-align">
-                    <h5 style="color:black">{{title}}</h5>
+                    <h5 class="storytitile">{{title}}</h5>
                     <p class="story-text">{{stripTags (truncate body 150)}}</p>
                     <br>
                     <div class="chip">
-                        <img src="{{user.image}}"><a href="/stories/user/{{user.id}}"> {{user.firstName}} {{user.lastName}} </a>
+                        <img src="{{user.image}}" class="image-responsive"><a href="/stories/user/{{user.id}}" class="name-responsive"> {{user.firstName}} {{user.lastName}} </a>
                     </div>
                     <div class="card-action canter-align">
                        <div class="row">

@@ -81,7 +81,7 @@
 
 <div class="row">
     <div class="leftcolumn col s12 m9">
-        <div class="card heartbeat">
+        <div class="card card1 heartbeat">
             {{#if story.bodyImage}}
                 <div class="card-image responsive-img shake-top">
                     <img src="{{story.bodyImage}}">
@@ -101,7 +101,7 @@
                 <form method="post" action="/stories/thumbup/{{story.id}}">
                     <i class="fa fa-sign-language"></i>
                     <small>{{story.likes.likeCount}}</small>
-                    <input type="submit" value="Submit" class="btn">
+                    <input type="submit" value="Submit" class="btn btn-circle">
                 </form>
                 {{#each story.likes}}
             
@@ -112,7 +112,7 @@
             
         </div>
  {{#if story.allowComments}}
-<div class="card">
+<div class="card card1">
     <div class="card-content">
         <span class="card-title">Comments</span>
         {{#if user}}
@@ -121,7 +121,7 @@
                 <textarea name="commentBody" class="materialize-textarea"></textarea>
                 <label> Add Comment</label>
             </div>
-            <input type="submit" value="Submit" class="btn">
+            <input type="submit" value="Submit" class="btn btn-circle">
         </form>
         {{else}}
         <p>Login with  
@@ -162,7 +162,7 @@
 </div>
 
  {{#each story.comments}}
-    <div class="card">
+    <div class="card card1">
         <div class="card-content">
             <h5>{{commentBody}}</h5>
             {{#if commentUser.image}}
@@ -183,7 +183,7 @@
     {{/each}} {{/if}}
 </div>
     <div class="rightcolumn">
-        <div class="card">
+        <div class="card card1">
             <div class="card-content center-align">
                 <span class="card-title" style="font-size:1rem;">{{story.user.firstName}} {{story.user.lastName}}</span>
                 {{#if story.user.image}}
