@@ -6,11 +6,11 @@ body {
     flex-direction: column;
      background-color: #c6d7de;
       /* background: linear-gradient(to right, rgba(255, 0, 0, 0), #c6d7de); */
-      background: linear-gradient(45deg, #954073, #400e75);
+      background: linear-gradient(180deg, #fff, #400e75);
 }
 
 h1,h2,h3,h4,h5,h6{
-    color:white;
+    color:rgb(247, 245, 242);
 }
 
 .input-field{
@@ -19,17 +19,18 @@ h1,h2,h3,h4,h5,h6{
 
 .titlename{
     padding:8px 10px 8px 10px;
-    background:linear-gradient(60deg, #409566, #a7e90f);
+    background:linear-gradient(60deg, #409566, #a8e90f86);
     border-radius: 50px;
     width: 12vw;
 }
 
 .storytitile{
-padding:3px 4px 3px 4px;
-background:linear-gradient(180deg, grey, #003000);
+padding:4px 5px 4px 5px;
+background:linear-gradient(180deg, grey, rgba(33, 37, 33, 0.699));
 border-radius: 50px;
 width: 18.5vw;
 margin-right:10px;
+font-size:1.5rem;
 }
 main {
     flex: 1 0 auto;
@@ -312,7 +313,7 @@ section {
 
 #title {
     font-size: 3em;
-    background: #fff;
+    background: grey;
     /* border-top-left-radius: 30%;
     border-bottom-left-radius: 30%; */
     display: inline-block;
@@ -349,8 +350,8 @@ section:nth-of-type(5)  {
 }
 
 .btn-start{
-background: linear-gradient(to left, rgba(255, 0, 0, 0),#884433);
-color: black !important;
+background: linear-gradient(180deg, #954073, #400e75);
+color: rgb(238, 232, 232) !important;
 font-weight:700;
 width:18rem;
 font-size:1.3rem;

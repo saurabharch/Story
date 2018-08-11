@@ -23,7 +23,7 @@ const stories = require('./routes/stories');
 const keys = require('./config/keys');
 
 //Handlebars Helpers
-const { truncate, stripTags, formateDate, select, editIcon , ratingIcon} = require('./helpers/hbs');
+const { truncate, stripTags, formateDate, select, editIcon , ratingIcon, math, totalcount} = require('./helpers/hbs');
 // Map global promises
 mongoose.Promise = global.Promise;
 // Mongoose Connect
@@ -52,7 +52,9 @@ app.engine('handlebars', exphbs({
     formateDate: formateDate,
     select: select,
     editIcon: editIcon,
-    ratingIcon: ratingIcon
+    ratingIcon: ratingIcon,
+    math: math,
+    totalcount: totalcount
   },
   defaultLayout: 'main'
 }));

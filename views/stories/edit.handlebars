@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="input-field">
-                <input type="text" name="bodyImage" value="{{story.bodyImage}}>
+                <input type="text" name="bodyImage" value="{{story.bodyImage}}">
                 <label for="bodyImage">Header Image Url</label>
             </div>
         </div>
@@ -24,6 +24,19 @@
                     {{/select}}
                 </select>
                 <label for="status">Status</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <select name="categoryType">
+                    {{#select story.status}}
+                    <option value="general" selected>General</option>
+                    <option value="sci-fi">Sci-Fi</option>
+                    <option value="travel">Travel</option>
+                    <option value="personal">Biography</option>
+                    {{/select}}
+                </select>
+                <label for="status">Category</label>
             </div>
         </div>
         <div class="row">
@@ -48,6 +61,6 @@
 
             </div>
         </div>
-        <input type="submit" value="Save" class="btn shake-top">
+        <input type="submit" value="Save" class="btn btn-large btn-circle shake-top">
     </form>
 </div>

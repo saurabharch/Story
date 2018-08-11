@@ -1,16 +1,16 @@
-<h3>Add Your Story</h3>
+<h3 style="color:#555 !important">Add Your Story</h3>
 <div class="row">
     <form action="/stories" method="post" class="col s12">
         <div class="row">
             <div class="input-field">
-                <input type="text" name="title">
-                <label for="title">Title</label>
+                <input type="text" name="title" placeholder="Title">
+                <label for="title" style="color:whitesmoke;">Title</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field">
-                <input type="text" name="bodyImage">
-                <label for="bodyImage">Header Image Url</label>
+                <input type="text" name="bodyImage" placeholder="Image Url">
+                <label for="bodyImage" style="color:whitesmoke;">Header Image Url</label>
             </div>
         </div>
         <div class="row">
@@ -21,6 +21,21 @@
                    <option value="upublished">Unpublished</option>
                </select>
                <label for="status">Status</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <select name="categoryType">
+                    {{#select story.status}}
+                    <option value="general" selected>General</option>
+                    <option value="sci-fi">Sci-Fi</option>
+                    <option value="travel">Travel</option>
+                    <option value="personal">Biography</option>
+                    <option value="educational">Educational</option>
+                    <option value="motivational">Motivational</option>
+                    {{/select}}
+                </select>
+                <label for="status">Category</label>
             </div>
         </div>
         {{!-- <div class="row">
@@ -46,6 +61,6 @@
                 
             </div>
         </div>
-        <input type="submit" value="Save" class="btn shake-top">
+        <input type="submit" value="Save" class="btn btn-circle shake-top">
     </form>
 </div>

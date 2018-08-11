@@ -1,7 +1,7 @@
 
 importScripts('cache-manager.js');
 
-const VERSION = '4';
+const VERSION = '5';
 const staticCache = `caches-v${VERSION}`;
 const staticAssets = [
         './',
@@ -22,7 +22,8 @@ const staticAssets = [
         'https://use.fontawesome.com/releases/v5.0.8/css/all.css',
         'https://use.fontawesome.com/releases/v5.0.8/webfonts/fa-solid-900.woff2',
         'https://cdn-images-1.medium.com/max/1800/1*sg-uLNm73whmdOgKlrQdZA.jpeg',
-        'https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js',
+        // 'https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js',
+        'https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js',
         'https://cdn.iconscout.com/public/images/icon/premium/png-256/story-book-open-36e6148c22052e3d-256x256.png'
     ];
 const dynamicCache = `StoryDynamicCache`;

@@ -3,9 +3,14 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Story = mongoose.model('stories');
 const User = mongoose.model('users');
+// const keys = require('../config/keys');
 const { ensureAuthenticated, ensureGuest } = require('../helpers/auth');
-
+// const conn = mongoose.createConnection(keys.mongoURI);
 //Story Index
+
+likescount = [];
+dislikecount = [];
+ratedusers = [];
 router.get('/',(req, res) => {
     Story.find({status:'public'})
         .populate('user')
@@ -18,17 +23,25 @@ router.get('/',(req, res) => {
    
 });
 //Show Single Stories
-router.get('/show/:id', (req, res) => {
+router.get('/show/:id', (req, res ) => {
+    
+        //  console.log(quantity);
     Story.findOne({
         _id: req.params.id
     })
     .populate('user')
     .populate('comments.commentUser')
     .populate('likes.likeUser')
+    .populate('dislikes.likeUser')
+    .populate('rating.RatedUser')
+    .populate('category')
     .then(story => {
         if(story.status == 'public') {
             res.render('stories/show' , {
-                story:story
+               story:story,
+               likescount: story.likes,
+               dislikecount: story.dislikes,
+               ratedusers:story.rating
             });
         } else {
            if(req.user){
@@ -45,7 +58,6 @@ router.get('/show/:id', (req, res) => {
                res.redirect('/stories');
            }
         }
-        console.log(story.likes);
     });
 });
 
@@ -77,6 +89,7 @@ router.get('/add',ensureAuthenticated, (req, res) => {
 
 // Edit Story Form
 router.get('/edit/:id', ensureAuthenticated, (req, res) => {
+        
     Story.findOne({
         _id: req.params.id
     })
@@ -86,7 +99,8 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
 
             } else {
                 res.render('stories/edit', {
-                    story: story
+                    story: story,
+                    likeCount: story.likes.likeCount.count
                 });
                 
             }
@@ -137,6 +151,7 @@ router.put('/:id', (req, res) => {
             story.title = req.body.title;
             story.body = req.body.body;
             story.status = req.body.status;
+             story.category = req.body.categoryType;
             story.bodyImage = req.body.bodyImage;
             story.allowComments = allowComments;
             story.save()
@@ -147,10 +162,11 @@ router.put('/:id', (req, res) => {
 });
 
 router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
-    Story.findById({
+    console.log();
+    Story.findOne({
         _id: req.params.id
     }).then(story => {
-            if(req.params.id === story.likes.likeUser && story.likes._id !== req.param.id){
+             if (req.params.id !== story.likes.likeUser) {
                 const newlike = {
                     likeCount: 1,
                     likeUser: req.user.id
@@ -183,6 +199,7 @@ router.post('/comment/:id', (req, res) => {
     })
     .then(story => {
         const newComment = {
+            commentTitle: req.body.commentTitle,
             commentBody: req.body.commentBody,
             commentUser: req.user.id
         }

@@ -11,6 +11,23 @@ module.exports = {
         }
         return str;
     },
+     math: function (lvalue, operator, rvalue) {
+         lvalue = parseFloat(lvalue);
+         rvalue = parseFloat(rvalue);
+         return {
+             "+": lvalue + rvalue,
+             "-": lvalue - rvalue,
+             "*": lvalue * rvalue,
+             "/": lvalue / rvalue,
+             "%": lvalue % rvalue
+         }[operator];
+     },
+     totalcount: function (str) {
+        if (str.length > 0) {
+            var new_str = str.length;
+            return new_str;
+        }
+     },
     stripTags: function(input) {
         return input.replace(/<(?:.|\n)*?>/gm, '');
     },
@@ -19,6 +36,9 @@ module.exports = {
     },
     select: function(selected, options){
         return options.fn(this).replace(new RegExp(' value=\"'+ selected + '\"'), '$&selected="selected"').replace(new RegExp('>' +selected+ '</option>'), 'selected="selected"$&');
+    },
+    categoryType: function (selected, option) {
+        return options.fn(this).replace(new RegExp(' value=\"' + selected + '\"'), '$&selected="selected"').replace(new RegExp('>' + selected + '</option>'), 'selected="selected"$&');
     },
     editIcon: function (storyUser, loggedUser, storyId, floating = true) {
         if (storyUser == loggedUser) {

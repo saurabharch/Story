@@ -75,7 +75,7 @@
 </div> --}}
 
 <div class="header">
-    <h3>{{story.title}} <small>{{{editIcon story.user.id user.id story.id false}}}</small>  </h3>
+    <h3 style="color:#555 !important">{{story.title}} <small>{{{editIcon story.user.id user.id story.id false}}}</small>  </h3>
     
 </div>
 
@@ -99,15 +99,22 @@
             </div>
             <div class="card-action">
                 <form method="post" action="/stories/thumbup/{{story.id}}">
-                    <i class="fa fa-sign-language"></i>
-                    <small>{{story.likes.likeCount}}</small>
-                    <input type="submit" value="Submit" class="btn btn-circle">
+                    {{!-- <i class="fa fa-sign-language"></i> --}}
+                  
+                   
+                    {{!-- <a class="btn-floating grey" type="submit">
+                        <i class="fa fa-thumbs-up"></i>
+                    </a> --}}
+                    <i class="fa fa-sign-language" style="margin-right:-2rem;tab-index:-10;color:#999;font-size:1.3rem;margin-top:10px;"></i>
+                    <input type="submit" value="" class="white1 btn-circle waves-effect waves-grey transparent darken-5" style="border:1px green">
                 </form>
-                {{#each story.likes}}
-            
-                <i class="fa fa-thumbs-up"></i>
-                <small>{{story.likes.likeCount}}</small>
-                {{/each}}
+                
+                {{!-- {{#each story.likes}}
+                    {{!-- <small>{{math @index "+" 0}}</small> --}}
+                    {{!-- <i class="fa fa-thumbs-up"></i>
+                 <small>{{story.likes.array.lenght}}</small> --}}
+              {{!-- {{/each}}  --}}
+              <small>{{totalcount story.likes}}</small>
             </div>
             
         </div>
@@ -117,15 +124,19 @@
         <span class="card-title">Comments</span>
         {{#if user}}
         <form method="post" action="/stories/comment/{{story.id}}">
+        <div class="input-field">
+            <input name="commentTitle" class="text" placeholder="Title" style="color:#555 !important;font-size:1rem;"></input>
+            <label> </label>
+        </div>
             <div class="input-field">
-                <textarea name="commentBody" class="materialize-textarea"></textarea>
-                <label> Add Comment</label>
+                <textarea name="commentBody" class="materialize-textarea" placeholder="Comment Text" style="color:#555 !important;font-size:1rem;"></textarea>
+                <label> </label>
             </div>
             <input type="submit" value="Submit" class="btn btn-circle">
         </form>
         {{else}}
         <p>Login with  
-                <a href="/auth/google" style="color:#666;padding-top:5px;letter-spacing: 1.5px;">
+                <a href="/auth/google" style="color:#555;padding-top:5px;letter-spacing: 1.5px;">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 48 48" style="fill:#000000;">
                     <g id="surface1">
                         <path style=" fill:#FFC107;" d="M 43.609375 20.082031 L 42 20.082031 L 42 20 L 24 20 L 24 28 L 35.304688 28 C 33.652344 32.65625 29.222656 36 24 36 C 17.371094 36 12 30.628906 12 24 C 12 17.371094 17.371094 12 24 12 C 27.058594 12 29.84375 13.152344 31.960938 15.039063 L 37.617188 9.382813 C 34.046875 6.054688 29.269531 4 24 4 C 12.953125 4 4 12.953125 4 24 C 4 35.046875 12.953125 44 24 44 C 35.046875 44 44 35.046875 44 24 C 44 22.660156 43.863281 21.351563 43.609375 20.082031 Z "></path>
@@ -164,7 +175,8 @@
  {{#each story.comments}}
     <div class="card card1">
         <div class="card-content">
-            <h5>{{commentBody}}</h5>
+            <h5 style="color: #555;">{{commentTitle}}</h5>
+            <p style="color: #555;">{{commentBody}}</p>
             {{#if commentUser.image}}
             <div class="chip">
                 <img src="{{commentUser.image}}">
@@ -197,7 +209,7 @@
             </div>
         </div>
             <div class="card">
-                <h5>Popular Post</h5>
+                <h5 style="color: #555;">Popular Post</h5>
                 <div class="fakeimg">Image</div>
                 <br>
                 <div class="fakeimg">Image</div>
@@ -205,7 +217,7 @@
                 <div class="fakeimg">Image</div>
             </div>
             <div class="card">
-                <h5>Follow Me</h5>
+                <h5 style="#333 !important">Follow Me</h5>
                 <p>Some text..</p>
             </div>
         </div>

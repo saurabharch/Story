@@ -22,10 +22,22 @@ const StorySchema = new Schema({
         type: Boolean,
         default: true
     },
+    category:[{
+        categoryType:{
+             type: Schema.Types.ObjectId,
+                 ref: 'category'
+        }
+    }],
     comments:[{
         commentBody: {
             type: String,
-            require: true
+            require: true,
+            lowercase:true
+        },
+        commentTitle:{
+            type:String,
+            require:true,
+            lowercase:true
         },
         commentDate: {
             type: Date,
@@ -53,7 +65,7 @@ const StorySchema = new Schema({
                 type: Date,
                 default: Date.now()
             },
-            liketUser: {
+            likeUser: {
                 type: Schema.Types.ObjectId,
                 ref: 'users'
             }

@@ -46,7 +46,6 @@ function getDb(cacheName) {
 
     return cacheNameToDbPromise[cacheName];
 }
-
 function setTimestampsForUrl(db, url, now) {
     return new Promise((resolve, reject) => {
         const transaction = db.transaction(STORE_NAME, 'readwrite');
@@ -73,21 +72,26 @@ function updateUsedTimestampForUrl(db, url, now) {
         const objectStore = transaction.objectStore(STORE_NAME);
         const request = objectStore.get(url);
 
-        request.onerror = (event) => {
-            reject(request.error);
-        };
-        request.onsuccess = (event) => {
-            const data = event.target.result;
-            data.usedTimestamp = now;
+        try{
+            request.onerror = (event) => {
+                reject(request.error);
+            };
+            request.onsuccess = (event) => {
+                const data = event.target.result;
+                data.usedTimestamp = now;
 
-            const requestUpdate = objectStore.put(data);
-            requestUpdate.onerror = (event) => {
-                reject(requestUpdate.error);
+                const requestUpdate = objectStore.put(data);
+                requestUpdate.onerror = (event) => {
+                    reject(requestUpdate.error);
+                };
+                requestUpdate.onsuccess = (event) => {
+                    resolve(db);
+                };
             };
-            requestUpdate.onsuccess = (event) => {
-                resolve(db);
-            };
-        };
+        }
+        catch(err){
+            console.log(err);
+        }
     });
 }
 

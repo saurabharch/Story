@@ -135,7 +135,7 @@ csstransforms csstransforms3d csstransitions cors">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     {{!-- <script src="https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js"></script> --}}
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
     {{!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> --}}
     <script src="sticky.js"></script>
         <script>
@@ -179,7 +179,24 @@ csstransforms csstransforms3d csstransitions cors">
            try {
                 $('.button-collapse').sideNav();
                $('select').material_select();
-               CKEDITOR.replace('body');
+               $('categoryType').material_select();
+              // ClassicEditor.create(document.querySelector('#editor')).then(editor => {
+                   //editor.plugins: [Essentials, Markdown, Paragraph,Bold, Italic, Underline, Strikethrough, Code, Alignment, Autoformat, Table, TableToolbar],  
+                  // language: 'en',  
+                   //    toolbar: ['bold', 'italic', 'alignment', 'insertTable',],
+                    //   blockToolbar: ['paragraph', 'heading1', 'heading2', 'heading3','|','bulletedList', 'numberedList','|','blockQuote', 'imageUpload'],
+                   //    table: {
+                    //   toolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
+                     // },
+                      // image: {
+                     //  toolbar: ['bold', 'italic', 'underline', 'strikethrough', 'code', 'imageTextAlternative' |  'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight'],
+                     //  styles: ['full','alignLeft', 'alignRight']
+                   //}
+            //   })
+              //     .catch(error => {
+                //       console.error(error);
+              //     });
+                CKEDITOR.replace('body');
                // tinymce.init({ selector: 'textarea' });
                var elem = document.querySelector('.slider');
                var instance = M.Slider.init(elem, options);
@@ -189,6 +206,7 @@ csstransforms csstransforms3d csstransitions cors">
                $(document).ready(function () {
                    $('.slider').slider();
                });
+            
                 
            } 
            catch(err)
