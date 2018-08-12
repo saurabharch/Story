@@ -4,7 +4,7 @@
 <div class="row">
     {{#each stories}}
         <div class="col s12 m4">
-            <div class="card card1 heartbeat">
+            <div class="card card1 heartbeat" onclick="location.href='./stories/show/{{id}}';">
                 <div class="card-image">
                     {{#if user}}
                         {{{editIcon user.id ../user.id id}}}
