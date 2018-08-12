@@ -17,6 +17,10 @@ body {
       background: linear-gradient(45deg, #811c68, #431b6b)
 }
 
+a{
+    color:#777;
+    font-weight:600;
+}
 .card,
 .btn-circle,
 .btn,

@@ -66,6 +66,9 @@ module.exports = {
             }
            return nFormatter(num);
         }
+        else{
+            return num=0;
+        }
      },
     stripTags: function(input) {
         return input.replace(/<(?:.|\n)*?>/gm, '');

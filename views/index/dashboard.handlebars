@@ -3,10 +3,12 @@
 <h4>Your Stories</h4>
     <table class="striped">
         <thead>
-            <tr>
+            <tr style="color:white;font-size:1.5rem;">
                 <th>Title</th>
                 <th>Date</th>
                 <th>Status</th>
+                <th>Clap</th>
+                <th>Comments</th>
                 <th></th>
             </tr>
         </thead>
@@ -16,6 +18,8 @@
                     <td><a href="/stories/show/{{id}}">{{title}}</a></td>
                     <td>{{formateDate date 'MMMM Do YYYY'}}</td>
                     <td><span class="dash-status">{{status}}</span></td>
+                    <td><span style="color:#777;font-weight:700;font-size:1.2rem;">{{totalcount likes}}</span></td>
+                    <td><span style="color:#777;font-weight:700;font-size:1.2rem;">{{totalcount comments}}</span></td>
                     <td>
                         <a href="/stories/edit/{{id}}" class="btn-floating blue left-align"><i class="fas fa-pencil-alt" style="font-size:15px !important;"></i></a>
                         <form action="/stories/{{id}}?_method=DELETE" method="post" id="delete-form">
