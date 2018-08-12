@@ -75,8 +75,7 @@
 </div> --}}
 
 <div class="header">
-    <h3 style="color:#555 !important">{{story.title}} <small>{{{editIcon story.user.id user.id story.id false}}}</small>  </h3>
-    
+    <h3 style="color:#ffff !important">{{story.title}} <small>{{{editIcon story.user.id user.id story.id false}}}</small>  </h3>
 </div>
 
 <div class="row">
@@ -95,28 +94,15 @@
             {{/if}}
             <div class="card-content">
                 <small class="card-title darken-1"style="font-size:15px;font-color:#333;">{{formateDate story.date 'MMMM Do YYYY'}}</small>
+                <small  class="right">
+                    <form method="post" action="/stories/thumbup/{{story.id}}">
+                        <small style="padding:1rem;color:#666;font-weight:700;font-size:.92rem;">{{totalcount story.likes}} </small>
+                        <i class="fa fa-sign-language" style="margin-right:-2rem;tab-index:-10;color:#999;font-size:1.3rem;margin-top:10px;font-size:2rem;"></i>
+                        <input type="submit" value="" class="waves-effect waves-grey transparent darken-5" style="border:1px green;width:2.6vw;height:2.6vh;padding:1rem;">
+                    </form>
+                </small>  <hr/>
                 {{{story.body}}}
-            </div>
-            <div class="card-action">
-                <form method="post" action="/stories/thumbup/{{story.id}}">
-                    {{!-- <i class="fa fa-sign-language"></i> --}}
-                  
-                   
-                    {{!-- <a class="btn-floating grey" type="submit">
-                        <i class="fa fa-thumbs-up"></i>
-                    </a> --}}
-                    <i class="fa fa-sign-language" style="margin-right:-2rem;tab-index:-10;color:#999;font-size:1.3rem;margin-top:10px;"></i>
-                    <input type="submit" value="" class="white1 btn-circle waves-effect waves-grey transparent darken-5" style="border:1px green">
-                </form>
-                
-                {{!-- {{#each story.likes}}
-                    {{!-- <small>{{math @index "+" 0}}</small> --}}
-                    {{!-- <i class="fa fa-thumbs-up"></i>
-                 <small>{{story.likes.array.lenght}}</small> --}}
-              {{!-- {{/each}}  --}}
-              <small>{{totalcount story.likes}}</small>
-            </div>
-            
+            </div>   
         </div>
  {{#if story.allowComments}}
 <div class="card card1">

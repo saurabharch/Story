@@ -97,6 +97,12 @@ const StorySchema = new Schema({
                     type: Date,
                     default: Date.now()
                 },
+    }],
+    viewcount: [{
+        hiteDate:{
+            type:Date,
+            default:Date.now()
+        }
     }]
 });
 

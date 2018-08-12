@@ -61,6 +61,17 @@ router.get('/show/:id', (req, res ) => {
     });
 });
 
+router.put('/storyhit/:id', (req, res) => {
+ Story.findOne({
+     _id: req.params.id
+ }).then(story => {
+   story.save()
+       .then(story => {
+           res.redirect('/dashboard');
+       });
+ });
+});
+
 //List Stories from a user
 router.get('/user/:userId', (req, res) => {
     Story.find({user: req.params.userId , status:'public'})
@@ -100,7 +111,7 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
             } else {
                 res.render('stories/edit', {
                     story: story,
-                    likeCount: story.likes.likeCount.count
+                    likeCount: story.likes.likeCount
                 });
                 
             }
@@ -184,6 +195,8 @@ router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
         }
     )
 });
+
+
 //Delete Story/
 router.delete(('/:id'), (req, res) => {
     Story.remove({_id: req.params.id})

@@ -1,4 +1,12 @@
-
+.titlename1{
+    background: rgba(128, 128, 128, 0.342);
+    padding:10px 10px 10px 10px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    width:98.7vw;
+    height:10vh;
+}
 
 body {
     display: flex;
@@ -6,9 +14,35 @@ body {
     flex-direction: column;
      background-color: #c6d7de;
       /* background: linear-gradient(to right, rgba(255, 0, 0, 0), #c6d7de); */
-      background: linear-gradient(180deg, #fff, #400e75);
+      background: linear-gradient(45deg, #811c68, #431b6b)
 }
 
+.card,
+.btn-circle,
+.btn,
+.white1,
+.titlename,.storytitile {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .6);
+    
+}
+/* .card{
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .6);
+}
+
+h1{
+box-shadow: 0 10px 40px rgba(0, 0, 0, .6);
+}
+
+.btn-circle{
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .6);
+}
+
+.btn{
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .6);
+}
+.white1{
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .6);
+} */
 h1,h2,h3,h4,h5,h6{
     color:rgb(247, 245, 242);
 }
@@ -222,6 +256,9 @@ header h1 {
 }
 
 @media (max-width: 950px) {
+     .titlename1 {
+         visibility: visible;
+     }
     .container {
         width: 70%;
     }
@@ -244,6 +281,9 @@ header h1 {
 }
 
 @media (max-width: 680px) {
+     .titlename1 {
+         visibility: visible;
+     }
     .container {
         width: 95%;
     }
@@ -530,8 +570,13 @@ font-size:1.3rem;
  @media screen and (max-width: 800px) {
      .leftcolumn,
      .rightcolumn {
-         width: 100%;
-         padding: 0;
+         width: 100%; 
+     }
+      .titlename1 {
+          visibility: visible;
+      }
+     .rightcolumn{
+         padding:1rem;
      }
  }
 
@@ -1081,6 +1126,12 @@ font-size:1.3rem;
      }
  }
  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+     h3{
+        font-size:1.5rem !important;
+     }
+      .titlename1 {
+          visibility: visible;
+      }
  .Welcome{
     line-height: 36px !important;
     font-size: 32px !important;
@@ -1091,6 +1142,9 @@ font-size:1.3rem;
  .titlename{
      width:40vw;
  }
+.rightcolumn {
+    padding: 1rem;
+}
 }
 
  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -1121,7 +1175,9 @@ font-size:1.3rem;
      .story-text{
          font-size:.82rem !important;
      }
-
+ .rightcolumn {
+     padding: 1rem;
+ }
  }
 
  .image-responsive{
