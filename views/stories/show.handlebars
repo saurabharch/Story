@@ -82,12 +82,12 @@
     <div class="leftcolumn col s12 m9">
         <div class="card card1 heartbeat">
             {{#if story.bodyImage}}
-                <div class="card-image responsive-img shake-top">
+                <div class="card-image responsive-img shake-top animated-background">
                     <img src="{{story.bodyImage}}">
                     <small class="card-title darken-1">{{formateDate story.date 'MMMM Do YYYY'}}</small>
                 </div>
             {{else}}
-            <div class="card-image  imageEffect">
+            <div class="card-image animated-background image" data-text="true">
                 <div style="height:200px;border-radius:10px 10px 10px 10px;"></div>
                 <small class="card-title darken-1">{{formateDate story.date 'MMMM Do YYYY'}}</small>
             </div>
@@ -196,15 +196,21 @@
         </div>
             <div class="card">
                 <h5 style="color: #555;">Popular Post</h5>
-                <div class="fakeimg">Image</div>
-                <br>
-                <div class="fakeimg">Image</div>
-                <br>
-                <div class="fakeimg">Image</div>
+            <div class="animated-background">
+                <div class="background-masker paragraph2-bottom"></div>
+                <div class="background-masker paragraph3-bottom"></div>
+                <div class="background-masker paragraph4-bottom"></div>
+                <div class="background-masker paragraph5-bottom"></div>
+                <div class="background-masker paragraph6-bottom"></div>
+            </div>
             </div>
             <div class="card">
                 <h5 style="#333 !important">Follow Me</h5>
-                <p>Some text..</p>
+                <div class="animated-background">
+                <div class="background-masker paragraph2-bottom"></div>
+                <div class="background-masker paragraph3-bottom"></div>
+                <div class="background-masker paragraph4-bottom"></div>
+                </div>
             </div>
         </div>
 </div>

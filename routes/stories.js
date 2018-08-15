@@ -27,7 +27,7 @@ router.get('/',(req, res) => {
 router.get('/show/:id', (req, res ) => {
         //  console.log(quantity);
     Story.findOne({
-        _id: req.params.id
+        _id: mongoose.Types.ObjectId(req.params.id)
     })
     .populate('user')
     .populate('comments.commentUser')

@@ -1385,12 +1385,14 @@ top:55px;
 .background-masker.image {
     top: -10px;
     left: -12px;
+    data-text:'loading';
     right: 0;
     height: 157px;
     background: none;
     border: 23px solid white;
     border-radius: 34px;
     width: 18vw;
+    border-radius: 50px;
 }
 
 .background-masker.header-bottom {
