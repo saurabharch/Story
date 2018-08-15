@@ -4,14 +4,17 @@
     font-size: 1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #777;
-    width:98.7vw;
+    width:98.78vw;
     height:10vh;
+    overflow: hidden;
 }
 
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    padding: 0px;
+    margin: 0px;
      /* background-color: #c6d7de; */
       /* background: linear-gradient(to right, rgba(255, 0, 0, 0), #c6d7de); */
     font-family: 'Nunito', sans-serif;
@@ -69,7 +72,15 @@ a,p{
     width: 12vw;
     color:white;
 }
-
+.navbar::after {
+    background: linear-gradient(to right, #9E7CC1, #8ECDEA);
+    content: '';
+    width: 98.76vw;
+    position: absolute;
+    top: 62px;
+    height: 2px;
+    left: 0;
+}
 .storytitile{
 padding:4px 5px 4px 5px;
 /* background:linear-gradient(180deg, grey, rgba(33, 37, 33, 0.699)); */
@@ -270,7 +281,7 @@ header h1 {
 @media (max-width: 950px) {
      .titlename1 {
          visibility: visible;
-         width:100vw;
+         width:100vw !important;
      }
     .container {
         width: 70%;
@@ -296,7 +307,7 @@ header h1 {
 @media (max-width: 680px) {
      .titlename1 {
          visibility: visible;
-         width:100vw;
+         width:100vw !important;
      }
     .container {
         width: 95%;
@@ -598,7 +609,7 @@ font-size:1.3rem;
      }
       .titlename1 {
           visibility: visible;
-          width:100vw;
+          width:100vw !important;
       }
      .rightcolumn{
          padding:1rem;
@@ -1156,7 +1167,7 @@ font-size:1.3rem;
      }
       .titlename1 {
           visibility: visible;
-          width:100vw;
+          width:100vw !important;
       }
  .Welcome{
     line-height: 36px !important;
@@ -1171,8 +1182,10 @@ font-size:1.3rem;
 .rightcolumn {
     padding: 1rem;
 }
+.navbar::after {
+top:55px;
 }
-
+}
  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
      .Welcome {
          line-height: 36px !important;
@@ -1203,6 +1216,9 @@ font-size:1.3rem;
      }
  .rightcolumn {
      padding: 1rem;
+ }
+ .titlename1{
+     width: 100vw;
  }
  }
 
@@ -1301,6 +1317,7 @@ font-size:1.3rem;
         width: 23vw;
         display: inline-block;
     }
+   
 }
 
 @media screen and (max-width: 1024px) {
@@ -1308,6 +1325,9 @@ font-size:1.3rem;
         height: auto;
         width: 30vw;
         display: inline-block;
+    }
+    .titlename1 {
+        width: 100vw !important;
     }
 }
 
