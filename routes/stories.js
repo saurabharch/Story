@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Story = mongoose.model('stories');
+const Category = mongoose.model('categories');
 const User = mongoose.model('users');
-// const keys = require('../config/keys');
+const keys = require('../config/keys');
 const { ensureAuthenticated, ensureGuest } = require('../helpers/auth');
 // const conn = mongoose.createConnection(keys.mongoURI);
 //Story Index
@@ -24,7 +25,6 @@ router.get('/',(req, res) => {
 });
 //Show Single Stories
 router.get('/show/:id', (req, res ) => {
-    
         //  console.log(quantity);
     Story.findOne({
         _id: req.params.id
@@ -61,7 +61,7 @@ router.get('/show/:id', (req, res ) => {
     });
 });
 
-router.put('/storyhit/:id', (req, res) => {
+router.put('/storyhit/:id',ensureGuest, (req, res) => {
  Story.findOne({
      _id: req.params.id
  }).then(story => {
@@ -73,7 +73,7 @@ router.put('/storyhit/:id', (req, res) => {
 });
 
 //List Stories from a user
-router.get('/user/:userId', (req, res) => {
+router.get('/user/:userId',ensureGuest, (req, res) => {
     Story.find({user: req.params.userId , status:'public'})
     .populate('user')
     .then(stories => {
@@ -99,21 +99,20 @@ router.get('/add',ensureAuthenticated, (req, res) => {
 });
 
 // Edit Story Form
-router.get('/edit/:id', ensureAuthenticated, (req, res) => {
+router.get('/edit/:id', ensureAuthenticated, (req, res, next) => {
         
-    Story.findOne({
+    Story.findById({
         _id: req.params.id
-    })
-        .then(story => {
+    }).then(story => {
             if (story.user != req.user.id) {
                 res.redirect('/stories');
+                return next();
 
             } else {
                 res.render('stories/edit', {
-                    story: story,
-                    likeCount: story.likes.likeCount
+                    story: story
                 });
-                
+                 return next();
             }
         });
 });
@@ -146,7 +145,7 @@ router.post('/', ensureAuthenticated, (req, res) => {
         });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id',ensureAuthenticated, (req, res) => {
     Story.findOne({
         _id: req.params.id
      })
@@ -198,7 +197,7 @@ router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
 
 
 //Delete Story/
-router.delete(('/:id'), (req, res) => {
+router.delete(('/:id'),ensureAuthenticated, (req, res) => {
     Story.remove({_id: req.params.id})
         .then(() => {
             res.redirect('/dashboard');
@@ -206,7 +205,7 @@ router.delete(('/:id'), (req, res) => {
 });
 
 //Add Comment
-router.post('/comment/:id', (req, res) => {
+router.post('/comment/:id',ensureAuthenticated, (req, res) => {
     Story.findOne({
         _id:req.params.id
     })
@@ -225,4 +224,23 @@ router.post('/comment/:id', (req, res) => {
         });
     });
 });
+
+router.post('/addcategory/:id',(req,res) => {
+   if(req.body.category != null){
+        const newCategory = {
+        categoriesName: req.body.category
+    };
+ console.log(newCategory);
+    
+    //Create Story
+    new Category(newCategory)
+        .save()
+        .then(category => {
+            res.redirect(`/stories/add`);
+        });
+   }else{
+       console.log('Request can not accesible');
+   }
+})
+
 module.exports = router;

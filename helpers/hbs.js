@@ -85,9 +85,9 @@ module.exports = {
     editIcon: function (storyUser, loggedUser, storyId, floating = true) {
         if (storyUser == loggedUser) {
             if (floating) {
-                return `<a href="/stories/edit/${storyId}" class="btn-floating halfway-fab red"><i class="fas fa-pencil-alt"></i></a>`;
+                return `<a href="/stories/edit/${storyId}" class="btn-floating btn-small halfway-fab red"><i class="fas fa-pencil-alt" style="font-size:.8rem;"></i></a>`;
             } else {
-                return `<a href="/stories/edit/${storyId}"><i class="fas fa-pencil-alt"></i></a>`;
+                return `<a href="/stories/edit/${storyId}"><i class="fas btn-small fa-pencil-alt" style="font-size:.8rem;"></i></a>`;
             }
         } else {
             return '';

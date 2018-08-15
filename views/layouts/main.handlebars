@@ -22,6 +22,7 @@ csstransforms csstransforms3d csstransitions cors">
         crossorigin="anonymous"> --}}
         <link rel="stylesheet" href="/css/style.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link rel="shortlink" href="https://www.new-storybook.herokuapp.com/">
         <link rel="canonical" href="https://www.new-storybook.herokuapp.com/" />
         <link rel="hreflang" hreflang="en-SG" href="https://www.new-storybook.herokuapp.com/sg/">
@@ -123,6 +124,7 @@ csstransforms csstransforms3d csstransitions cors">
 <body>
     {{> _header}}
     {{#if user}}
+        
         {{> _add-btn}}
     {{/if}}
     <main>
@@ -137,7 +139,7 @@ csstransforms csstransforms3d csstransitions cors">
     {{!-- <script src="https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js"></script> --}}
     <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
     {{!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> --}}
-    <script src="sticky.js"></script>
+    {{!-- <script src="sticky.js"></script>
         <script>
            document.addEventListener('DOMContentLoaded', function () {
                try {
@@ -172,7 +174,7 @@ csstransforms csstransforms3d csstransitions cors">
                    console.log(err)
                }
             }); 
-        </script>
+        </script> --}}
     <script>
         $(document).ready(() => {
            try {
