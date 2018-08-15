@@ -1,8 +1,7 @@
 <h3>Update Your Story</h3>
 <div class="row">
-{{!-- {{> _edit-category}} --}}
     <form action="/stories/{{story.id}}?_method=PUT" method="post" class="col s12">
-       <input type="hidden" name="_method" value="PUT">
+        <input type="hidden" name="_method" value="PUT">
         <div class="row">
             <div class="input-field">
                 <input type="text" name="title" value="{{story.title}}">
@@ -30,7 +29,7 @@
         <div class="row">
             <div class="input-field">
                 <select name="categoryType">
-                    {{#select story.status}}
+                    {{#select story.category}}
                     <option value="general" selected>General</option>
                     <option value="sci-fi">Sci-Fi</option>
                     <option value="travel">Travel</option>
@@ -50,8 +49,10 @@
                     On
                 </label>
             </div>
-            {{!-- -- <p>
-                <input type="checkbox" name="allowComments" class="filled-in" id="filled-in-box" {{#if story.allowComments}} checked="checked" {{/if}}>
+            {{!-- --
+            <p>
+                <input type="checkbox" name="allowComments" class="filled-in" id="filled-in-box" {{#if story.allowComments}} checked="checked"
+                    {{/if}}>
                 <label for="filled-in-box">Allow Comments</label>
             </p> -- --}}
         </div>

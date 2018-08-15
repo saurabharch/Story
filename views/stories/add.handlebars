@@ -1,7 +1,6 @@
 <h3>Add Your Story</h3>
 <div class="row">
 {{> _add-category}}
-
 </div>
     <form action="/stories" method="post" class="col s12">
         <div class="row">
@@ -29,7 +28,7 @@
         <div class="row">
             <div class="input-field">
                 <select name="categoryType">
-                    {{#select story.status}}
+                    {{#select story.category}}
                     <option value="general" selected>General</option>
                     <option value="sci-fi">Sci-Fi</option>
                     <option value="travel">Travel</option>

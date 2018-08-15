@@ -16,18 +16,18 @@ const StorySchema = new Schema({
     },
     status: {
         type: String,
-        default: 'public'
+        default: 'public',
+        lowercase:true
     },
     allowComments: {
         type: Boolean,
         default: true
     },
-    category:[{
-        categoryType:{
-             type: Schema.Types.ObjectId,
-                 ref: 'category'
-        }
-    }],
+    category:{
+        type:String,
+        default:'general',
+        lowercase:true
+    },
     comments:[{
         commentBody: {
             type: String,

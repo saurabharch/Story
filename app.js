@@ -11,7 +11,7 @@ const methodOverride = require('method-override');
 // Load  Model
 require('./models/User');
 require('./models/Story');
-require('./models/Categories');
+// require('./models/Categories');
 // Passport Config
 require('./config/passport')(passport);
 
@@ -19,14 +19,16 @@ require('./config/passport')(passport);
 const index = require('./routes/index');
 const auth = require('./routes/auth');
 const stories = require('./routes/stories');
-const categories = require('./routes/categories');
+// const categories = require('./routes/categories');
 // Load Keys
 const keys = require('./config/keys');
 var public = path.join(__dirname, 'public');
 //Handlebars Helpers
 const { truncate, stripTags, formateDate, select, editIcon , ratingIcon, math, totalcount} = require('./helpers/hbs');
+
 // Map global promises
 mongoose.Promise = global.Promise;
+
 // Mongoose Connect
 mongoose.connect(keys.mongoURI, {
     useMongoClient: true
@@ -37,10 +39,10 @@ mongoose.connect(keys.mongoURI, {
 const app = express();
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 
 //Method override Middleware
 app.use(methodOverride('_method'));
@@ -79,18 +81,13 @@ app.use((req, res, next) => {
 });
 
 //Set Static folder
-app.use(express.static(public));
-app.get('/public', function(req, res) {
-    res.sendFile(path.join(public, 'app.js'));
-});
-app.get('/public', function(req, res) {
-    res.sendFile(path.join(public, 'sticky.js'));
-});
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
 // Use Routes
 app.use('/', index);
 app.use('/auth', auth);
 app.use('/stories', stories);
-app.use('/categories', categories);
+// app.use('/categories', categories);
 
 const port = process.env.PORT || 5000;
 

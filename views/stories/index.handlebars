@@ -12,10 +12,27 @@
                 </div>
                 <div class="card-content center-align">
                     <h5 class="storytitile">{{title}}</h5>
+                    {{#if body}}
                     <p class="story-text">{{stripTags (truncate body 150)}}</p>
+                    {{/if}}
+                    {{#else}}
+                    <div class="animated-background">
+                    <div class="background-masker paragraph1-bottom"></div>
+                    <div class="background-masker paragraph2-bottom"></div>
+                    <div class="background-masker paragraph3-bottom"></div>
+                    <div class="background-masker paragraph4-bottom"></div>
+                    <div class="background-masker paragraph5-bottom"></div>
+                    <div class="background-masker paragraph6-bottom"></div>"
+                    </div>
+                    {{/else}}
                     <br>
                     <div class="chip">
+                        {{#if user.image}}
                         <img src="{{user.image}}" class="image-responsive"><a href="/stories/user/{{user.id}}" class="name-responsive"> {{user.firstName}} {{user.lastName}} </a>
+                        {{/if}}
+                        {{#else}}
+                            <div class="background-masker image"></div>
+                        {{/else}}
                     </div>
                     <div class="card-action canter-align">
                        {{!-- <div class="row">
@@ -58,5 +75,19 @@
         </div>
     {{else}}
         <p>No Story Found</p>
+        <div class="timeline-wrapper">
+            <div class="timeline-item">
+                <div class="animated-background">
+                    <div class="background-masker image"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker paragraph1-bottom"></div>
+                    <div class="background-masker paragraph2-bottom"></div>
+                    <div class="background-masker paragraph3-bottom"></div>
+                    <div class="background-masker paragraph4-bottom"></div>
+                    <div class="background-masker paragraph5-bottom"></div>
+                    <div class="background-masker paragraph6-bottom"></div>
+                </div>
+            </div>
+        </div>
     {{/each}}
 </div>

@@ -5,12 +5,13 @@ const VERSION = '5';
 const staticCache = `caches-v${VERSION}`;
 const staticAssets = [
         './',
-        './app.js',
         './sticky.js',
         './css/style.css',
         './cache-manager.js',
         '/menifest.json',
         '/img/fevicon.ico',
+        '/img/footer.svg',
+        '/img/WelcomeSplash.svg',
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js',
