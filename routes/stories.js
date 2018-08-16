@@ -26,8 +26,9 @@ router.get('/',(req, res) => {
 //Show Single Stories
 router.get('/show/:id', (req, res ) => {
         //  console.log(quantity);
+        const obajectid = req.params.id.replace('app.js', '').replace('\n', '');
     Story.findOne({
-        _id: mongoose.Types.ObjectId(req.params.id)
+        _id: mongoose.Types.ObjectId(obajectid)
     })
     .populate('user')
     .populate('comments.commentUser')
