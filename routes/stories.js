@@ -35,7 +35,6 @@ router.get('/show/:id', (req, res ) => {
     .populate('likes.likeUser')
     .populate('dislikes.likeUser')
     .populate('rating.RatedUser')
-    .populate('category')
     .then(story => {
         if(story.status == 'public') {
             res.render('stories/show' , {
