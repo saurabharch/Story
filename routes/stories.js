@@ -168,7 +168,6 @@ router.put('/:id',ensureAuthenticated, (req, res) => {
                 });
         }); 
 
-        next();
 });
 
 router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
