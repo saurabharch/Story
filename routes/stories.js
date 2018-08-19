@@ -104,7 +104,10 @@ router.get('/user/stories/show/:id', (req, res) => {
                     description: story.description,
                     keywords: story.keywords,
                     generator: 'Story Book MetaTag Generator v.1.0',
-                    author: story.user.firstName + " " + story.user.lastName
+                    author: story.user.firstName + " " + story.user.lastName,
+                    myTwitter: story.user.twitterId,
+                    TwitterLink:'@storybook'
+                    
                 };
                 res.render('stories/show', {
                     story: story,
