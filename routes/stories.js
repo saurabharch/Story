@@ -17,26 +17,19 @@ router.get('/',(req, res) => {
         .populate('user')
         .sort({date:'desc'})
         .then(stories => {
+            res.locals.metaTags = {
+                title: 'StoryBook',
+                description: 'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.',
+                keywords: 'Affiliate Marketing,Money Making, Online Earning, Blog, Science and Technology,Software and web application development',
+                generator: 'Story Book MetaTag Generator v.1.0',
+                author: 'Saurabh Kashyap'
+            };
              res.render('stories/index', {
                  stories: stories
              });
         });
    
 });
-
-// Get Tags Data of single Story 
-router.get('/tags/:id'), (req,res) => {
-  const obajectid = req.params.id.replace('app.js', '').replace('\n', '');
-  Story.findOne({
-      _id: mongoose.Types.ObjectId(obajectid)
-  })
-  .populate('metaData')
-  .then(story => {
-      if (story.status == 'public') {
-         res.JSON.stringyfy(story);
-      }
-  });
-};
 //Show Single Stories
 router.get('/show/:id', (req, res ) => {
         //  console.log(quantity);
@@ -143,7 +136,7 @@ router.put('/storyhit/:id',ensureGuest, (req, res) => {
  }).then(story => {
    story.save()
        .then(story => {
-           res.redirect('/dashboard');
+          res.JSON.stringyfy(story);
        });
  });
 });
