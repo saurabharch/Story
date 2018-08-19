@@ -18,7 +18,10 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
         });
 });
 
-router.get('/about', (req, res) => {
+router.get('/about', ensureGuest,(req, res) => {
     res.render('index/about');
+});
+router.get('/security', ensureGuest,(req, res) => {
+    res.render('index/security');
 });
 module.exports = router;

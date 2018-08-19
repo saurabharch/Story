@@ -1,4 +1,3 @@
-
 importScripts('cache-manager.js');
 
 const VERSION = '5';
