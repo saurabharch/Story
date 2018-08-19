@@ -25,7 +25,6 @@ const staticAssets = [
         'https://cdn-images-1.medium.com/max/1800/1*sg-uLNm73whmdOgKlrQdZA.jpeg',
         'https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js',
         'https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js',
-        'https://cdn.iconscout.com/icon/premium/png-256-thumb/story-book-9-651480.png'
     ];
 const dynamicCache = `StoryDynamicCache`;
 let cachedAssets;
