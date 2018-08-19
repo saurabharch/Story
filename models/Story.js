@@ -103,7 +103,15 @@ const StorySchema = new Schema({
             type:Date,
             default:Date.now()
         }
-    }]
+    }],
+    keywords:{
+        type:String,
+        lowercase:true
+    },
+    description:{
+        type:String,
+        lowercase:true
+    }
 });
 
 // Create collection and add schema

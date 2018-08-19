@@ -10,10 +10,10 @@ csstransforms csstransforms3d csstransitions cors">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <meta name="keywords" content="story,book,horror,biograpghy,travel,guide,manual,syllabus,brochure,designe,art,sculpture">
-    <meta name="author" content="Saurabh Kashyap">
-    <meta name="description" content="StoryBook a app Share your Day story to the world. alpha version">
+    <title>{{metaTags.title}}</title>
+    <meta name="description" content="{{metaTags.description}}">
+    <meta name="keywords" content="{{metaTags.keywords}}">
+    <meta name="author" content="{{metaTags.author}}">
     <!-- Compiled and minified CSS -->
     <link rel="shortcut icon" type="image/x-icon" href="/img/fevicon.ico"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -37,7 +37,6 @@ csstransforms csstransforms3d csstransitions cors">
         <link rel="manifest" href="menifest.json">
         <meta name="theme-color" content="#0098e3">
         <meta name="msapplication-config" content="browserconfig.xml">
-    <title>StoryBooks</title>
 {{!-- SEO AREA START --}}
 
 {{!-- HTTP TO HTTPS REDIRECT --}}
@@ -92,17 +91,17 @@ csstransforms csstransforms3d csstransitions cors">
 <script data-cfasync="false" type="text/javascript">/* <![CDATA[ */ //<![CDATA[
     var gtm4wp_datalayer_name = "dataLayer";
     var dataLayer = dataLayer || [];//]]> /* ]]> */</script>
-<meta name="description" content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."/>
+{{!-- <meta name="description" content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."/> --}}
 
 <meta property="og:locale" content="en_US"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="StoryBook - Stories who inspire"/>
-<meta property="og:description" content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."/>
+{{!-- <meta property="og:description" content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."/> --}}
 <meta property="og:image" content="Octicons-book.svg.png">
 <meta property="og:url" content="https://www.new-storybook.herokuapp.com/" />
 <meta property="og:site_name" content="StoryBook" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:description" content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."/>
+{{!-- <meta name="twitter:description" content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."/> --}}
 <meta name="twitter:title" content="StoryBook - Stories who inspire" />
 {{!-- <meta name="twitter:site" content="@storybook" /> --}}
 <meta name="twitter:creator" content="@saurabh19867276" />
@@ -139,7 +138,7 @@ csstransforms csstransforms3d csstransitions cors">
     {{!-- <script src="https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js"></script> --}}
     <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
     {{!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> --}}
-    {{!-- <script src="sticky.js"></script>
+    <script src="sticky.js"></script>
         <script>
            document.addEventListener('DOMContentLoaded', function () {
                try {
@@ -174,7 +173,36 @@ csstransforms csstransforms3d csstransitions cors">
                    console.log(err)
                }
             }); 
-        </script> --}}
+        </script>
+<script>
+    var name = JSON.stringify([{title:'description', description:'story,book,horror,biograpghy,travel,guide,manual,syllabus,brochure,designe,art,sculpture'},
+    {title:'twitter:description', description:'StoryBook a app Share your Day story to the world. alpha version'},
+    {title:'og:description',description:'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.'},
+    {title:'keywords', description:'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.'}]);
+   //console.log(name);
+  // console.log(name.length);
+  myObje = JSON.parse(name);
+   for(x in myObje) {
+         //console.log(myObje[x].title);
+         //console.log(myObje[x].description);
+          var m = document.createElement('meta');
+          m.name = myObje[x].title;
+          m.content = myObje[x].description;
+      //  document.head.appendChild(m);
+    }
+    
+   // foreach(var i=0; i< name.lenght;i++){
+   //        console.log(name[i].toString());
+    //       console.log(content[i].toString());
+   //     var m = document.createElement('meta');
+   //     m.name = name[i].toString();
+   //     m.content = content[i].toString();
+       //m.content = 'This tutorial has some helpful information for you, if you want to track how many hits come from browsers where JavaScript has been disabled.'; 
+    //    document.head.appendChild(m);
+   // }
+ 
+</script>
+
     <script>
         $(document).ready(() => {
            try {
@@ -197,7 +225,9 @@ csstransforms csstransforms3d csstransitions cors">
               //     .catch(error => {
                 //       console.error(error);
               //     });
-                CKEDITOR.replace('body');
+                if(window.location.href.indexOf("add") > -1 || window.location.href.indexOf("edit") > -1){
+                    CKEDITOR.replace('body');
+                }
                // tinymce.init({ selector: 'textarea' });
                var elem = document.querySelector('.slider');
                var instance = M.Slider.init(elem, options);
@@ -217,30 +247,35 @@ csstransforms csstransforms3d csstransitions cors">
         });
     </script>
     <script>
-        $(document).ready(() => {
-           window.onload = function () {
+      
 
-                var placeholder = document.querySelector('.placeholder'),
-                    small = placeholder.querySelector('.img-small')
+            $(document).ready(() => {
+               window.onload = function () {
+                   if (window.location.href.indexOf("") > -1 || !window.location.href.indexOf("add") > 1 || !window.location.href.indexOf("edit") > 1 || !window.location.href.indexOf("show") > 1 || !window.location.href.indexOf("dashboard") > 1 || !window.location.href.indexOf("stories") > 1)
+                  {
+                       var placeholder = document.querySelector('.placeholder'),
+                           small = placeholder.querySelector('.img-small')
 
-                // 1: load small image and show it
-                var img = new Image();
-                img.src = small.src;
-                img.onload = function () {
-                    small.classList.add('loaded');
-                };
+                       // 1: load small image and show it
+                       var img = new Image();
+                       img.src = small.src;
+                       img.onload = function () {
+                           small.classList.add('loaded');
+                       };
 
-                // 2: load large image
-                var imgLarge = new Image();
-                imgLarge.src = placeholder.dataset.large;
-                imgLarge.alt = "Full Image Load";
-                imgLarge.onload = function () {
-                    imgLarge.classList.add('loaded');
-                    
-                };
-                placeholder.appendChild(imgLarge);
-            } 
-        });
+                       // 2: load large image
+                       var imgLarge = new Image();
+                       imgLarge.src = placeholder.dataset.large;
+                       imgLarge.alt = "Full Image Load";
+                       imgLarge.onload = function () {
+                           imgLarge.classList.add('loaded');
+
+                       };
+                       placeholder.appendChild(imgLarge);
+                   }
+                 }
+           });
+
     </script>
 
 

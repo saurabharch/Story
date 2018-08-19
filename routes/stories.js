@@ -23,6 +23,20 @@ router.get('/',(req, res) => {
         });
    
 });
+
+// Get Tags Data of single Story 
+router.get('/tags/:id'), (req,res) => {
+  const obajectid = req.params.id.replace('app.js', '').replace('\n', '');
+  Story.findOne({
+      _id: mongoose.Types.ObjectId(obajectid)
+  })
+  .populate('metaData')
+  .then(story => {
+      if (story.status == 'public') {
+         res.JSON.stringyfy(story);
+      }
+  });
+};
 //Show Single Stories
 router.get('/show/:id', (req, res ) => {
         //  console.log(quantity);
@@ -37,11 +51,19 @@ router.get('/show/:id', (req, res ) => {
     .populate('rating.RatedUser')
     .then(story => {
         if(story.status == 'public') {
+              res.locals.metaTags = {
+                  title: story.title,
+                  description: story.description,
+                  keywords: story.keywords,
+                  generator:'Story Book MetaTag Generator v.1.0',
+                  author: story.user.firstName +" "+ story.user.lastName
+              };
             res.render('stories/show' , {
                story:story,
                likescount: story.likes,
                dislikecount: story.dislikes,
-               ratedusers:story.rating
+               ratedusers:story.rating,
+                layout: "main"
             });
         } else {
            if(req.user){
@@ -59,7 +81,58 @@ router.get('/show/:id', (req, res ) => {
            }
         }
     });
+
+  
 });
+
+// Show Single Stories By Writer
+router.get('/user/stories/show/:id', (req, res) => {
+    //  console.log(quantity);
+    const obajectid = req.params.id.replace('app.js', '').replace('\n', '');
+    Story.findOne({
+            _id: mongoose.Types.ObjectId(obajectid)
+        })
+        .populate('user')
+        .populate('comments.commentUser')
+        .populate('likes.likeUser')
+        .populate('dislikes.likeUser')
+        .populate('rating.RatedUser')
+        .then(story => {
+            if (story.status == 'public') {
+                res.locals.metaTags = {
+                    title: story.title,
+                    description: story.description,
+                    keywords: story.keywords,
+                    generator: 'Story Book MetaTag Generator v.1.0',
+                    author: story.user.firstName + " " + story.user.lastName
+                };
+                res.render('stories/show', {
+                    story: story,
+                    likescount: story.likes,
+                    dislikecount: story.dislikes,
+                    ratedusers: story.rating,
+                    layout: "main"
+                });
+            } else {
+                if (req.user) {
+                    if (req.user.id == story.user._id) {
+
+                        res.render('stories/show', {
+                            story: story
+                        });
+                    } else {
+                        res.redirect('/stories');
+                    }
+
+                } else {
+                    res.redirect('/stories');
+                }
+            }
+        });
+
+
+});
+
 
 router.put('/storyhit/:id',ensureGuest, (req, res) => {
  Story.findOne({
@@ -132,7 +205,9 @@ router.post('/', ensureAuthenticated, (req, res) => {
         category: req.body.categoryType,
         allowComments: allowComments,
         user: req.user.id,
-        likes: likes
+        likes: likes,
+        description: req.body.description,
+        keywords: req.body.keywords
     };
 
     //Create Story
@@ -162,6 +237,8 @@ router.put('/:id',ensureAuthenticated, (req, res) => {
             story.category = req.body.categoryType;
             story.bodyImage = req.body.bodyImage;
             story.allowComments = allowComments;
+            story.description = req.body.description;
+            story.keywords= req.body.keywords;
             story.save()
                 .then(story => {
                     res.redirect('/dashboard');

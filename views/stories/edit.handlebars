@@ -58,6 +58,18 @@
         </div>
         <div class="row">
             <div class="input-field">
+                <input type="text" name="description" value="{{story.description}}" placeholder="short description">
+                <label for="description" style="color:whitesmoke;">Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" name="keywords" value="{{story.keywords}}" placeholder="keywords seprated by comma">
+                <label for="keywords" style="color:whitesmoke;">Keywords</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
                 <h5>Story Board</h5>
                 <textarea name="body">{{story.body}}</textarea>
 
