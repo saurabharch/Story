@@ -118,11 +118,49 @@ csstransforms csstransforms3d csstransitions cors">
 <link rel='dns-prefetch' href='//a.optmstr.com' />
 <link rel='dns-prefetch' href='//js.stripe.com' /> --}}
 {{!-- <link rel='dns-prefetch' href='//s.w.org' /> --}}
+<style type="text/css">
+    #warning-message {
+        display: none;
+    }
 
+    @media only screen and (orientation:portrait) {
+        #wrapper {
+            display: none;
+        }
+        #warning-message {
+            display: none;
+        }
+    }
+
+    @media only screen and (orientation:landscape) and (max-device-width: 667px) {
+        #warning-message {
+            display: block;
+            max-height: 100vh;
+            background: url('../img/WelcomeSplash.svg') no-repeat center;
+            background-size: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+    }
+</style>
     {{!-- SEO AREA END     --}}
 </head>
 
 <body>
+    <div id="wrapper">
+        <!-- your html for your website -->
+    </div>
+    <div id="warning-message">
+    <center>
+       <div class="card" style="max-width:100vh;min-height:100vh;z-index:999;">
+           <div class="card-title">
+            <p> this website is only viewable in portrait mode</p>
+           </div>
+           <div class="card-content">
+           </div>
+       </div>
+    </center>
+    </div>
     {{> _header}}
     {{#if user}}
         
@@ -203,6 +241,8 @@ csstransforms csstransforms3d csstransitions cors">
                 $('.button-collapse').sideNav();
                $('select').material_select();
                $('categoryType').material_select();
+              
+                
               // ClassicEditor.create(document.querySelector('#editor')).then(editor => {
                    //editor.plugins: [Essentials, Markdown, Paragraph,Bold, Italic, Underline, Strikethrough, Code, Alignment, Autoformat, Table, TableToolbar],  
                   // language: 'en',  
@@ -222,6 +262,7 @@ csstransforms csstransforms3d csstransitions cors">
                 if(window.location.href.indexOf("add") > -1 || window.location.href.indexOf("edit") > -1){
                     CKEDITOR.replace('body');
                 }
+                
                // tinymce.init({ selector: 'textarea' });
                var elem = document.querySelector('.slider');
                var instance = M.Slider.init(elem, options);
@@ -244,8 +285,22 @@ csstransforms csstransforms3d csstransitions cors">
       
             $(document).ready(() => {
                window.onload = function () {
+                     var display = $("#LandingHeader").css("display");
+                   // headerid.style.display = none;
+                   if(window.location.href.indexOf("show") > -1 || window.location.href.indexOf("stories") > -1 || window.location.href.indexOf("about") > -1 || window.location.href.indexOf("security") > -1)
+                    {
+                           if (display != "none") {
+                               $("#LandingHeader").css({ display: "none" });
+                               // $("#LandingHeader").css("style", "display:block");
+                           }
+
+                    }
+                    
+                   // var headerid = $('#LandingHeader');
+                   
                    if (window.location.href.indexOf("index") > -1 || !window.location.href.indexOf("add") > 1 || !window.location.href.indexOf("edit") > 1 || !window.location.href.indexOf("show") > 1 || !window.location.href.indexOf("dashboard") > 1 || !window.location.href.indexOf("stories") > 1)
-                  {
+                   {
+                       
                        var placeholder = document.querySelector('.placeholder'),
                            small = placeholder.querySelector('.img-small')
 
