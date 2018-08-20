@@ -1471,7 +1471,7 @@ top:55px;
      }
  }
 
- @media only screen and (orientation:landscape) and (max-device-width: 667px) {
+ @media only screen and (orientation:landscape) and (max-device-width: 823px) {
      #warning-message {
          display: block;
          max-height: 100%;
