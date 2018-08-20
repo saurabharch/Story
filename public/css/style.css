@@ -1458,3 +1458,41 @@ top:55px;
         margin-right: 0px !important;
     }
 }
+ #warning-message {
+     display: none;
+ }
+
+ @media only screen and (orientation:portrait) {
+     #wrapper {
+         display: none;
+     }
+     #warning-message {
+         display: none;
+     }
+ }
+
+ @media only screen and (orientation:landscape) and (max-device-width: 667px) {
+     #warning-message {
+         display: block;
+         max-height: 100vh;
+         background: url('../img/WelcomeSplash.svg') no-repeat center;
+         background-size: 100%;
+         padding: 0px;
+         margin: 0px;
+     }
+     .herder {
+         display: none;
+     }
+     .container {
+         display: none;
+     }
+         {
+         display: none
+     }
+     .titlename1 {
+         display: none;
+     }
+     .navbar {
+         display: none;
+     }
+ }
