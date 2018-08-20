@@ -1507,7 +1507,12 @@ top:55px;
          transform: translate(-50%, -50%);
          color: white;
      }
-
+     .blog{
+         display: none;
+     }
+     main{
+         display:none;
+     }
      .card{
          max-width: 100% !important;
          min-height:100vh !important;
