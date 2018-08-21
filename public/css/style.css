@@ -90,7 +90,7 @@ a,p{
     content: '';
     width: 100%;
     position: absolute;
-    top: 56px;
+    top: 62px;
     height:3px;
     left: 0;
 }
@@ -1196,7 +1196,7 @@ font-size:1.3rem;
     padding: 1rem;
 }
 .navbar::after {
-top:55px;
+top:56px;
 }
 }
  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
