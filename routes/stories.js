@@ -34,7 +34,7 @@ router.get('/',(req, res) => {
 router.get('/show/:id', (req, res ) => {
         //  console.log(quantity);
         const obajectid = req.params.id.replace('app.js', '').replace('\n', '');
-    Story.findOne({
+    Story.findById({
         _id: mongoose.Types.ObjectId(obajectid)
     })
     .populate('user')
@@ -44,6 +44,13 @@ router.get('/show/:id', (req, res ) => {
     .populate('rating.RatedUser')
     .then(story => {
         if(story.status == 'public') {
+              Story.findOneAndUpdate({ _id: mongoose.Types.ObjectId(obajectid)}, {$inc: {views: 1}}, {new: true}, function (err, response) {
+                  if (err) {
+                     console.log(err);
+                  } else {
+                      console.log(response);
+                  }
+              });
               res.locals.metaTags = {
                   title: story.title,
                   description: story.description,
@@ -58,7 +65,7 @@ router.get('/show/:id', (req, res ) => {
                ratedusers:story.rating,
                 layout: "main"
             });
-        } else {
+         } else {
            if(req.user){
                if(req.user.id == story.user._id){
 
@@ -218,7 +225,7 @@ router.put('/:id',ensureAuthenticated, (req, res) => {
     Story.findOne({
         _id: req.params.id
      })
-        .then(story => {
+     .then(story => {
             let allowComments;
             if (req.body.allowComments) {
                 allowComments = true;

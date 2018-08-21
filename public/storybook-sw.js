@@ -1,4 +1,4 @@
-importScripts('cache-manager.js');
+require('./cache-manager');
 
 const VERSION = '5';
 const staticCache = `caches-v${VERSION}`;

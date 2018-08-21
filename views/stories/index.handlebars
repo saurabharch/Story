@@ -41,14 +41,12 @@
                             <a class="btn grey" href="/stories/show/{{id}}"><i class="fa fa-bookmark"></i> Read More</a>
                        </div> --}}
                             <div class="row">
-                                <div class="col">
-                                    <a href="" style="color:#888;height:46px;padding-top:5px;letter-spacing: 1.5px;">
-                                        <i class="material-icons text-grey text-left">
-                                            remove_red_eye {{story.viewcount}}
-                                        </i>
+                                <div class="col s4">
+                                    <a href="#" class="stateinfo" style="color:#888;height:46px;">
+                                        <i class="material-icons text-grey text-left">remove_red_eye </i><small>{{viewcounting views}}</small>
                                     </a>
                                 </div>
-                                <div class="col">
+                                <div class="col s8">
                                    
                                          {{#if user}}
                                          {{{ratingIcon user.id ../user.id id}}} {{/if}}

@@ -24,7 +24,7 @@ const stories = require('./routes/stories');
 const keys = require('./config/keys');
 var public = path.join(__dirname, 'public');
 //Handlebars Helpers
-const { truncate, stripTags, formateDate, select, editIcon , ratingIcon, math, totalcount} = require('./helpers/hbs');
+const { truncate, stripTags, formateDate, select, editIcon , ratingIcon, math, totalcount,viewcounting} = require('./helpers/hbs');
 
 // Map global promises
 mongoose.Promise = global.Promise;
@@ -57,7 +57,8 @@ app.engine('handlebars', exphbs({
     editIcon: editIcon,
     ratingIcon: ratingIcon,
     math: math,
-    totalcount: totalcount
+    totalcount: totalcount,
+    viewcounting: viewcounting
   },
   defaultLayout: 'main'
 }));

@@ -98,12 +98,10 @@ const StorySchema = new Schema({
                     default: Date.now()
                 },
     }],
-    viewcount: [{
-        hiteDate:{
-            type:Date,
-            default:Date.now()
-        }
-    }],
+   views: {
+       type: Number,
+       default: 0
+   },
     keywords:{
         type:String,
         lowercase:true
