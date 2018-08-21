@@ -1611,4 +1611,5 @@ top:55px;
      -webkit-box-pack: center;
      -webkit-justify-content: center;
      justify-content: center;
+     display: block;
  }
