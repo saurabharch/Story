@@ -1550,6 +1550,9 @@ top:55px;
               -webkit-justify-content: center;
               justify-content: center;
      }
+     .container.row{
+         margin-bottom: 0px important;
+     }
  }
 
  .overlay {
@@ -1583,4 +1586,29 @@ top:55px;
      .container{
          width: 100%;
      }
+ }
+
+ .titlename2{
+     background: rgba(128, 128, 128, 0.342);
+     padding: 10px 10px 10px 10px;
+     font-size: 1rem;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     color: #777;
+     width: 100%;
+     height: 9vh;
+     padding-top:.8rem;
+     overflow: hidden;
+     display: -webkit-box;
+     display: -webkit-flex;
+     display: flex;
+     -webkit-box-orient: vertical;
+     -webkit-box-direction: normal;
+     -webkit-flex-direction: column;
+     flex-direction: column;
+     -webkit-box-align: center;
+     -webkit-align-items: center;
+     align-items: center;
+     -webkit-box-pack: center;
+     -webkit-justify-content: center;
+     justify-content: center;
  }
