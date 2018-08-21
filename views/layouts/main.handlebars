@@ -260,14 +260,22 @@ csstransforms csstransforms3d csstransitions cors">
             $(document).ready(() => {
                window.onload = function () {
                      var display = $("#LandingHeader").css("display");
+                     var tagnav = $('nav').css("display");
+                     var navigator = $('#backNavigator').css("top");
                    // headerid.style.display = none;
                    if(window.location.href.indexOf("show") > -1 || window.location.href.indexOf("stories") > -1 || window.location.href.indexOf("about") > -1 || window.location.href.indexOf("security") > -1|| window.location.href.indexOf("about") > -1)
                     {
                            if (display != "none") {
                                $("#LandingHeader").css({ display: "none" });
+                               if(window.screen.width<824 && tagnav != "none"){
+                                $('nav').css({ display: "none" });
+                                $('#backNavigator').css({top:"0px"});
+                               }
                                // $("#LandingHeader").css("style", "display:block");
                            }
 
+                    }else{
+                         $('nav').css({ display: "block" });
                     }
                     
                    // var headerid = $('#LandingHeader');

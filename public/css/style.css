@@ -78,7 +78,7 @@ a,p{
     width: 100%;
     position: absolute;
     top: 62px;
-    height: 2px;
+    height:3px;
     left: 0;
 }
 .storytitile{
@@ -1561,4 +1561,10 @@ top:55px;
      color: #f1f1f1;
      font-size: 14px;
      text-align: center;
+ }
+
+ @media only screen and  (max-device-width: 823px) {
+     .accordion{
+         display: none;
+     }
  }
