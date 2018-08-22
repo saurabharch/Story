@@ -23,6 +23,7 @@
     "passport-google-oauth20": "^1.0.0",
     "passport-instagram": "^1.0.0",
     "passport-pinterest": "^1.0.0",
-    "passport-twitter": "^1.0.4"
+    "passport-twitter": "^1.0.4",
+    "sw-toolbox": "^3.6.0"
   }
 }

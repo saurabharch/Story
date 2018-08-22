@@ -1,16 +1,19 @@
-require('./cache-manager');
-
-const VERSION = '5';
+// require('./cache-manager');
+importScripts('./sw-toolbox.js');
+// importScripts('cache-manager.js');
+const VERSION = '5.1';
 const staticCache = `caches-v${VERSION}`;
 const staticAssets = [
         './',
+        './storybook-sw.js',
+        './sw-toolbox.js',
+        './app.js',
         './sticky.js',
         './css/style.css',
-        './cache-manager.js',
-        '/menifest.json',
-        '/img/fevicon.ico',
-        '/img/footer.svg',
-        '/img/WelcomeSplash.svg',
+        './menifest.json',
+        './img/fevicon.ico',
+        './img/footer.svg',
+        './img/WelcomeSplash.svg',
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js',
