@@ -154,6 +154,7 @@ csstransforms csstransforms3d csstransitions cors">
     {{!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> --}}
     <script src="sticky.js"></script>
         <script>
+
            document.addEventListener('DOMContentLoaded', function () {
                try {
                    enterView({
@@ -209,6 +210,22 @@ csstransforms csstransforms3d csstransitions cors">
 </script>
 
     <script>
+       
+               $(document).ready(function () {
+                    $({ property: 0 }).animate({ property: 100 }, {
+                        duration: 4000,
+                        step: function () {
+                            var _percent = Math.round(this.property);
+                            $('#progress').css('width', _percent + "%");
+                            if (_percent == 100) {
+                                $("#progress").addClass("done");
+                            }
+                        },
+                        complete: function () {
+                          //  alert('complete');
+                        }
+                    });
+                });
         $(document).ready(() => {
            try {
               
