@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+const mongoosePaginate = require('mongoose-paginate');
 // Create Schema
 const StorySchema = new Schema({
     title: {
@@ -111,6 +111,6 @@ const StorySchema = new Schema({
         lowercase:true
     }
 });
-
+StorySchema.plugin(mongoosePaginate);
 // Create collection and add schema
 mongoose.model('stories', StorySchema,'stories');

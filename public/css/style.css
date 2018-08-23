@@ -42,11 +42,14 @@ a{
 .card,
 .btn-circle,
 .btn,
-.white1,
-.titlename{
-    box-shadow: 0 10px 40px rgba(0, 0, 0, .6);
+.white1{
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.397);
     
 }
+
+/* .titlename{
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+} */
 /* .card{
     box-shadow: 0 10px 40px rgba(0, 0, 0, .6);
 }
@@ -79,11 +82,12 @@ a,p{
 }
 
 .titlename{
-    padding:8px 10px 8px 10px;
     background: purple;
     border-radius: 50px;
-    width: 12vw;
+    width: 30vw;
     color:white;
+    margin-top:2rem;
+    padding:.3rem;
 }
 .navbar::after {
     background: linear-gradient(to right, #9E7CC1, #8ECDEA);
@@ -1482,6 +1486,14 @@ top:56px;
      #warning-message {
          display: none;
      }
+     .col.s1 {
+         padding: 0.45rem;
+         width: 7.333333% !important;
+         margin-left: 3rem !important;
+         left: auto;
+         right: auto;
+         font-size: .9rem !important;
+     }
  }
 
  @media only screen and (orientation:landscape) and (max-device-width: 823px) {
@@ -1587,7 +1599,14 @@ top:56px;
          width: 100%;
      }
  }
-
+row.col.s1 {
+    padding: 0.45rem;
+    width: 7.333333% !important;
+    margin-left: 3rem !important;
+    left: auto;
+    right: auto;
+    font-size: .9rem !important;
+}
  .titlename2{
      background: rgba(128, 128, 128, 0.342);
      padding: 10px 10px 10px 10px;
@@ -1629,4 +1648,43 @@ top:56px;
      -webkit-box-pack: center;
      -webkit-justify-content: center;
      justify-content: center;
+ }
+
+ .totalstick{
+     background:url('data:image/svg+xml,\
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">\
+    <circle r="20" cx="50" cy="50" fill="red">\
+    </svg>');
+     background-size:100px 100px;
+      overflow: hidden;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+ }
+
+ output {
+     display: block;
+     position: relative;
+     width: 3em;
+     padding: 1em 0;
+     border: thin solid rgba(0, 0, 0, .4);
+     margin: -.1em auto 0;
+     background: hsl(0, 0%, 50%) -35% -35%;
+     background-size: 142% 142%;
+     text-align: center;
+     color: white;
+     text-shadow: 0 -0.06em 0.05em rgba(0, 0, 0, .5);
+     letter-spacing: -.05em;
+     box-shadow: 0.05em 0.1em 0.2em rgba(0, 0, 0, .4), -0.1em -0.1em 0.5em rgba(0, 0, 0, .4) inset, 0 0.3em hsla(0, 0%, 100%, .2) inset;
+     border-radius: 50%;
  }

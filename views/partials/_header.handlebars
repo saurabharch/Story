@@ -2,7 +2,7 @@
     <div class="container">
         <div class="nav-wrapper">
         
-            <a href="/stories" class="brand-logo center" style="color:white;">Story Books</a>
+            <a href="/stories/?pageNo=1&size=6" class="brand-logo center" style="color:white;">Story Books</a>
                
             <a href="#" data-activates="main-menu" class="button-collapse show-on-large" alt="side menu bar">
                 <i class="fa fa-bars"></i>
@@ -91,12 +91,12 @@
                     </a>
                 </li>
                 {{/if}}
-                <li>
-                    <a href="/stories" class="btn grey btn-circle darken-4">
+                {{!-- <li>
+                    <a href="/stories/?pageNo=1&size=6" class="btn grey btn-circle darken-4">
                         Public Stories
                         <i class="fa fa-book white right m-4 shake-top"></i>
                     </a>
-                </li>
+                </li> --}}
                 <li class="divider"></li>
                 {{#if user}}
                 <li>
