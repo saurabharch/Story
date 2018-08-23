@@ -18,6 +18,7 @@ ratedusers = [];
 router.get('/', (req, res) => {
     var pageNo = parseInt(req.query.pageNo) || 0;
     var size = parseInt(req.query.size) || 5;
+    var popular ='';
     var query = {
         status: 'public'
     };
@@ -31,6 +32,10 @@ router.get('/', (req, res) => {
     query.skip = size * (pageNo - 1);
     query.limit = size;
     query.populate = 'user';
+    query.sort = {
+        views:-1,
+        date:-1
+    };
     // Find some documents
     Story.count({status:'public'}, function (err, totalCount) {
         if (err) {
