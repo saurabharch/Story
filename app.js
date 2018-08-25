@@ -22,7 +22,6 @@ const stories = require('./routes/stories');
 // const categories = require('./routes/categories');
 // Load Keys
 const keys = require('./config/keys');
-var public = path.join(__dirname, 'public');
 //Handlebars Helpers
 const { truncate, stripTags, formateDate, select, editIcon , ratingIcon, math, totalcount,viewcounting} = require('./helpers/hbs');
 
@@ -39,10 +38,10 @@ mongoose.connect(keys.mongoURI, {
 const app = express();
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 //Method override Middleware
 app.use(methodOverride('_method'));
@@ -63,7 +62,8 @@ app.engine('handlebars', exphbs({
   defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
-
+// Set the path directory for view templates
+// app.set('views', __dirname + '/public/views');
 app.use(cookieParser());
 app.use(session({
   secret: 'secret',
