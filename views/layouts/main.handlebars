@@ -190,10 +190,8 @@ csstransforms csstransforms3d csstransitions cors">
             }); 
         </script>
 <script>
-    var name = JSON.stringify([{title:'description', description:'story,book,horror,biograpghy,travel,guide,manual,syllabus,brochure,designe,art,sculpture'},
-    {title:'twitter:description', description:'StoryBook a app Share your Day story to the world. alpha version'},
-    {title:'og:description',description:'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.'},
-    {title:'keywords', description:'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.'}]);
+    var name = JSON.stringify([{title:'twitter:description', description:'StoryBook a app Share your Day story to the world. alpha version'},
+    {title:'og:description',description:'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.'}]);
    //console.log(name);
   // console.log(name.length);
   myObje = JSON.parse(name);
@@ -203,7 +201,7 @@ csstransforms csstransforms3d csstransitions cors">
           var m = document.createElement('meta');
           m.name = myObje[x].title;
           m.content = myObje[x].description;
-      //  document.head.appendChild(m);
+            document.head.appendChild(m);
     }
     
  
