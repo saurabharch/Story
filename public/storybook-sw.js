@@ -1,6 +1,4 @@
-// require('./cache-manager');
-// importScripts('sw-toolbox.js');
-// importScripts('cache-polyfill.js');
+
 importScripts('cache-manager.js');
 const VERSION = '5.7.2';
 const staticCache = `caches-v${VERSION}`;
@@ -35,7 +33,7 @@ const staticAssets = [
 const dynamicCache = `StoryDynamicCache`;
 let cachedAssets;
 
-const imageTest = /^.*\.(jpg|jpeg|png|gif)$/;
+const imageTest = /^.*\.(jpg|jpeg|png|gif|svg)$/;
 const imageDb = 'image';
 
 self.addEventListener('install', (event) => {
