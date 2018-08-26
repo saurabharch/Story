@@ -1,6 +1,6 @@
 
-importScripts('cache-manager.js');
-const VERSION = '5.7.2';
+// importScripts('cache-manager.js');
+const VERSION = '5.7.20';
 const staticCache = `caches-v${VERSION}`;
 const staticAssets = [
         '/',
@@ -68,10 +68,10 @@ self.addEventListener('fetch', (event) => {
     const url = new URL(event.request.url);
     if (url.pathname === '/') {
         caches.open(staticCache).then((cache) => {
-            return cache.match('offline.html');
+            return cache.matchAll(cachedAssets);
         })
     } else if (staticAssets.includes(url.pathname.substring(1))) {
-        event.respondWith(caches.match(event.request));
+        event.respondWith(caches.matchAll(event.request));
     } else if (imageTest.test(url.pathname)) { // test for images
         handleImage(event);
     } else { // ¯\_(ツ)_/¯
@@ -88,7 +88,7 @@ self.addEventListener('fetch', (event) => {
                  // range, the catch() will NOT be called. If you need custom handling for 4xx or 5xx
                  // errors, see https://github.com/GoogleChrome/samples/tree/gh-pages/service-worker/fallback-response
                  console.log('Fetch failed; returning offline page instead.', error);
-                 return caches.match('offline.html');
+                 return caches.matchAll(staticAssets);
              })
          );
      }
