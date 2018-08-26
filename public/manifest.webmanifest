@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "background_color": "#ccc",
     "theme_color": "#0098e3",
-   "scope ": " /public/ ",
+   "scope ": "",
     "icons": [
         {
             "src": "/img/book-96X96.png",
@@ -29,5 +29,6 @@
             "type": "image/png"
         }
     ],
-    "splash_pages": null
+    "splash_pages": null,
+    
 }

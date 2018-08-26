@@ -1,4 +1,4 @@
-const cachePrefix = 'story-book';
+const cachePrefix = 'story-book-1';
 const scope = '';
 
 function fetchFromCache(request) {
@@ -18,7 +18,7 @@ function offlineImage() {
         '<path fill="#D8D8D8" d="M0 0h400v300H0z"/>' +
         '<text fill="#9B9B9B" font-family="Times New Roman,Times,serif"' +
         ' font-size="35" font-weight="bold">' +
-        '<tspan x="55" y="100">Story Book Offline :(</tspan></text></g></svg>';
+        '<tspan x="55" y="0">Story Book Offline :(</tspan></text></g></svg>';
     return new Response(offlineSVG, {
         headers: {
             'Content-Type': 'image/svg+xml'
