@@ -8,7 +8,7 @@ const { ensureAuthenticated, ensureGuest} = require('../helpers/auth');
 router.get('/', ensureGuest, (req, res) => {
     res.locals.metaTags = {
         title: 'StoryBook',
-        description: 'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.',
+        description: 'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affi. marketing.',
         keywords: 'Affiliate Marketing,Money Making, Online Earning, Blog, Science and Technology,Software and web application development',
         generator: 'Story Book MetaTag Generator v.1.0',
         author: 'Saurabh Kashyap'
