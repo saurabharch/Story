@@ -15,7 +15,8 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 <meta content=yes name=apple-mobile-web-app-capable>
 <link href=/img/fevicon.ico rel="shortcut icon" type=image/x-icon>
 <link href=/css/materialize.min.css rel=stylesheet>
-<link href=https://use.fontawesome.com/releases/v5.0.8/css/all.css rel=stylesheet>{{!--
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css' integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ' crossorigin='anonymous'>
+{{!--
 <link href=https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css rel=stylesheet crossorigin=anonymous
     integrity=sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN>--}}
 <link href=/css/style.css rel=stylesheet>
@@ -47,8 +48,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 <link href=https://www.new-storybook.herokuapp.com/ rel=https://api.w.org/>
 <meta content={{metaTags.generator}} name=generator>
 <link href=https://www.new-storybook.herokuapp.com/ rel=shortlink>
-<meta content={{metaTags.generator}} name=generator>{{!-- FACEBOOK PAGE HERE --}} {{!--
-<meta content=94019601674 property=fb:pages>--}}
+<meta content={{metaTags.generator}} name=generator>{{!-- FACEBOOK PAGE HERE --}} {{!--<meta content=94019601674 property=fb:pages>--}}
 <script>window._peq = window._peq || [], window._peq.push(["init"])</script>{{!--
 <script data-cfasync=false>var gtm4wp_scrollerscript_debugmode = !1, gtm4wp_scrollerscript_callbacktime = 100, gtm4wp_scrollerscript_readerlocation = 150, gtm4wp_scrollerscript_contentelementid = "content", gtm4wp_scrollerscript_scannertime = 60; jQuery(function () { gtm4wp_track_downloads("pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,gz,tar") }), dataLayer.push({ pagePostType: "frontpage", pagePostType2: "single-page", pagePostAuthor: "Saurabh Kashyap", browserName: "Chrome", browserVersion: "67.0.3396.99", browserEngineName: "Blink", browserEngineVersion: "", osName: "Windows", osVersion: "6.1", deviceType: "desktop", deviceManufacturer: "", deviceModel: "" })</script>--}}
 <script>!function (e, t, a, n, g) { e[n] = e[n] || [], e[n].push({ "gtm.start": (new Date).getTime(), event: "gtm.js" }); var m = t.getElementsByTagName(a)[0], r = t.createElement(a); r.async = !0, r.src = "https://www.googletagmanager.com/gtm.js?id=GTM-N3R4GMN", m.parentNode.insertBefore(r, m) }(window, document, "script", "dataLayer")</script>
@@ -96,12 +96,12 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 <main>
     <div class=container>{{{body}}}</div>
 </main>{{> _footer}}
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js></script>{{!--
-<script src=https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js></script>--}}
-<script src=https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js></script>{{!--
-<script src=https://cloud.tinymce.com/stable/tinymce.min.js></script>--}} {{!--
-<script src=js/sticky.js></script>--}}
+<script src=/js/classic/ckeditor.js></script>
+{{!-- <script src=https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js></script> --}}
+{{!-- <script src=https://cloud.tinymce.com/stable/tinymce.min.js></script> --}}
+<script src=/js/sticky.js></script>
 <script>document.addEventListener("DOMContentLoaded", function () { try { enterView({ selector: "section", enter: function (e) { e.classList.add("entered") } }); var n = 1e3, e = document.getElementById("set-height"), o = document.getElementById("v0"); o.addEventListener("loadedmetadata", function () { e.style.height = Math.floor(o.duration) * n + "px" }), window.requestAnimationFrame(function e() { var t = window.pageYOffset / n; o.currentTime = t, window.requestAnimationFrame(e) }) } catch (e) { console.log(e) } })</script>
 <script>var name = JSON.stringify([{ title: "twitter:description", description: "StoryBook a app Share your Day story to the world. alpha version" }, { title: "og:description", description: "StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing." }]); for (x in myObje = JSON.parse(name), myObje) { var m = document.createElement("meta"); m.name = myObje[x].title, m.content = myObje[x].description, document.head.appendChild(m) }</script>
 <script>$(document).ready(function () {
