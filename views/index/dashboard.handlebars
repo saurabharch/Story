@@ -1,19 +1,20 @@
 {{!-- <h1>Welcome {{user.firstName}}</h1> --}}
 {{#if stories}}
-<h4>Your Stories</h4>
-    <table class="striped">
-        <thead>
-            <tr style="color:white;font-size:1.3rem;">
-                <th><i class="fa fa-book" style="font-size:1.3rem"></i> Title</th>
-                <th><i class="far fa-calendar-alt" style="font-size:1.3rem"></i> Date</th>
-                <th><i class="fa fa-circle" style="font-size:1.3rem"></i> Status</th>
-                <th><i class="fa fa-sign-language" style="font-size:1.3rem"></i> Clap</th>
-                <th><i class="far fa-comments" style="font-size:1.3rem"></i>Comments</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each stories}}
+   <div class="dashMaxres">
+        <h4>Your Stories</h4>
+        <table class="striped">
+            <thead>
+                <tr class="tablerow">
+                    <th><i class="fa fa-book" style="font-size:1.3rem"></i> Title</th>
+                    <th><i class="far fa-calendar-alt" style="font-size:1.3rem"></i> Date</th>
+                    <th><i class="fa fa-circle" style="font-size:1.3rem"></i> Status</th>
+                    <th><i class="fa fa-sign-language" style="font-size:1.3rem"></i> Clap</th>
+                    <th><i class="far fa-comments" style="font-size:1.3rem"></i>Comments</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each stories}}
                 <tr>
                     <td><a href="/stories/show/{{id}}">{{stripTags (truncate title 30)}}</a></td>
                     <td>{{formateDate date 'MMMM Do YYYY'}}</td>
@@ -23,15 +24,16 @@
                     <td>
                         <a href="/stories/edit/{{id}}" class="btn-floating blue left-align"><i class="fas fa-pencil-alt" style="font-size:15px !important;"></i></a>
                         <form action="/stories/{{id}}?_method=DELETE" method="post" id="delete-form">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn-floating red"><i class="fa fa-trash" style="font-size:15px !important;"></i></button>
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn-floating red"><i class="fa fa-trash" style="font-size:15px !important;"></i></button>
                         </form>
-                    
+        
                     </td>
                 </tr>
-            {{/each}}
-        </tbody>
-    </table>
+                {{/each}}
+            </tbody>
+        </table>
+   </div>
 {{else}}
 <section class="container">
     <div class="content1">

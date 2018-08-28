@@ -1,31 +1,26 @@
-<div id="popular" class="section group" style="margin-top:2rem;">
+<div id="latest" class="section group" style="margin-top:2rem;">
     <center>
         <div>
-            <h3 class="titlename">Stories</h3>
+            <h3 class="">Latest</h3>
         </div>
     </center>
-    {{!-- <div class="row">
-        <div class="col s1 m1" onclick="location.href='?pageNo=1&size=6#popular';"><a class="btn btn-circle" style="color:white;background-color:#333 !important;">1</a></div>
-        <div class="col s1 m1" onclick="location.href='?pageNo=2&size=6#popular';"><a class="btn btn-circle" style="color:white;background-color:#333 !important;">2</a></div>
-        <div class="col s1 m1" onclick="location.href='?pageNo=1&size=6#popular';"><a class="btn btn-circle" style="color:white;background-color:#777 !important;">First</a></div>
-    </div> --}}
     <div class="row">
         <ul class="pagination">
-            <li class="disabled"><a href="#!" ><i class="material-icons">chevron_left</i></a></li>
-            <li class="waves-effect active selective" onclick="location.href='?pageNo=1&size=6#popular';"><a href="#!">1</a></li>
-            <li class="waves-effect selective"><a href="#!" onclick="location.href='?pageNo=2&size=6#popular';">2</a></li>
-            <li class="waves-effect selective"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="waves-effect active selective"><a onclick="location.href='?page=1&size=6#popular';">1</a></li>
+            <li class="waves-effect selective"><a onclick="location.href='?page=2&size=6#popular';">2</a></li>
+            <li class="waves-effect selective"><a><i class="material-icons">chevron_right</i></a></li>
         </ul>
     </div>
     <div class="row">
         <div class="container">
             <div class="row">
-                <div class="col s4 m4" style="totalstick">Total Post Count: {{total}}</div>
-                <div class="col s4 m4">Current page: {{page}}</div>
-                <div class="col s4 m4">Total Pages: {{pages}}</div>
+                <div class="col s4 m4" style="totalstick">Total Post Count: {{totall}}</div>
+                <div class="col s4 m4">Current page: {{pageno}}</div>
+                <div class="col s4 m4">Total Pages: {{pagess}}</div>
             </div>
         </div>
-        {{#each stories}}
+        {{#each popular}}
         <div class="col s12 m4">
             <div class="card card1 heartbeat" onclick="location.href='./show/{{id}}';">
                 <div class="card-image">
@@ -49,7 +44,7 @@
                     <div class="chip">
                         {{#if user.image}}
                         <img src="{{user.image}}" class="image-responsive"><a href="/stories/user/{{user.id}}" class="name-responsive">
-                        {{user.firstName}} {{user.lastName}} </a>
+                            {{user.firstName}} {{user.lastName}} </a>
                         {{/if}} {{#else}}
                         <div class="background-masker image"></div>
                         {{/else}}
@@ -62,11 +57,12 @@
                         <div class="row">
                             <div class="col s4">
                                 <a href="#" class="stateinfo" style="color:#888;height:46px;">
-                                    <i class="material-icons text-grey text-left">remove_red_eye </i><small>{{viewcounting views}}</small>
+                                    <i class="material-icons text-grey text-left">remove_red_eye </i><small>{{viewcounting
+                                        views}}</small>
                                 </a>
                             </div>
                             <div class="col s8">
-    
+
                                 {{#if user}} {{{ratingIcon user.id ../user.id id}}} {{/if}} {{!-- <i class="material-icons text-grey text-left iconColor">
                                     star_border
                                 </i>
@@ -113,4 +109,3 @@
         {{/each}}
     </div>
 </div>
-{{!-- <div class="separator focus-in-contract-bck black" style="width:100%;">New Latest Posted Stories</div> --}}

@@ -11,6 +11,7 @@ module.exports = {
             return redirect('/dashboard');
         } else {
             return next();
+            
         }
     }
 }
