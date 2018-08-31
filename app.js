@@ -25,7 +25,8 @@ const popular = require('./routes/popular');
 const keys = require('./config/keys');
 //Handlebars Helpers
 const { truncate, stripTags, formateDate, select, editIcon , ratingIcon, math, totalcount,viewcounting,checkNew} = require('./helpers/hbs');
-
+var Raven = require('raven');
+Raven.config('https://de8804919dea46698b2728a487303fb8@sentry.io/1272665').install();
 // Map global promises
 mongoose.Promise = global.Promise;
 
@@ -37,7 +38,7 @@ mongoose.connect(keys.mongoURI, {
   .catch(err => console.log(err));
 
 const app = express();
-
+app.use(Raven.requestHandler());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 

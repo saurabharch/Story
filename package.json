@@ -25,6 +25,7 @@
     "passport-instagram": "^1.0.0",
     "passport-pinterest": "^1.0.0",
     "passport-twitter": "^1.0.4",
+    "raven": "^2.6.3",
     "sw-toolbox": "^3.6.0"
   }
 }
