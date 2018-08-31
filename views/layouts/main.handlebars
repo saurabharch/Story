@@ -100,6 +100,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js></script>
 {{!-- <script src=init.js></script> --}}
 <script src=https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js></script>
+<script src="https://js.stripe.com/v3/"></script>
 <script src=https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js></script>
 {{!-- <script src=https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js></script> --}}
 {{!-- <script src=https://cloud.tinymce.com/stable/tinymce.min.js></script> --}}
@@ -169,7 +170,8 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
             var tagnav = $('nav').css("display");
             var navigator = $('#backNavigator').css("top");
             var footer = $('.titlename2').css('display');
-            var dashboard = $('#footerfloat').css('position')
+            var dashboard = $('#footerfloat').css('position');
+            var sidenavfixed = $('#sidenavigation').css("dispaly");
             if (window.screen.width < 824 && footer == "none") {
                 $('.titlename2').css({ display: "block" });
                if(window.location.href.indexOf("dashboard") > -1){
@@ -183,7 +185,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
                 $('.titlename2').css({ display: "none" });
             }
             // headerid.style.display = none;
-            if (window.location.href.indexOf("show") > -1 || window.location.href.indexOf("stories") > -1 || window.location.href.indexOf("about") > -1 || window.location.href.indexOf("security") > -1 || window.location.href.indexOf("dashboard") > -1) {
+            if (window.location.href.indexOf("show") > -1 || window.location.href.indexOf("stories") > -1 || window.location.href.indexOf("about") > -1 || window.location.href.indexOf("security") > -1 || window.location.href.indexOf("dashboard") > -1 || window.location.href.indexOf("donate") > -1 || window.location.href.indexOf("popular") > -1) {
                 if (display != "none") {
                     $("#LandingHeader").css({ display: "none" });
                     if (window.screen.width < 824 && tagnav != "none") {
@@ -195,7 +197,13 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
                                 $('#footerfloat').css({ right: "80%" })
                             }
                         }
-
+                       
+                    }
+                     if (window.location.href.indexOf("popular") > -1) {
+                        if (tagnav === 'block') {
+                          //  $('nav').css({ display: "none" });
+                           //  $('#sidenavigation').css({ display: "none" });
+                        }
                     }
                     // $("#LandingHeader").css("style", "display:block");
                 }
@@ -233,6 +241,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
             }
         }
     });</script>
+    <script scr=stripe-main.js></script>
     <script>
         $(function () {
                 var $h3s = $('.selective').click(function () {
@@ -249,6 +258,68 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 "target":window.location.href+"\/?story={search_term}",
 "query-input":"required name=search_term"}
 }</script>
+{{!-- <script>
+       var stripe = Stripe('pk_test_RekulS5PNe7uUNGtJV7g5Xfj');
+
+        // Create an instance of Elements.
+        var elements = stripe.elements();
+
+        // Custom styling can be passed to options when creating an Element.
+        // (Note that this demo uses a wider set of styles than the guide below.)
+        var style = {
+            base: {
+                color: '#32325d',
+                lineHeight: '18px',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+
+        // Create an instance of the card Element.
+        var card = elements.create('card', {
+            style: style
+        });
+
+        // Add an instance of the card Element into the `card-element` <div>.
+        card.mount('#card-element');
+
+        // Handle real-time validation errors from the card Element.
+        card.addEventListener('change', function (event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Handle form submission.
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            stripe.createToken(card).then(function (result) {
+                if (result.error) {
+                    // Inform the user if there was an error.
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    // Send the token to your server.
+                    stripeTokenHandler(result.token);
+                }
+            });
+        });
+</script> --}}
+{{!-- <script src=js/stripe-main.js></script> --}}
 <script src=app.js></script>
+<script src=second.js></script>
 <script src=//images.dmca.com/Badges/DMCABadgeHelper.min.js></script>
 <noscript><iframe height=0 src="https://www.googletagmanager.com/ns.html?id=GTM-N3R4GMN" style=display:none;visibility:hidden width=0></iframe></noscript>

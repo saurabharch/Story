@@ -19,11 +19,12 @@ require('./config/passport')(passport);
 const index = require('./routes/index');
 const auth = require('./routes/auth');
 const stories = require('./routes/stories');
+const popular = require('./routes/popular');
 // const categories = require('./routes/categories');
 // Load Keys
 const keys = require('./config/keys');
 //Handlebars Helpers
-const { truncate, stripTags, formateDate, select, editIcon , ratingIcon, math, totalcount,viewcounting} = require('./helpers/hbs');
+const { truncate, stripTags, formateDate, select, editIcon , ratingIcon, math, totalcount,viewcounting,checkNew} = require('./helpers/hbs');
 
 // Map global promises
 mongoose.Promise = global.Promise;
@@ -57,7 +58,8 @@ app.engine('handlebars', exphbs({
     ratingIcon: ratingIcon,
     math: math,
     totalcount: totalcount,
-    viewcounting: viewcounting
+    viewcounting: viewcounting,
+    checkNew: checkNew
   },
   defaultLayout: 'main'
 }));
@@ -88,6 +90,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/auth', auth);
 app.use('/stories', stories);
+app.use('/popular', popular);
 // app.use('/categories', categories);
 
 const port = process.env.PORT || 5000;

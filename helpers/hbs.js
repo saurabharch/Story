@@ -19,8 +19,24 @@ module.exports = {
              "-": lvalue - rvalue,
              "*": lvalue * rvalue,
              "/": lvalue / rvalue,
-             "%": lvalue % rvalue
+             "%": lvalue % rvalue,
+             "=": lavalue = rvalue
          }[operator];
+     },
+     checkNew:function(data){
+         var data = Date.parse(data);
+        var currentdate = parseInt(Date.now());
+       // console.log(currentdate);
+        console.log(data);
+        // var result = parseInt(parseInt(date) - parseInt(currentdate)) >= 604800; 2592000000
+         var result = (currentdate - data) ;
+        //  console.log(result/60);
+        if (result < 1296000000) {
+            return 'new badge green';
+        }
+        else{
+            return ``;
+        }
      },
      totalcount: function (str) {
         if (str.length > 0) {

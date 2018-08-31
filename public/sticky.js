@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 ! function (e) {
     "function" == typeof define && define.amd ? define(e) : "undefined" != typeof module && module.exports ? module.exports = e() : window.enterView = e.call(this)
 }(function () {

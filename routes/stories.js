@@ -76,71 +76,75 @@ router.get('/', (req, res) => {
     });
 });
 
-// router.get('/popular', (res, req) => {
-//     var page = parseInt(req.query.page) || 0;
-//     var size = parseInt(req.query.size) || 3;
-//     var popular = {
-//         status: 'public'
-//     };
-//     var query = {
-//         status: 'public'
-//     };
-//     if (pages < 0 || pages === 0) {
-//         popular = {
-//             "error": true,
-//             "message": "invalid page number, should start with 1"
-//         };
-//         return res.json(popular);
-//     }
-//     query.skip = size * (pages - 1);
-//     query.limit = 3;
-//     query.populate = 'user';
-//     query.sort = {
-//         views: -1,
-//         date: -1
-//     };
-//     Story.count({status: 'public'}, function (err, totalC) {
-//                 if (err) {
-//                     stories = {
-//                         "error": true,
-//                         "message": "Error fetching data"
-//                     }
-//                 }
-//                 Story.find({}, {}, query, function (err, popularpost, response) {
-//                     // Mongo command to fetch all data from collection.
-//                     if (err) {
-//                         response = {
-//                             "error": true,
-//                             "popularpost": "Error fetching data"
-//                         };
-//                     } else {
-//                         var totalP = Math.ceil(totalC / size);
-//                         response = {
-//                             "error": false,
-//                             "popular": popularpost,
-//                             "pages": totalP
-//                         };
-//                         console.log(response);
-//                     }
-//                     res.locals.metaTags = {
-//                         title: 'StoryBook',
-//                         description: 'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.',
-//                         keywords: 'Affiliate Marketing,Money Making, Online Earning, Blog, Science and Technology,Software and web application development',
-//                         generator: 'Story Book MetaTag Generator v.1.0',
-//                         author: 'Saurabh Kashyap'
-//                     };
-//                     res.JSON.stringyfy(popularpost);
-//                     console.log();
-//                     // res.render('stories/index', {
-//                     //     popular: popularpost,
-//                     //     pagess: totalP,
-//                     //     totall: totalC,
-//                     //     pageno: page
-//                     // });
-//                     //res.json(stories);
-//                 });
-//             });
-// });
+router.get('/popular/:page', (req, res) => {
+   console.log(parseInt(req.params.page));
+    var pages = parseInt(req.params.page) ||1;
+    var size = parseInt(req.query.size) || 3;
+    var popular = {
+        status: 'public'
+    };
+    var sendres;
+console.log(pages);
+    if (pages < 0 || pages === 0) {
+        popular = {
+            "error": true,
+            "message": "invalid page number, should start with 1"
+        };
+        return res.json(popular);
+    }
+    popular.skip = size * (pages - 1);
+    popular.limit = 3;
+    popular.populate = 'user';
+    popular.sort = {
+        views: -1,
+        date: -1
+    };
+    Story.count({status: 'public'}, function (err, totalC) {
+                if (err) {
+                    popularpost = {
+                        "error": true,
+                        "message": "Error fetching data"
+                    }
+                }
+                Story.find({}, {}, popular, function (err, popularpost, response) {
+                    // Mongo command to fetch all data from collection.
+                    if (err) {
+                        response = {
+                            "error": true,
+                            "popularpost": "Error fetching data"
+                        };
+                    } else {
+                        var totalP = Math.ceil(totalC / size);
+                        response = {
+                            "error": false,
+                            "popular": popularpost,
+                            "pages": totalP
+                        };
+                        console.log(response);
+                    }
+                    // res.locals.metaTags = {
+                    //     title: 'StoryBook',
+                    //     description: 'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.',
+                    //     keywords: 'Affiliate Marketing,Money Making, Online Earning, Blog, Science and Technology,Software and web application development',
+                    //     generator: 'Story Book MetaTag Generator v.1.0',
+                    //     author: 'Saurabh Kashyap'
+                    // };
+                   // res.JSON.stringyfy(popularpost);
+                    console.log();
+                    res.render('stories/popular', {
+                        // stories: response.message,
+                        // pages: totalPages,
+                        // total: totalCount,
+                        // page: page
+                        popular: response.popular,
+                            pageno: pages
+                    });
+                 // return  res.send(JSON.stringify(response));
+                // sendres = JSON.stringify(popularpost);
+                
+                });
+            });
+});
 //Show Single Stories
 router.get('/show/:id', (req, res) => {
     //  console.log(quantity);

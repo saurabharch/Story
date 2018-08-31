@@ -4,6 +4,7 @@
  "app.js",
  "sticky.js",
  "css/style.css",
+ "js/stripe.js",
  "manifest.json",
  "img/fevicon.ico",
  "img/footer.svg",
@@ -22,5 +23,7 @@
  "css/all.css",
  "css/fonts/fa-solid-900.woff2",
  "js/standard/ckeditor.js",
- "js/classic/ckeditor.js"
+ "js/classic/ckeditor.js",
+ "js/stripe-main.js"
+
 ]

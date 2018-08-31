@@ -1,32 +1,23 @@
 
-// importScripts('cache-manager.js');
+importScripts('cache-manager.js');
 const VERSION = '5.7.20';
 const staticCache = `caches-v${VERSION}`;
 const staticAssets = [
         '/',
         '/lib/sw-toolbox.js',
-        '/app.js',
-        '/sticky.js',
-        '/css/style.css',
-        '/menifest.json',
-        '/img/fevicon.ico',
-        '/img/footer.svg',
-        '/img/WelcomeSplash.svg',
         '/?pageNo=1&size=6',
         '/offline.html',
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js',
-        'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js',
-        '/fallback.json',
-        '/fingers.mp4',
         'https://fonts.googleapis.com/icon?family=Material+Icons',
         'https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/genericons-regular-webfont.woff',
         'https://use.fontawesome.com/releases/v5.0.8/css/all.css',
         'https://use.fontawesome.com/releases/v5.0.8/webfonts/fa-solid-900.woff2',
-        'https://cdn-images-1.medium.com/max/1800/1*sg-uLNm73whmdOgKlrQdZA.jpeg',
         'https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js',
-        'https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js'
+        'https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js',
+        'https://js.stripe.com/v3/',
+        'https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js'
         // 'https://www.google-analytics.com/analytics.js',
         // 'https://www.google-analytics.com/u/analytics_debug.js'
     ];
@@ -88,7 +79,7 @@ self.addEventListener('fetch', (event) => {
                  // range, the catch() will NOT be called. If you need custom handling for 4xx or 5xx
                  // errors, see https://github.com/GoogleChrome/samples/tree/gh-pages/service-worker/fallback-response
                  console.log('Fetch failed; returning offline page instead.', error);
-                 return caches.matchAll(staticAssets);
+                 return caches.match('offline.html');
              })
          );
      }

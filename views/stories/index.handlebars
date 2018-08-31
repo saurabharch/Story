@@ -32,7 +32,7 @@
                     {{!-- {{#if user}} {{{editIcon user.id ../user.id id}}} {{/if}} --}}
                 </div>
                 <div class="card-content center-align">
-                    <h5 class="storytitile">{{title}}</h5>
+                    <h5 class="storytitile">{{title}} <span class="{{checkNew date}}"></span></h5>
                     {{#if body}}
                     <p class="story-text">{{stripTags (truncate body 150)}}</p>
                     {{/if}} {{#else}}
@@ -114,3 +114,8 @@
     </div>
 </div>
 {{!-- <div class="separator focus-in-contract-bck black" style="width:100%;">New Latest Posted Stories</div> --}}
+{{!-- <div class="" id="latest" style="margin-top:2rem">
+<iframe src="popular/1" sandbox="allow-same-origin allow-scripts" seamless="seamless" frameborder="0" style="border: 0px solid white;" width="100%" height="724px"></iframe>
+</div> --}}
+
+{{> popular}}
