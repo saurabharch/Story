@@ -27,7 +27,7 @@ module.exports = {
          var data = Date.parse(data);
         var currentdate = parseInt(Date.now());
        // console.log(currentdate);
-        console.log(data);
+      //  console.log(data);
         // var result = parseInt(parseInt(date) - parseInt(currentdate)) >= 604800; 2592000000
          var result = (currentdate - data) ;
         //  console.log(result/60);

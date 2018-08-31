@@ -1,9 +1,10 @@
 
 importScripts('cache-manager.js');
-const VERSION = '5.7.20';
+const VERSION = '5.7.21';
 const staticCache = `caches-v${VERSION}`;
 const staticAssets = [
         '/',
+        '/story-sw-.js',
         '/lib/sw-toolbox.js',
         '/?pageNo=1&size=6',
         '/offline.html',
@@ -61,6 +62,14 @@ self.addEventListener('fetch', (event) => {
         caches.open(staticCache).then((cache) => {
             return cache.matchAll(cachedAssets);
         })
+        // cache.addAll(url.map(function (urlToPrefetch) {
+        //     return new Request(urlToPrefetch, {
+        //         mode: 'no-cors',
+        //         credentials: 'include'
+        //     });
+        // })).then(function () {
+        //     console.log('All resources have been fetched and cached.');
+        // });
     } else if (staticAssets.includes(url.pathname.substring(1))) {
         event.respondWith(caches.matchAll(event.request));
     } else if (imageTest.test(url.pathname)) { // test for images
@@ -72,7 +81,7 @@ self.addEventListener('fetch', (event) => {
      if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
          console.log('Handling fetch event for', event.request.url);
          event.respondWith(
-             fetch(event.request).catch(error => {
+             fetch(event.request ,{mode:'no-cors'}).catch(error => {
                  // The catch is only triggered if fetch() throws an exception, which will most likely
                  // happen due to the server being unreachable.
                  // If fetch() returns a valid HTTP response with an response code in the 4xx or 5xx
@@ -128,3 +137,6 @@ function handleImage(event) {
         return Promise.all(extraUrls.map((url) => cache.delete(url)));
     })());
 }
+
+
+
