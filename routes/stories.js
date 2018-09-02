@@ -15,9 +15,10 @@ const {
 likescount = [];
 dislikecount = [];
 ratedusers = [];
-router.get('/', (req, res) => {
-    var page = parseInt(req.query.page) || 0;
-    var size = parseInt(req.query.size) || 5;
+router.get('/:page/:size', (req, res) => {
+    var page = parseInt(req.params.page) || 0;
+    var size = parseInt(req.params.size) || 5;
+   // console.log(`page: ${page}, size: ${size} `);
     var query = {
         status: 'public'
     };
@@ -76,74 +77,71 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/popular/:page', (req, res) => {
-   console.log(parseInt(req.params.page));
-    var pages = parseInt(req.params.page) ||1;
-    var size = parseInt(req.query.size) || 3;
-    var popular = {
-        status: 'public'
-    };
-    var sendres;
-console.log(pages);
-    if (pages < 0 || pages === 0) {
-        popular = {
-            "error": true,
-            "message": "invalid page number, should start with 1"
-        };
-        return res.json(popular);
-    }
-    popular.skip = size * (pages - 1);
-    popular.limit = 3;
-    popular.populate = 'user';
-    popular.sort = {
-        views: -1,
-        date: -1
-    };
-    Story.count({status: 'public'}, function (err, totalC) {
-                if (err) {
-                    popularpost = {
-                        "error": true,
-                        "message": "Error fetching data"
-                    }
-                }
-                Story.find({}, {}, popular, function (err, popularpost, response) {
-                    // Mongo command to fetch all data from collection.
-                    if (err) {
-                        response = {
-                            "error": true,
-                            "popularpost": "Error fetching data"
-                        };
-                    } else {
-                        var totalP = Math.ceil(totalC / size);
-                        response = {
-                            "error": false,
-                            "popular": popularpost,
-                            "pages": totalP
-                        };
-                        console.log(response);
-                    }
-                    // res.locals.metaTags = {
-                    //     title: 'StoryBook',
-                    //     description: 'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.',
-                    //     keywords: 'Affiliate Marketing,Money Making, Online Earning, Blog, Science and Technology,Software and web application development',
-                    //     generator: 'Story Book MetaTag Generator v.1.0',
-                    //     author: 'Saurabh Kashyap'
-                    // };
-                   // res.JSON.stringyfy(popularpost);
-                    console.log();
-                    res.render('stories/popular', {
-                        // stories: response.message,
-                        // pages: totalPages,
-                        // total: totalCount,
-                        // page: page
-                        popular: response.popular,
-                            pageno: pages
-                    });
-                 // return  res.send(JSON.stringify(response));
-                // sendres = JSON.stringify(popularpost);
-                
-                });
-            });
+router.get('/popular/:page/:size', (req, res) => {
+  var pages = parseInt(req.params.page) ;
+  var size = parseInt(req.params.size);
+  var popular = {
+      status: 'public'
+  };
+  if (pages < 0 || pages === 0) {
+      popular = {
+          "error": true,
+          "message": "invalid page number, should start with 1"
+      };
+      return res.json(popular);
+  }
+  popular.skip = size * (pages - 1);
+  popular.limit = size;
+  popular.populate = 'user';
+  popular.sort = {
+      views: -1,
+      date: -1
+  };
+  Story.count({
+      status: 'public'
+  }, function (err, totalC) {
+      if (err) {
+          popularpost = {
+              "error": true,
+              "message": "Error fetching data"
+          }
+      }
+      Story.find({}, {}, popular, function (err, popularpost, response) {
+          // Mongo command to fetch all data from collection.
+          if (err) {
+              response = {
+                  "error": true,
+                  "popularpost": "Error fetching data"
+              };
+          } else {
+              var totalP = Math.ceil(totalC / size);
+              response = {
+                  "error": false,
+                  "popular": popularpost,
+                  "pages": totalP
+              };
+
+          }
+          res.locals.metaTags = {
+              title: 'StoryBook',
+              description: 'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.',
+              keywords: 'Affiliate Marketing,Money Making, Online Earning, Blog, Science and Technology,Software and web application development',
+              generator: 'Story Book MetaTag Generator v.1.0',
+              author: 'Saurabh Kashyap'
+          };
+          res.render('stories/popular', {
+              // stories: response.message,
+              // pages: totalPages,
+              // total: totalCount,
+              // page: page
+              popular: response.popular,
+              pageno: pages
+          });
+          // return  res.send(JSON.stringify(response));
+          // sendres = JSON.stringify(popularpost);
+
+      });
+  });
 });
 //Show Single Stories
 router.get('/show/:id', (req, res) => {
