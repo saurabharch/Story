@@ -94,6 +94,8 @@ self.addEventListener('fetch', event => {
     }
 });
 
+
+
 self.addEventListener('push', function (event) {
     console.log('Push received: ', event);
     let _data = event.data ? JSON.parse(event.data.text()) : {};
