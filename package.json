@@ -25,7 +25,9 @@
     "passport-instagram": "^1.0.0",
     "passport-pinterest": "^1.0.0",
     "passport-twitter": "^1.0.4",
+    "q": "^1.5.1",
     "raven": "^2.6.3",
-    "sw-toolbox": "^3.6.0"
+    "sw-toolbox": "^3.6.0",
+    "web-push": "^3.3.2"
   }
 }

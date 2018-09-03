@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Story = mongoose.model('stories');
 const router = express.Router();
-
 const { ensureAuthenticated, ensureGuest} = require('../helpers/auth');
+
 
 router.get('/', (req, res) => {
     res.locals.metaTags = {
@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
     };
     res.render('index/welcome');
 });
+
 
 router.get('/dashboard', ensureAuthenticated, (req, res) => {
     Story.find({ user: req.user.id })

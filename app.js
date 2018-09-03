@@ -11,6 +11,7 @@ const methodOverride = require('method-override');
 // Load  Model
 require('./models/User');
 require('./models/Story');
+require('./models/Push_Subscriber');
 // require('./models/Categories');
 // Passport Config
 require('./config/passport')(passport);
@@ -20,6 +21,8 @@ const index = require('./routes/index');
 const auth = require('./routes/auth');
 const stories = require('./routes/stories');
 const popular = require('./routes/popular');
+const subscribe = require('./routes/subscribe');
+const push = require('./routes/push');
 // const categories = require('./routes/categories');
 // Load Keys
 const keys = require('./config/keys');
@@ -40,7 +43,7 @@ mongoose.connect(keys.mongoURI, {
 const app = express();
 app.use(Raven.requestHandler());
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // parse application/json
 app.use(bodyParser.json());
@@ -84,7 +87,7 @@ app.use((req, res, next) => {
   next();
 });
 
-//Set Static folder
+
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 // Use Routes
@@ -92,7 +95,10 @@ app.use('/', index);
 app.use('/auth', auth);
 app.use('/stories', stories);
 app.use('/popular', popular);
+app.use('/subscribe', subscribe);
+app.use('/push', push);
 // app.use('/categories', categories);
+
 
 const port = process.env.PORT || 5000;
 
