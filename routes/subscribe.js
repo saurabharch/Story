@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Subscription = mongoose.model('push_subscriber');
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
     const subscriptionModel = new Subscription(req.body);
     subscriptionModel.save((err, subscription) => {
         if (err) {
@@ -18,6 +18,4 @@ router.get('/', (req, res) => {
         }
     });
 });
-
-
 module.exports = router;
