@@ -1,5 +1,75 @@
-function get(e){return console.log("get url"),new Promise(function(n,o){var t=new XMLHttpRequest
-t.open("GET",e),t.onload=function(){200==t.status?n(t.response):o(Error(t.statusText))},t.onerror=function(){connectionFail(),o(Error("Network Error"))},t.send()})}function emptyNone(){document.getElementById("empty").style.display="none"}function loaderNone(){document.getElementById("loader").style.display="none"}function loaderBlock(){document.getElementById("loader").style.display="block"}function connectionFail(){loaderNone(),document.getElementById("lat").innerHTML="Bad news! We need the internet",document.getElementById("no-connection").style.display="block"}function connectionFailNone(){document.getElementById("no-connection").style.display="none"}function findLocation(){return new Promise(function(e,n){navigator.geolocation.getCurrentPosition(e,n,{maximumAge:0,timeout:1e4})})}function geoSuccess(e){var n=e.coords.latitude,o=e.coords.longitude,t=n.toFixed(10)+", ",r=o.toFixed(10)
-document.getElementById("lat").innerHTML=t+" "+r
-var i={lat:n,"long":o}
-return i}function gpsFail(e){document.getElementById("lat").innerHTML="Bad news! We cannot find you",document.getElementById("no-location").style.display="block",1===e?document.getElementById("location-error").innerHTML="Are you sure your location <br> service is switched on?":3===e&&(document.getElementById("location-error").innerHTML="Are you moving? Hold still, <br> so we can find you!")}function geoFailure(e){return emptyNone(),2===e.code?connectionFail():gpsFail(e.code),Promise.reject(e.code)}function searchRestaurants(e){return emptyNone(),connectionFailNone(),document.getElementById("restaurants").innerHTML="",loaderBlock(),get("/results/?lat="+e.lat+"&long="+e["long"])}function showRestaurants(e){loaderNone(),document.getElementById("restaurants").innerHTML=e}function main(){findLocation().then(geoSuccess,geoFailure).then(searchRestaurants).then(showRestaurants)}"serviceWorker"in navigator&&navigator.serviceWorker.register("/new-sw.js").then(function(e){console.log("ServiceWorker registration successful with scope: ",e.scope)})["catch"](function(e){console.log("ServiceWorker registration failed: ",e)}),navigator.geolocation?console.log("Geolocation is supported!"):console.log("Geolocation is not supported for this Browser/OS version yet.")
+let isSubscribed = false;
+let swRegistration = null;
+let applicationKey = "BCWxoXJo6AfZp5T4GOAqw9XLEgU7zXbFz2zySuUjy4sAmt7ADQ-_XDCG6qQyRGAs0x7G9W9gYNLUAaMF9BMOgdo";
+
+function urlB64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding)
+        .replace(/\-/g, '+')
+        .replace(/_/g, '/');
+
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+
+    for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+}
+
+if ('serviceWorker' in navigator && 'PushManager' in window) {
+    console.log('Service Worker and Push is supported');
+
+    navigator.serviceWorker.register('/story-sw.js')
+        .then(function (swReg) {
+            console.log('service worker registered');
+
+            swRegistration = swReg;
+
+            swRegistration.pushManager.getSubscription()
+                .then(function (subscription) {
+                    isSubscribed = !(subscription === null);
+
+                    if (isSubscribed) {
+                        console.log('User is subscribed');
+                    } else {
+                        swRegistration.pushManager.subscribe({
+                                userVisibleOnly: true,
+                                applicationServerKey: urlB64ToUint8Array(applicationKey)
+                            })
+                            .then(function (subscription) {
+                                console.log(subscription);
+                                console.log('User is subscribed');
+
+                                saveSubscription(subscription);
+
+                                isSubscribed = true;
+                            })
+                            .catch(function (err) {
+                                console.log('Failed to subscribe user: ', err);
+                            })
+                    }
+                })
+        })
+        .catch(function (error) {
+            console.error('Service Worker Error', error);
+        });
+} else {
+    console.warn('Push messaging is not supported');
+}
+
+function saveSubscription(subscription) {
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("POST", "/subscribe");
+    xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState != 4) return;
+        if (xmlHttp.status != 200 && xmlHttp.status != 304) {
+            console.log('HTTP error ' + xmlHttp.status, null);
+        } else {
+            console.log("User subscribed to server");
+        }
+    };
+
+    xmlHttp.send(JSON.stringify(subscription));
+}
