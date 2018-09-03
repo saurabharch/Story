@@ -1,7 +1,5 @@
 [
  "",
- "lib/sw-toolbox.js",
- "app.js",
  "sticky.js",
  "css/style.css",
  "js/stripe.js",
