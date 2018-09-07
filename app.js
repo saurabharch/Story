@@ -27,7 +27,7 @@ const push = require('./routes/push');
 // Load Keys
 const keys = require('./config/keys');
 //Handlebars Helpers
-const { truncate, stripTags, formateDate, select, editIcon , ratingIcon, math, totalcount,viewcounting,checkNew} = require('./helpers/hbs');
+const { truncate, stripTags, formateDate, select, editIcon , ratingIcon, math, totalcount,viewcounting,checkNew,CommentsCount,twitterShare, facebookShare,moderateComments} = require('./helpers/hbs');
 var Raven = require('raven');
 Raven.config('https://de8804919dea46698b2728a487303fb8@sentry.io/1272665').install();
 // Map global promises
@@ -63,7 +63,11 @@ app.engine('handlebars', exphbs({
     math: math,
     totalcount: totalcount,
     viewcounting: viewcounting,
-    checkNew: checkNew
+    checkNew: checkNew,
+    CommentsCount: CommentsCount,
+    twitterShare: twitterShare, 
+    facebookShare: facebookShare,
+    moderateComments: moderateComments
   },
   defaultLayout: 'main'
 }));

@@ -86,7 +86,7 @@ router.get('/', (req, res) => {
     });
 });
 router.get('/:page', (req, res) => {
-    console.log(parseInt(req.params.page));
+   // console.log(parseInt(req.params.page));
     var pages = parseInt(req.params.page) || 1;
     var size = parseInt(req.query.size) || 3;
     var popular = {

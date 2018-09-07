@@ -15,9 +15,9 @@ const {
 likescount = [];
 dislikecount = [];
 ratedusers = [];
-router.get('/:page/:size', (req, res) => {
+router.get('/:page', (req, res) => {
     var page = parseInt(req.params.page) || 0;
-    var size = parseInt(req.params.size) || 5;
+    var size = parseInt(req.query.size) || 5;
    // console.log(`page: ${page}, size: ${size} `);
     var query = {
         status: 'public'
@@ -77,9 +77,9 @@ router.get('/:page/:size', (req, res) => {
     });
 });
 
-router.get('/popular/:page/:size', (req, res) => {
+router.get('/popular/:page', (req, res) => {
   var pages = parseInt(req.params.page) ;
-  var size = parseInt(req.params.size);
+  var size = parseInt(req.query.size);
   var popular = {
       status: 'public'
   };
@@ -207,7 +207,7 @@ router.get('/show/:id', (req, res) => {
 });
 
 // Show Single Stories By Writer
-router.get('/user/stories/show/:id', (req, res) => {
+router.get('/user/show/:id', (req, res) => {
     //  console.log(quantity);
     const obajectid = req.params.id.replace('app.js', '').replace('\n', '');
     Story.findOne({
@@ -242,7 +242,8 @@ router.get('/user/stories/show/:id', (req, res) => {
                     if (req.user.id == story.user._id) {
 
                         res.render('stories/show', {
-                            story: story
+                            story: story,
+                            user: user
                         });
                     } else {
                         res.redirect('/stories');
@@ -377,6 +378,7 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
 });
 
 router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
+    console.log(req.body);
     Story.findOne({
         _id: req.params.id
     }).then(story => {
