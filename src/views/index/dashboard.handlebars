@@ -1,0 +1,79 @@
+{{!-- <h1>Welcome {{user.firstName}}</h1> --}}
+{{#if stories}}
+   <div class="dashMaxres">
+        <h4>Your Stories</h4>
+        <table class="striped">
+            <thead>
+                <tr class="tablerow">
+                    <th><i class="fa fa-book" style="font-size:1.3rem"></i> Title</th>
+                    <th><i class="far fa-calendar-alt" style="font-size:1.3rem"></i> Date</th>
+                    <th><i class="fa fa-circle" style="font-size:1.3rem"></i> Status</th>
+                    <th><i class="fa fa-sign-language" style="font-size:1.3rem"></i> Clap</th>
+                    <th><i class="far fa-comments" style="font-size:1.3rem"></i>Comments</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each stories}}
+                <tr>
+                    <td><a href="/stories/show/{{id}}">{{stripTags (truncate title 30)}}</a></td>
+                    <td>{{formateDate date 'MMMM Do YYYY'}}</td>
+                    <td><span class="dash-status">{{status}}</span></td>
+                    <td><span style="color:#777;font-weight:700;font-size:1.2rem;">{{totalcount likes}}</span></td>
+                    <td><span style="color:#777;font-weight:700;font-size:1.2rem;">{{totalcount comments}}</span></td>
+                    <td>
+                        <a href="/stories/edit/{{id}}" class="btn-floating blue left-align"><i class="fas fa-pencil-alt" style="font-size:15px !important;"></i></a>
+                        <form action="/stories/{{id}}?_method=DELETE" method="post" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn-floating red"><i class="fa fa-trash" style="font-size:15px !important;"></i></button>
+                        </form>
+        
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+   </div>
+{{else}}
+<section class="container">
+    <div class="content1">
+        <h1 id="title">Welcome {{user.firstName}}</h1></h1>
+        <p id="steps">Simple Three fingers Rules setting before publish your Story on StoryBook</p>
+    </div>
+</section>
+
+<section class="container">
+    <div class="content1">
+        <h1 id="title">Step 1</h1>
+        <p id="steps">Add Your Title of your Story In title area</p>
+    </div>
+</section>
+
+<section class="container">
+    <div class="content1">
+        <h1 id="title">Step 2</h1>
+        <p id="steps" >Three Option for Story moderation Select any one of them</p>
+    </div>
+</section>
+
+<section class="container">
+    <div class="content1">
+        <h1 id="title">Step 3</h1>
+        <p id="steps" >Final Setting option for allow comment on story</p>
+    </div>
+</section>
+
+<section class="container">
+    <div class="content1">
+        <h1 id="title">Let's Start</h1>
+        <br/> <br/>
+        <a href="/stories/add" class="btn btn-circle btn-start" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;">Click Here <i class="fa fa-pencil"></i></a>
+    </div>
+</section>
+
+<div id="set-height"></div>
+
+<video id="v0" tabindex="0" , autobuffer preload>
+    <source type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' src="fingers.mp4"></source>
+</video>
+{{/if}}

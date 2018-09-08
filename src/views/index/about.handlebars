@@ -1,0 +1,8 @@
+<h3>{{user.firstname}} {{user.lastname}}</h3>
+{{#each stories}}
+<ul>
+    <li>
+         {{stripTags (truncate title 30)}}
+    </li>
+</ul>
+ {{/each}}

@@ -1,0 +1,33 @@
+{
+    "name": "StoryBook",
+    "short_name": "SBook",
+    "start_url": "https://new-storybook.herokuapp.com",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#ccc",
+    "theme_color": "#0098e3",
+   "scope ": "/",
+    "icons": [
+        {
+            "src": "/img/book-96X96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/img/book-192X192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/img/book-256X256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/img/book-512X512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "splash_pages": null
+}

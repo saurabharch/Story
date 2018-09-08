@@ -1,0 +1,115 @@
+<div id="popular" class="section group" style="margin-top:2rem;">
+    <center>
+        <div>
+            <h3 class="titlename">Stories</h3>
+        </div>
+    </center>
+    {{!-- <div class="row">
+        <div class="col s1 m1" onclick="location.href='?pageNo=1&size=6#popular';"><a class="btn btn-circle" style="color:white;background-color:#333 !important;">1</a></div>
+        <div class="col s1 m1" onclick="location.href='?pageNo=2&size=6#popular';"><a class="btn btn-circle" style="color:white;background-color:#333 !important;">2</a></div>
+        <div class="col s1 m1" onclick="location.href='?pageNo=1&size=6#popular';"><a class="btn btn-circle" style="color:white;background-color:#777 !important;">First</a></div>
+    </div> --}}
+    <div class="row">
+        <ul class="pagination">
+            <li class="disabled"><a href="#!" ><i class="material-icons">chevron_left</i></a></li>
+            <li class="waves-effect active selective" onclick="location.href='/stories/1?size=6#popular';"><a href="#!">1</a></li>
+            <li class="waves-effect selective"><a href="#!" onclick="location.href='/stories/2?size=6#popular';">2</a></li>
+            <li class="waves-effect selective"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col s4 m4" style="totalstick">Total Post Count: {{total}}</div>
+                <div class="col s4 m4">Current page: {{page}}</div>
+                <div class="col s4 m4">Total Pages: {{pages}}</div>
+            </div>
+        </div>
+        {{#each stories}}
+        <div class="col s12 m4">
+            <div class="card card1 heartbeat" onclick="location.href='./user/show/{{id}}';">
+                <div class="card-image">
+                    {{!-- {{#if user}} {{{editIcon user.id ../user.id id}}} {{/if}} --}}
+                </div>
+                <div class="card-content center-align">
+                    <h5 class="storytitile">{{title}} <span class="{{checkNew date}}"></span>
+                    </h5>
+                    {{#if body}}
+                    <small>
+                            <div class="col s12 left" style="border-radius:30px;text-align:left;">
+                                <p class="animated-background1" style="padding:.3rem;color:#888;width:100%;.opacity:0.7">{{formateDate date 'MMMM Do YYYY'}}</p>
+                            </div>
+                    </small>
+                    <p class="story-text page-footer docs-footer">{{stripTags (truncate body 150)}}</p>
+                    {{/if}} {{#else}}
+                    <div class="preloader-wrapper small active">
+                        <div class="spinner-layer spinner-green-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animated-background">
+                        <div class="background-masker paragraph1-bottom"></div>
+                        <div class="background-masker paragraph2-bottom"></div>
+                        <div class="background-masker paragraph3-bottom"></div>
+                        <div class="background-masker paragraph4-bottom"></div>
+                        <div class="background-masker paragraph5-bottom"></div>
+                        <div class="background-masker paragraph6-bottom"></div>"
+                    </div>
+                    {{/else}}
+                    <br>
+                    <div class="chip">
+                        {{#if user.image}}
+                        <img src="{{user.image}}" class="image-responsive"><a href="/stories/user/{{user.id}}" class="name-responsive">
+                        {{user.firstName}} {{user.lastName}} </a>
+                        {{/if}} {{#else}}
+                        <div class="background-masker image"></div>
+                        {{/else}}
+                    </div>
+                    <div class="row" style="background-color:transparent;border-top:1px solid rgba(0, 0, 0, 0.14);color: inherit;">
+                        <div class="col s4">
+                            <a href="#" class="stateinfo" style="color:#888;height:46px;">
+                                <i class="material-icons text-grey text-left">remove_red_eye </i><small>{{viewcounting views}}</small>
+                            </a>
+                        </div>
+                        <div class="col s8">
+                    
+                            {{#if user}} {{{ratingIcon user.id ../user.id id}}} {{/if}}
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <p>No Story Found</p>
+        <div class="timeline-wrapper">
+            <div class="timeline-item">
+                <div class="animated-background">
+                    <div class="background-masker image"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker paragraph1-bottom"></div>
+                    <div class="background-masker paragraph2-bottom"></div>
+                    <div class="background-masker paragraph3-bottom"></div>
+                    <div class="background-masker paragraph4-bottom"></div>
+                    <div class="background-masker paragraph5-bottom"></div>
+                    <div class="background-masker paragraph6-bottom"></div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{!-- <div class="separator focus-in-contract-bck black" style="width:100%;">New Latest Posted Stories</div> --}}
+{{!-- <div class="" id="latest" style="margin-top:2rem">
+<iframe src="popular/1" sandbox="allow-same-origin allow-scripts" seamless="seamless" frameborder="0" style="border: 0px solid white;" width="100%" height="724px"></iframe>
+</div> --}}
+
+{{!-- {{> popular}} --}}

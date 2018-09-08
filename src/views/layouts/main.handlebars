@@ -1,0 +1,904 @@
+<!doctype html>
+<html class="backgroundcliptext cors cssanimations cssfilters csstransforms csstransforms3d csstransitions no-touchevents supports"
+    dir=ltr lang=en prefix="content: http://purl.org/rss/1.0/modules/content/
+dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema#
+schema: http://schema.org/ sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core#
+xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article# xmlns:book=http://ogp.me/ns/book# xmlns:product=http://ogp.me/ns/product#
+    xmlns:profile=http://ogp.me/ns/profile# xmlns:video=http://ogp.me/ns/video#>
+<meta charset=UTF-8>
+<meta content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1" name=viewport>
+<meta content="ie=edge" http-equiv=X-UA-Compatible>
+<title>{{metaTags.title}}</title>
+<meta content={{metaTags.description}} name=title>
+<meta content={{metaTags.description}} name=description>
+<meta content={{metaTags.keywords}} name=keywords>
+<meta content={{metaTags.author}} name=author>
+<meta content=yes name=apple-mobile-web-app-capable>
+<link href=/img/fevicon.ico rel="shortcut icon" type=image/x-icon>
+<link href=/css/materialize.min.css rel=stylesheet>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css' integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ' crossorigin='anonymous'>
+{{!--
+<link href=https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css rel=stylesheet crossorigin=anonymous
+    integrity=sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN>--}}
+<link href=/css/style.css rel=stylesheet>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel=stylesheet>
+<link href=https://www.new-storybook.herokuapp.com/ rel=shortlink>
+<link href=https://www.new-storybook.herokuapp.com/ rel=canonical>
+<link href=https://www.new-storybook.herokuapp.com/sg/ rel=hreflang hreflang=en-SG>
+<link href=https://www.new-storybook.herokuapp.com/in/ rel=hreflang hreflang=en-IN>
+<link href=https://www.new-storybook.herokuapp.com/uk/ rel=hreflang hreflang=en-GB>
+<link href=https://www.new-storybook.herokuapp.com/au/ rel=hreflang hreflang=en-AU>
+<link href=https://www.new-storybook.herokuapp.com/ae/ rel=hreflang hreflang=en-AE>
+<link href=https://www.new-storybook.herokuapp.com rel=hreflang hreflang=de>
+<link href=https://www.new-storybook.herokuapp.com/en rel=alternate hreflang=en>
+<link href=/themes/custom/themekit/images/favicon/safari-pinned-tab.svg rel=mask-icon color=#0098e3>
+<meta content=#2b5797 name=msapplication-TileColor>
+<link href=manifest.json rel=manifest type=manifest+json>
+<script type="text/javascript" src="./new-install.js"></script>
+{{!-- <link rel="manifest" href="/manifest.json" />
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+        OneSignal.init({
+            appId: "2006cf0a-c191-4692-aff5-0e4b3c9a2dd8",
+            autoRegister: false,
+            notifyButton: {
+                enable: true,
+            },
+        });
+    });
+</script> --}}
+{{!-- <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b8bc0355f7cb000119f5aed&product=social-ab' async='async'></script> --}}
+<meta content=black-translucent name=apple-mobile-web-app-status-bar-style>
+<meta content=yes name=apple-mobile-web-app-capable>
+<link href=/img/fevicon.ico rel=icon sizes="16x16 32x32 48x48">
+<link href=/img/book-512X512.png rel=icon sizes=512x512>
+<meta content=#0098e3 name=theme-color>
+<meta content=browserconfig.xml name=msapplication-config>{{!-- SEO AREA START --}}
+<script>console.log("%c Stop! %cThis is a browser feature intended for developers.If someone told you to copy and paste something here to enable a Storybook feature or 'hack' someone's account, it is a scam and will give them access to your StoryBook account. %cSee https://new-storybook.herokuapp.com/security for more information. ", "font-weight:bold;font-size:50px;color:red;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;", "font-weight:500;font-size:20px;color:#404040;", "font-weight:500;font-size:22px;color:grey;")</script>{{!-- HTTP TO HTTPS REDIRECT --}}
+{{!-- <script>"https:" != document.location.protocol && (document.location = document.URL.replace(/^http:/i, "https:"))</script> --}}
+<script>var monsterinsights_frontend = { js_events_tracking: "true", is_debug_mode: "false", download_extensions: "doc,exe,js,pdf,ppt,tgz,zip,xls", inbound_paths: "/recommended/", home_url: "https://www.new-storybook.herokuapp.com", track_download_as: "event", internal_label: "aff", hash_tracking: "false" }</script>
+<script>var advanced_ads_responsive = { reload_on_resize: "0" }</script>
+<script>var advanced_ads_pro_visitor_conditions = { referrer_cookie_name: "advanced_ads_pro_visitor_referrer", referrer_exdays: "365", page_impr_cookie_name: "advanced_ads_page_impressions", page_impr_exdays: "3650" }</script>
+<link href=https://www.new-storybook.herokuapp.com/ rel=https://api.w.org/>
+<meta content={{metaTags.generator}} name=generator>
+<link href=https://www.new-storybook.herokuapp.com/ rel=shortlink>
+<meta content={{metaTags.generator}} name=generator>{{!-- FACEBOOK PAGE HERE --}} {{!--<meta content=94019601674 property=fb:pages>--}}
+<script>window._peq = window._peq || [], window._peq.push(["init"])</script>{{!--
+<script data-cfasync=false>var gtm4wp_scrollerscript_debugmode = !1, gtm4wp_scrollerscript_callbacktime = 100, gtm4wp_scrollerscript_readerlocation = 150, gtm4wp_scrollerscript_contentelementid = "content", gtm4wp_scrollerscript_scannertime = 60; jQuery(function () { gtm4wp_track_downloads("pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,gz,tar") }), dataLayer.push({ pagePostType: "frontpage", pagePostType2: "single-page", pagePostAuthor: "Saurabh Kashyap", browserName: "Chrome", browserVersion: "67.0.3396.99", browserEngineName: "Blink", browserEngineVersion: "", osName: "Windows", osVersion: "6.1", deviceType: "desktop", deviceManufacturer: "", deviceModel: "" })</script>--}}
+<script>var advadsCfpQueue = [], advadsCfpExpHours = 3, advadsCfpClickLimit = 3, advadsCfpPath = "", advadsCfpDomain = "new-storybook.herokuapp.com", advadsCfpAd = function (a) { "undefined" == typeof advadsProCfp ? advadsCfpQueue.push(a) : advadsProCfp.addElement(a) }</script>{{!--
+<link href=https://www.new-storybook.herokuapp.com/img/book-96x96.png rel=icon sizes=32x32>
+<link href=https://www.new-storybook.herokuapp.com/img/book-192x192.png rel=icon sizes=192x192>
+<link href=https://www.new-storybook.herokuapp.com/img/book-180x180.png rel=apple-touch-icon-precomposed>
+<meta content=https://www.new-storybook.herokuapp.com/img/book-256x256.png name=msapplication-TileImage>meta name="viewport" content="width=device-width, initial-scale=1" /> --}}
+<script data-cfasync=false>var gtm4wp_datalayer_name = "dataLayer", dataLayer = dataLayer || []</script>{{!--
+<meta content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."
+    name=description>--}}
+<meta content=en_US property=og:locale>
+<meta content=website property=og:type>
+<meta content={{metaTags.title}} property=og:title>{{!--
+<meta content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."
+    property=og:description>--}}
+<meta content=Octicons-book.svg.png property=og:image>
+<meta content=https://www.new-storybook.herokuapp.com/ property=og:url>
+<meta content=StoryBook property=og:site_name>
+<meta content={{metaTags.title}} name=twitter:card>
+{{!--<meta content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing." name=twitter:description>--}}
+<meta content={{metaTags.title}} name=twitter:title>
+<meta content={{metaTags.TwitterLink}} name=twitter:site>
+<meta content={{metaTags.myTwitter}} name=twitter:creator>{{!--
+<script type=application/ld+json>{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/www.new-storybook.herokuapp.com\/","name":"StoryBook","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.new-storybook.herokuapp.com\/?story={search_term_string}","query-input":"required name=search_term_string"}}</script>--}} {{!-- GOOGLE SITE VERIFICATION META TAG --}} {{!-- GOOGLE TAG VERIFICATION HERE --}} {{!--
+<meta content=WMRj-FanG0c99YGBxsGsm10cWSKyfI-hPprm7aKRcqI
+    name=google-site-verification>--}}
+<link href=https://www.new-storybook.herokuapp.com/amp rel=amphtml>
+<style class="js-collectionStyle">
+    .u-accentColor--borderLight {
+        border-color: #868484 !important;
+    }
+
+    .u-accentColor--borderNormal {
+        border-color: #868484 !important;
+    }
+
+    .u-accentColor--borderDark {
+        border-color: #737171 !important;
+    }
+
+    .u-accentColor--iconLight .svgIcon,
+    .u-accentColor--iconLight.svgIcon {
+        fill: #868484 !important;
+    }
+
+    .u-accentColor--iconNormal .svgIcon,
+    .u-accentColor--iconNormal.svgIcon {
+        fill: #868484 !important;
+    }
+
+    .u-accentColor--iconDark .svgIcon,
+    .u-accentColor--iconDark.svgIcon {
+        fill: #737171 !important;
+    }
+
+    .u-accentColor--textNormal {
+        color: #737171 !important;
+    }
+
+    .u-accentColor--hoverTextNormal:hover {
+        color: #737171 !important;
+    }
+
+    .u-accentColor--textNormal.u-accentColor--textDarken:hover {
+        color: #696867 !important;
+    }
+
+    .u-accentColor--textDark {
+        color: #696867 !important;
+    }
+
+    .u-accentColor--backgroundLight {
+        background-color: #868484 !important;
+    }
+
+    .u-accentColor--backgroundNormal {
+        background-color: #868484 !important;
+    }
+
+    .u-accentColor--backgroundDark {
+        background-color: #737171 !important;
+    }
+
+    .u-accentColor--buttonDark {
+        border-color: #737171 !important;
+        color: #696867 !important;
+    }
+
+    .u-accentColor--buttonDark:hover {
+        border-color: #696867 !important;
+    }
+
+    .u-accentColor--buttonDark .icon:before,
+    .u-accentColor--buttonDark .svgIcon {
+        color: #737171 !important;
+        fill: #737171 !important;
+    }
+
+    .u-accentColor--buttonNormal:not(.clapButton--largePill) {
+        border-color: #868484 !important;
+        color: #737171 !important;
+    }
+
+    .u-accentColor--buttonNormal:hover {
+        border-color: #737171 !important;
+    }
+
+    .u-accentColor--buttonNormal .icon:before,
+    .u-accentColor--buttonNormal .svgIcon {
+        color: #868484 !important;
+        fill: #868484 !important;
+    }
+
+    .u-accentColor--buttonNormal.button--filled .icon:before,
+    .u-accentColor--buttonNormal.button--filled .svgIcon {
+        color: rgba(255, 255, 255, 1) !important;
+        fill: rgba(255, 255, 255, 1) !important;
+    }
+
+    .u-accentColor--buttonDark.button--filled,
+    .u-accentColor--buttonDark.button--withChrome.is-active,
+    .u-accentColor--fillWhenActive.is-active {
+        background-color: #737171 !important;
+        border-color: #737171 !important;
+        color: rgba(255, 255, 255, 1) !important;
+        fill: rgba(255, 255, 255, 1) !important;
+    }
+
+    .u-accentColor--buttonNormal.button--filled:not(.clapButton--largePill),
+    .u-accentColor--buttonNormal.button--withChrome.is-active:not(.clapButton--largePill) {
+        background-color: #868484 !important;
+        border-color: #868484 !important;
+        color: rgba(255, 255, 255, 1) !important;
+        fill: rgba(255, 255, 255, 1) !important;
+    }
+
+    .postArticle.is-withAccentColors .markup--user,
+    .postArticle.is-withAccentColors .markup--query {
+        color: #737171 !important;
+    }
+
+    .u-tintBgColor {
+        background-color: rgba(0, 0, 0, 1) !important;
+    }
+
+    .u-tintBgColor .u-fadeLeft:before {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    }
+
+    .u-tintBgColor .u-fadeRight:after {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%) !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--borderLight {
+        border-color: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--borderNormal {
+        border-color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--borderDark {
+        border-color: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--iconLight .svgIcon,
+    .u-tintSpectrum .u-baseColor--iconLight.svgIcon {
+        fill: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--iconNormal .svgIcon,
+    .u-tintSpectrum .u-baseColor--iconNormal.svgIcon {
+        fill: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--iconDark .svgIcon,
+    .u-tintSpectrum .u-baseColor--iconDark.svgIcon {
+        fill: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--textNormal {
+        color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--textNormal.u-baseColor--textDarken:hover {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--textDark {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--textDarker {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--backgroundLight {
+        background-color: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--backgroundNormal {
+        background-color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--backgroundDark {
+        background-color: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonLight {
+        border-color: #868484 !important;
+        color: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonLight:hover {
+        border-color: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonLight .icon:before,
+    .u-tintSpectrum .u-baseColor--buttonLight .svgIcon {
+        color: #868484 !important;
+        fill: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonDark {
+        border-color: #D9D6D6 !important;
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonDark:hover {
+        border-color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonDark .icon:before,
+    .u-tintSpectrum .u-baseColor--buttonDark .svgIcon {
+        color: #D9D6D6 !important;
+        fill: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonNormal {
+        border-color: #B1AEAE !important;
+        color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonNormal:hover {
+        border-color: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonNormal .icon:before,
+    .u-tintSpectrum .u-baseColor--buttonNormal .svgIcon {
+        color: #B1AEAE !important;
+        fill: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonDark.button--filled,
+    .u-tintSpectrum .u-baseColor--buttonDark.button--withChrome.is-active {
+        background-color: #D9D6D6 !important;
+        border-color: #D9D6D6 !important;
+        color: rgba(0, 0, 0, 1) !important;
+        fill: rgba(0, 0, 0, 1) !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonNormal.button--filled,
+    .u-tintSpectrum .u-baseColor--buttonNormal.button--withChrome.is-active {
+        background-color: #B1AEAE !important;
+        border-color: #B1AEAE !important;
+        color: rgba(0, 0, 0, 1) !important;
+        fill: rgba(0, 0, 0, 1) !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--link {
+        color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--link.link--darkenOnHover:hover {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--link.link--darken:hover,
+    .u-tintSpectrum .u-baseColor--link.link--darken:focus,
+    .u-tintSpectrum .u-baseColor--link.link--darken:active {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--link.link--dark {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--link.link--dark.link--darken:hover,
+    .u-tintSpectrum .u-baseColor--link.link--dark.link--darken:focus,
+    .u-tintSpectrum .u-baseColor--link.link--dark.link--darken:active {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--link.link--darker {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--placeholderNormal ::-webkit-input-placeholder {
+        color: #868484;
+    }
+
+    .u-tintSpectrum .u-baseColor--placeholderNormal ::-moz-placeholder {
+        color: #868484;
+    }
+
+    .u-tintSpectrum .u-baseColor--placeholderNormal :-ms-input-placeholder {
+        color: #868484;
+    }
+
+    .u-tintSpectrum .svgIcon--logoNew path:nth-child(1) {
+        stroke: none !important;
+        fill: #3C3B3B !important;
+    }
+
+    .u-tintSpectrum .svgIcon--logoNew path:nth-child(2) {
+        stroke: none !important;
+        fill: #565555 !important;
+    }
+
+    .u-tintSpectrum .svgIcon--logoNew path:nth-child(3) {
+        stroke: none !important;
+        fill: #868484 !important;
+    }
+
+    .u-tintSpectrum .svgIcon--logoNew path:nth-child(4) {
+        stroke: none !important;
+        fill: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .svgIcon--logoWordmark {
+        stroke: none !important;
+        fill: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .svgIcon--logoMonogram {
+        stroke: none !important;
+        fill: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .ui-h1,
+    .u-tintSpectrum .ui-h2,
+    .u-tintSpectrum .ui-h3,
+    .u-tintSpectrum .ui-h4,
+    .u-tintSpectrum .ui-brand1,
+    .u-tintSpectrum .ui-brand2,
+    .u-tintSpectrum .ui-captionStrong {
+        color: #ECE9E9 !important;
+        fill: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .ui-body,
+    .u-tintSpectrum .ui-caps {
+        color: #ECE9E9 !important;
+        fill: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .ui-summary,
+    .u-tintSpectrum .ui-caption {
+        color: #868484 !important;
+        fill: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--borderLight {
+        border-color: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--borderNormal {
+        border-color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--borderDark {
+        border-color: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--iconLight .svgIcon,
+    .u-tintSpectrum .u-accentColor--iconLight.svgIcon {
+        fill: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--iconNormal .svgIcon,
+    .u-tintSpectrum .u-accentColor--iconNormal.svgIcon {
+        fill: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--iconDark .svgIcon,
+    .u-tintSpectrum .u-accentColor--iconDark.svgIcon {
+        fill: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--textNormal {
+        color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--hoverTextNormal:hover {
+        color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--textNormal.u-accentColor--textDarken:hover {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--textDark {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--backgroundLight {
+        background-color: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--backgroundNormal {
+        background-color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--backgroundDark {
+        background-color: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonDark {
+        border-color: #D9D6D6 !important;
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonDark:hover {
+        border-color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonDark .icon:before,
+    .u-tintSpectrum .u-accentColor--buttonDark .svgIcon {
+        color: #D9D6D6 !important;
+        fill: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonNormal:not(.clapButton--largePill) {
+        border-color: #B1AEAE !important;
+        color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonNormal:hover {
+        border-color: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonNormal .icon:before,
+    .u-tintSpectrum .u-accentColor--buttonNormal .svgIcon {
+        color: #B1AEAE !important;
+        fill: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonNormal.button--filled .icon:before,
+    .u-tintSpectrum .u-accentColor--buttonNormal.button--filled .svgIcon {
+        color: rgba(0, 0, 0, 1) !important;
+        fill: rgba(0, 0, 0, 1) !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonDark.button--filled,
+    .u-tintSpectrum .u-accentColor--buttonDark.button--withChrome.is-active,
+    .u-tintSpectrum .u-accentColor--fillWhenActive.is-active {
+        background-color: #D9D6D6 !important;
+        border-color: #D9D6D6 !important;
+        color: rgba(0, 0, 0, 1) !important;
+        fill: rgba(0, 0, 0, 1) !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonNormal.button--filled:not(.clapButton--largePill),
+    .u-tintSpectrum .u-accentColor--buttonNormal.button--withChrome.is-active:not(.clapButton--largePill) {
+        background-color: #B1AEAE !important;
+        border-color: #B1AEAE !important;
+        color: rgba(0, 0, 0, 1) !important;
+        fill: rgba(0, 0, 0, 1) !important;
+    }
+
+    .u-tintSpectrum .postArticle.is-withAccentColors .markup--user,
+    .u-tintSpectrum .postArticle.is-withAccentColors .markup--query {
+        color: #B1AEAE !important;
+    }
+
+    .u-accentColor--highlightFaint {
+        background-color: rgba(243, 240, 239, 1) !important;
+    }
+
+    .u-accentColor--highlightStrong.is-active .svgIcon {
+        fill: rgba(226, 223, 222, 1) !important;
+    }
+
+    .postArticle.is-withAccentColors .markup--quote.is-other {
+        background-color: rgba(243, 240, 239, 1) !important;
+    }
+
+    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-other {
+        background-color: transparent !important;
+        background-image: linear-gradient(to bottom, rgba(243, 240, 239, 1), rgba(243, 240, 239, 1));
+    }
+
+    .postArticle.is-withAccentColors .markup--quote.is-me {
+        background-color: rgba(233, 230, 230, 1) !important;
+    }
+
+    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-me {
+        background-color: transparent !important;
+        background-image: linear-gradient(to bottom, rgba(233, 230, 230, 1), rgba(233, 230, 230, 1));
+    }
+
+    .postArticle.is-withAccentColors .markup--quote.is-targeted {
+        background-color: rgba(226, 223, 222, 1) !important;
+    }
+
+    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-targeted {
+        background-color: transparent !important;
+        background-image: linear-gradient(to bottom, rgba(226, 223, 222, 1), rgba(226, 223, 222, 1));
+    }
+
+    .postArticle.is-withAccentColors .markup--quote.is-selected {
+        background-color: rgba(226, 223, 222, 1) !important;
+    }
+
+    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-selected {
+        background-color: transparent !important;
+        background-image: linear-gradient(to bottom, rgba(226, 223, 222, 1), rgba(226, 223, 222, 1));
+    }
+
+    .postArticle.is-withAccentColors .markup--highlight {
+        background-color: rgba(226, 223, 222, 1) !important;
+    }
+
+    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--highlight {
+        background-color: transparent !important;
+        background-image: linear-gradient(to bottom, rgba(226, 223, 222, 1), rgba(226, 223, 222, 1));
+    }
+
+    .u-baseColor--iconNormal.avatar-halo {
+        fill: rgba(0, 0, 0, 0.4980392156862745) !important;
+    }
+</style>
+<link href=//www.new-storybook.herokuapp.com rel=dns-prefetch>{{!--
+<link href=//s0.wp.com rel=dns-prefetch>--}} {{!--
+<link href=//clientcdn.pushengage.com rel=dns-prefetch>
+<link href=//a.optmstr.com rel=dns-prefetch>
+<link href=//js.stripe.com rel=dns-prefetch>--}} {{!--
+<link href=//s.w.org rel=dns-prefetch>--}} {{!-- SEO AREA END --}}
+<div id=wrapper></div>
+<div id=warning-message>
+    <center>
+        <div class=card>
+            <div class=overlay></div>
+            <div class=overlay-content>Please rotate your device</div>
+            <div class=overlay-text>We don't support landscape mode yet. Please go back to portrait mode for the best experience</div>
+        </div>
+    </center>
+</div>{{> _header}} {{> _side-nav}}  {{#if user}} {{> _add-btn}} {{/if}}
+<main>
+    <div class=container>{{{body}}}</div>
+    <center><div><a href="#" id="btnAdd" class="btn-ahs white-text">Add to Home Screen</a></div></center>
+</main>{{> _footer}}
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js></script>
+{{!-- <script src=init.js></script> --}}
+<script src=https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src=https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js></script>
+<script type="text/javascript" src="js/scroll.js"></script>
+{{!-- <script src=https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js></script> --}}
+{{!-- <script src=https://cloud.tinymce.com/stable/tinymce.min.js></script> --}}
+<script type="text/javascript" src="sticky.js></script>
+<script>document.addEventListener("DOMContentLoaded", function () { try { enterView({ selector: "section", enter: function (e) { e.classList.add("entered") } }); var n = 1e3, e = document.getElementById("set-height"), o = document.getElementById("v0"); o.addEventListener("loadedmetadata", function () { e.style.height = Math.floor(o.duration) * n + "px" }), window.requestAnimationFrame(function e() { var t = window.pageYOffset / n; o.currentTime = t, window.requestAnimationFrame(e) }) } catch (e) { console.log(e) } })</script>
+<script>var name = JSON.stringify([{ title: "twitter:description", description: "StoryBook a app Share your Day story to the world. alpha version" }, { title: "og:description", description: "StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing." }]); for (x in myObje = JSON.parse(name), myObje) { var m = document.createElement("meta"); m.name = myObje[x].title, m.content = myObje[x].description, document.head.appendChild(m) }</script>
+<script type="text/javascript">$(document).ready(function () {
+        $({ property: 0 }).animate({ property: 100 }, {
+            duration: 4000,
+            step: function () {
+                var _percent = Math.round(this.property);
+                $('#progress').css('width', _percent + "%");
+                if (_percent == 100) {
+                    $("#progress").addClass("done");
+                }
+            },
+            complete: function () {
+                //  alert('complete');
+            }
+            $('.scrollspy').scrollSpy();
+        });
+    });
+    $(document).ready(() => {
+        try {
+
+            $('.button-collapse').sideNav();
+            $('select').material_select();
+            $('categoryType').material_select();
+
+
+            // ClassicEditor.create(document.querySelector('#editor')).then(editor => {
+            //editor.plugins: [Essentials, Markdown, Paragraph,Bold, Italic, Underline, Strikethrough, Code, Alignment, Autoformat, Table, TableToolbar],  
+            // language: 'en',  
+            //    toolbar: ['bold', 'italic', 'alignment', 'insertTable',],
+            //   blockToolbar: ['paragraph', 'heading1', 'heading2', 'heading3','|','bulletedList', 'numberedList','|','blockQuote', 'imageUpload'],
+            //    table: {
+            //   toolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
+            // },
+            // image: {
+            //  toolbar: ['bold', 'italic', 'underline', 'strikethrough', 'code', 'imageTextAlternative' |  'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight'],
+            //  styles: ['full','alignLeft', 'alignRight']
+            //}
+            //   })
+            //     .catch(error => {
+            //       console.error(error);
+            //     });
+            if (window.location.href.indexOf("add") > -1 || window.location.href.indexOf("edit") > -1) {
+                CKEDITOR.replace('body');
+            }
+
+            // tinymce.init({ selector: 'textarea' });
+            var elem = document.querySelector('.slider');
+            var instance = M.Slider.init(elem, options);
+
+            // Or with jQuery
+
+            $(document).ready(function () {
+                $('.slider').slider();
+            });
+        }
+        catch (err) {
+            console.log(err)
+        }
+    });</script>
+<script type="text/javascript">$(document).ready(() => {
+        window.onload = function () {
+            var display = $("#LandingHeader").css("display");
+            var tagnav = $('nav').css("display");
+            var navigator = $('#backNavigator').css("top");
+            var footer = $('.titlename2').css('display');
+            var dashboard = $('#footerfloat').css('position');
+            var sidenavfixed = $('#sidenavigation').css("dispaly");
+            $('img').addClass('responsive-img');
+            if (window.screen.width < 824 && footer == "none") {
+                $('.titlename2').css({ display: "block" });
+               if(window.location.href.indexOf("dashboard") > -1){
+                    $('#footerfloat').css({ right: "80%"});
+               }
+               else{
+                    $('#footerfloat').css({ right: "23px"});
+               }
+               
+            } else {
+                $('.titlename2').css({ display: "none" });
+            }
+            // headerid.style.display = none;
+            if (window.location.href.indexOf("show") > -1 || window.location.href.indexOf("stories") > -1 || window.location.href.indexOf("about") > -1 || window.location.href.indexOf("security") > -1 || window.location.href.indexOf("dashboard") > -1 || window.location.href.indexOf("donate") > -1 || window.location.href.indexOf("popular") > -1) {
+                if (display != "none") {
+                    $("#LandingHeader").css({ display: "none" });
+                    if (window.screen.width < 824 && tagnav != "none") {
+                        $('nav').css({ display: "none" });
+                        $('#backNavigator').css({ top: "0px" });
+                        if(window.location.href.indexOf("dashboard") > -1)
+                        {
+                            if (dashboard === 'fixed') {
+                                $('#footerfloat').css({ right: "80%" })
+                            }
+                        }
+                       
+                    }
+                     if (window.location.href.indexOf("popular") > -1) {
+                        if (tagnav === 'block') {
+                          //  $('nav').css({ display: "none" });
+                           //  $('#sidenavigation').css({ display: "none" });
+                        }
+                    }
+                    // $("#LandingHeader").css("style", "display:block");
+                }
+                
+
+            } else {
+                $('nav').css({ display: "block" });
+                $('.titlename2').css({ display: "none" });
+            }
+
+
+            // var headerid = $('#LandingHeader');
+
+            if (window.location.href.indexOf("index") > -1 || !window.location.href.indexOf("add") > 1 || !window.location.href.indexOf("edit") > 1 || !window.location.href.indexOf("show") > 1 || !window.location.href.indexOf("dashboard") > 1 || !window.location.href.indexOf("stories") > 1) {
+
+                var placeholder = document.querySelector('.placeholder'),
+                    small = placeholder.querySelector('.img-small')
+
+                // 1: load small image and show it
+                var img = new Image();
+                img.src = small.src;
+                img.onload = function () {
+                    small.classList.add('loaded');
+                };
+
+                // 2: load large image
+                var imgLarge = new Image();
+                imgLarge.src = placeholder.dataset.large;
+                imgLarge.alt = "Full Image Load";
+                imgLarge.onload = function () {
+                    imgLarge.classList.add('loaded');
+
+                };
+                placeholder.appendChild(imgLarge);
+            }
+        }
+    });</script>
+    <script scr="${pageContext.request.contextPath}stripe-main.js"></script>
+    <script>
+        $(function () {
+                var $h3s = $('.selective').click(function () {
+                    $h3s.removeClass('active');
+                    $(this).addClass('active');
+                });
+            });
+    </script>
+    <script type="text/javascript">
+    
+         let deferredPrompt;
+         var btnAdd = document.getElementById("btnAdd");
+         window.addEventListener('beforeinstallprompt', function (e) {
+                console.log('beforeinstallprompt Event fired');
+                e.preventDefault();
+
+                // Stash the event so it can be triggered later.
+                deferredPrompt = e;
+
+                return false;
+            });
+
+            btnAdd.addEventListener('click', function () {
+                if (deferredPrompt !== undefined) {
+                    // The user has had a postive interaction with our app and Chrome
+                    // has tried to prompt previously, so let's show the prompt.
+                    deferredPrompt.prompt();
+
+                    // Follow what the user has done with the prompt.
+                    deferredPrompt.userChoice.then(function (choiceResult) {
+
+                        console.log(choiceResult.outcome);
+
+                        if (choiceResult.outcome == 'dismissed') {
+                            console.log('User cancelled home screen install');
+                        }
+                        else {
+                            console.log('User added to home screen');
+                        }
+
+                        // We no longer need the prompt.  Clear it up.
+                        deferredPrompt = null;
+                    });
+                }
+            });
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'} )
+                    .then(registration => {
+                        console.log(`Service Worker registered! Scope: ${registration.scope}`);
+                    })
+                    .catch(err => {
+                        console.log(`Service Worker registration failed: ${err}`);
+                    });
+            });
+        }
+    </script>
+<script type=application/ld+json>{"@context":"http:\/\/schema.org",
+"@type":"WebSite",
+"url":window.location.href,
+"name":"StoryBook",
+"potentialAction":{"@type":"SearchAction",
+"target":window.location.href+"\/?story={search_term}",
+"query-input":"required name=search_term"}
+}</script>
+{{!-- <script>
+       var stripe = Stripe('pk_test_RekulS5PNe7uUNGtJV7g5Xfj');
+
+        // Create an instance of Elements.
+        var elements = stripe.elements();
+
+        // Custom styling can be passed to options when creating an Element.
+        // (Note that this demo uses a wider set of styles than the guide below.)
+        var style = {
+            base: {
+                color: '#32325d',
+                lineHeight: '18px',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+
+        // Create an instance of the card Element.
+        var card = elements.create('card', {
+            style: style
+        });
+
+        // Add an instance of the card Element into the `card-element` <div>.
+        card.mount('#card-element');
+
+        // Handle real-time validation errors from the card Element.
+        card.addEventListener('change', function (event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Handle form submission.
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            stripe.createToken(card).then(function (result) {
+                if (result.error) {
+                    // Inform the user if there was an error.
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    // Send the token to your server.
+                    stripeTokenHandler(result.token);
+                }
+            });
+        });
+</script> --}}
+{{!-- <script src=js/stripe-main.js></script> --}}
+
+{{!-- <script type="text/javascript" src="./app.js"></script> --}}
+{{!-- <script type="text/javascript" src="./second.js"></script> --}}
+<script src=//images.dmca.com/Badges/DMCABadgeHelper.min.js></script>
+{{!-- <script src="https://platform-api.sharethis.com/js/sharethis.js#property=&product=inline-share-buttons"></script> --}}
+{{!-- <script src="https://plateform-api.sharethis.com/js/sharethis.js#property=5b8b9dfff365de0011fdf53b&product=inline-share-buttons"></script> --}}
+<script>!function (e, t, a, n, g) { e[n] = e[n] || [], e[n].push({ "gtm.start": (new Date).getTime(), event: "gtm.js" }); var m = t.getElementsByTagName(a)[0], r = t.createElement(a); r.async = !0, r.src = "https://www.googletagmanager.com/gtm.js?id=GTM-N3R4GMN", m.parentNode.insertBefore(r, m) }(window, document, "script", "dataLayer")</script>
+<noscript><iframe height=0 src="https://www.googletagmanager.com/ns.html?id=GTM-N3R4GMN" style=display:none;visibility:hidden width=0></iframe></noscript>
