@@ -815,7 +815,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js', {scope: '/'} )
+                navigator.serviceWorker.register('/sw.js')
                     .then(registration => {
                         console.log(`Service Worker registered! Scope: ${registration.scope}`);
                     })
