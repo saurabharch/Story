@@ -11,7 +11,10 @@ router.post('/', (req, res) => {
         message: req.body.message,
         url: req.body.url,
         ttl: req.body.ttl,
-        icon: req.body.icon
+        icon: req.body.icon,
+        image: req.body.image,
+        badge: req.body.badge,
+        tag: req.body.tag
     };
 
     Subscription.find({}, (err, subscriptions) => {

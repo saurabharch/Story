@@ -1,8 +1,0 @@
-{
-    "articles": [{
-        "title": "Application fails to fetch articles and story",
-        "url": "",
-        "urlToImage": "img/InternetDisconnect.png",
-        "description": "Try loading the page again when you're online."
-    }]
-}

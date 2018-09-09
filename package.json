@@ -2,8 +2,11 @@
   "name": "storybooks",
   "version": "1.0.0",
   "description": "App to share public or write private stories",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy": "copyfiles -u 1 src/**/**/* src/**/* src/* build",
+    "build": "npm run copy && workbox injectManifest workbox-config.js",
     "start": "node app.js"
   },
   "author": "Saurabh Kashyap",
@@ -29,5 +32,9 @@
     "raven": "^2.6.3",
     "sw-toolbox": "^3.6.0",
     "web-push": "^3.3.2"
+  },
+  "devDependencies": {
+    "copyfiles": "^1.2.0",
+    "workbox-cli": "^3.4.1"
   }
 }
