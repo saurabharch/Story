@@ -4,19 +4,18 @@ const mongoose = require('mongoose');
 const Story = mongoose.model('stories');
 // const Category = mongoose.model('categories');
 const User = mongoose.model('users');
+const axios = require('axios');
 const keys = require('../config/keys');
-const {
-    ensureAuthenticated,
-    ensureGuest
-} = require('../helpers/auth');
+const {ensureAuthenticated,ensureGuest} = require('../helpers/auth');
 // const conn = mongoose.createConnection(keys.mongoURI);
 //Story Index
 
 likescount = [];
 dislikecount = [];
 ratedusers = [];
-router.get('/:page', (req, res) => {
-    var page = parseInt(req.params.page) || 0;
+hostAddress = '';
+router.get('/', (req, res) => {
+    var page = parseInt(req.query.page) || 1;
     var size = parseInt(req.query.size) || 5;
    // console.log(`page: ${page}, size: ${size} `);
     var query = {
@@ -146,8 +145,10 @@ router.get('/popular/:page', (req, res) => {
 //Show Single Stories
 router.get('/show/:id', (req, res) => {
     //  console.log(quantity);
+    hostAddress = req.params;
+    console.log(hostAddress);
     const obajectid = req.params.id.replace('app.js', '').replace('\n', '');
-    Story.findById({
+    Story.findOne({
             _id: mongoose.Types.ObjectId(obajectid)
         })
         .populate('user')
@@ -208,8 +209,10 @@ router.get('/show/:id', (req, res) => {
 
 // Show Single Stories By Writer
 router.get('/user/show/:id', (req, res) => {
-    //  console.log(quantity);
-    const obajectid = req.params.id.replace('app.js', '').replace('\n', '');
+    //  console.log(req.headers.referer);
+  
+    hostAddress = req.protocol + '://' + req.get('host') + req.originalUrl;
+    const obajectid = req.params.id.replace('app.js', '').replace('\n', '').replace('new-install.js','');
     Story.findOne({
             _id: mongoose.Types.ObjectId(obajectid)
         })
@@ -235,6 +238,7 @@ router.get('/user/show/:id', (req, res) => {
                     likescount: story.likes,
                     dislikecount: story.dislikes,
                     ratedusers: story.rating,
+                    url:hostAddress,
                     layout: "main"
                 });
             } else {
@@ -298,6 +302,7 @@ router.get('/my', ensureAuthenticated, (req, res) => {
 });
 //Add Story Form
 router.get('/add', ensureAuthenticated, (req, res) => {
+    console.log('redirect hit');
     res.render('stories/add');
 });
 
@@ -322,6 +327,7 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
 router.post('/', ensureAuthenticated, (req, res) => {
     let allowComments;
     let likes = 0;
+   const url = req.protocol + '://' + req.get('host');
     if (req.body.allowComments) {
         allowComments = true;
     } else {
@@ -344,6 +350,23 @@ router.post('/', ensureAuthenticated, (req, res) => {
     new Story(newStory)
         .save()
         .then(story => {
+            
+            axios.post(url+'/push', {
+                   "title": story.title,
+                       "message": story.description,
+                       "url": url + '/stories/user/show/' + story.id,
+                       "ttl": 36000,
+                       "icon": url + '/img/book-192X192.png',
+                       "badge": url + '/img/book-192X192.png',
+                       "tag": story.keywords
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            // PushBroadCast(url + '/push', pushMessage);
             res.redirect(`/stories/show/${story.id}`);
         });
 });
@@ -359,7 +382,6 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
             } else {
                 allowComments = false;
             }
-
             //New values
             story.title = req.body.title;
             story.body = req.body.body;
@@ -449,5 +471,4 @@ router.post('/comment/:id', ensureAuthenticated, (req, res) => {
 //        console.log('Request can not accesible');
 //    }
 // });
-
 module.exports = router;

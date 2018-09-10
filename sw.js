@@ -1,10 +1,111 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js');
+const precacheCacheName = workbox.core.cacheNames.precache;
+const runtimeCacheName = workbox.core.cacheNames.runtime;
 
+const myPlugin = {
+    cacheWillUpdate: async ({
+            request,
+            response
+        }) => {
+            // Return `response`, a different Response object or null
+            return response;
+        },
+        cacheDidUpdate: async ({
+                cacheName,
+                request,
+                oldResponse,
+                newResponse
+            }) => {
+                // No return expected
+                // Note: `newResponse.bodyUsed` is `true` when this is called,
+                // meaning the body has already been read. If you need access to
+                // the body of the fresh response, use a technique like:
+                // const freshResponse = await caches.match(request, {cacheName});
+            },
+            cachedResponseWillBeUsed: async ({
+                    cacheName,
+                    request,
+                    matchOptions,
+                    cachedResponse
+                }) => {
+                    // Return `cachedResponse`, a different Response object or null
+                    return cachedResponse;
+                },
+                requestWillFetch: async ({
+                        request
+                    }) => {
+                        // Return `request` or a different Request
+                        return request;
+                    },
+                    fetchDidFail: async ({
+                        originalRequest,
+                        request,
+                        error
+                    }) => {
+                        // No return expected.
+                        // NOTE: `originalRequest` is the browser's request, `request` is the
+                        // request after being passed through plugins with
+                        // `requestWillFetch` callbacks, and `error` is the exception that caused
+                        // the underlying `fetch()` to fail.
+                    }
+};
+workbox.core.setCacheNameDetails({
+    prefix: 'StoryBook',
+    suffix: 'v1',
+    precache: 'custom-precache-name',
+    runtime: 'custom-runtime-name'
+});
+workbox.routing.registerRoute(
+    'https://new-storybook.herokuapp.com/*',
+    workbox.strategies.networkFirst({
+        networkTimeoutSeconds: 3,
+        cacheName: 'stories',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 50,
+                maxAgeSeconds: 5 * 60, // 5 minutes
+            }),
+        ],
+    }),
+);
+workbox.routing.registerRoute(
+    /\.(?:png|gif|jpg|jpeg|svg)$/,
+    workbox.strategies.cacheFirst({
+        cacheName: 'images',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 60,
+                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+            }),
+        ],
+    }),
+);
 workbox.routing.registerRoute(
     new RegExp('https://new-storybook.herokuapp.com'),
     workbox.strategies.cacheFirst()
 );
+workbox.routing.registerRoute(
+    /\.(?:js|css)$/,
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'static-resources',
+    }),
+);
 
+// Call addToCache whenever you'd like. E.g. to add to cache after a page load:
+
+workbox.routing.registerRoute(
+    /.*(?:googleapis)\.com.*$/,
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'googleapis',
+    }),
+);
+
+workbox.routing.registerRoute(
+    /.*(?:gstatic)\.com.*$/,
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'gstatic',
+    }),
+);
 workbox.routing.registerRoute(
     new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
     workbox.strategies.cacheFirst({

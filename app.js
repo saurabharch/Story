@@ -41,6 +41,9 @@ const {
     CommentsCount,
     twitterShare,
     facebookShare,
+    googleplusShare,
+    pinterestShare,
+    linkedinShare,
     moderateComments
 } = require('./helpers/hbs');
 var Raven = require('raven');
@@ -84,6 +87,9 @@ app.engine('handlebars', exphbs({
         CommentsCount: CommentsCount,
         twitterShare: twitterShare,
         facebookShare: facebookShare,
+        googleplusShare: googleplusShare,
+        pinterestShare: pinterestShare,
+        linkedinShare: linkedinShare,
         moderateComments: moderateComments
     },
     defaultLayout: 'main'
