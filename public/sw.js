@@ -52,8 +52,8 @@ const myPlugin = {
 workbox.core.setCacheNameDetails({
     prefix: 'StoryBook',
     suffix: 'v1',
-    precache: 'custom-precache-name',
-    runtime: 'custom-runtime-name'
+    precache: 'Story-precache-name',
+    runtime: 'Story-runtime-name'
 });
 workbox.routing.registerRoute(
     'https://new-storybook.herokuapp.com/*',
@@ -146,15 +146,11 @@ self.addEventListener('push', function (event) {
     notificationUrl = _data.url;
     event.waitUntil(
         self.registration.showNotification(_data.title, {
-            // body: _data.message,
-            // icon: _data.icon,
-            // tag: _data.tag
             body: _data.message,
             tag: _data.tag,
             image: _data.image,
             icon: _data.icon,
-            // timestamp: Date.now(),
-            badge: '/img/book-96X96.png'
+            badge: _data.badge
         })
     );
 });
@@ -197,7 +193,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "app.js",
-    "revision": "a955e185e40313c3f233ec9ae20532e6"
+    "revision": "c8e68d728a541d7edf83631502faaf42"
   },
   {
     "url": "browserconfig.xml",
@@ -206,14 +202,6 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "cache-files.json",
     "revision": "0ae60ac09d6cf30faefdaefc01a1780a"
-  },
-  {
-    "url": "cache-manager.js",
-    "revision": "096591911fe31d9a56dc5fd1e59b1fad"
-  },
-  {
-    "url": "companion.js",
-    "revision": "6c891a25790dfafb6041bca5dfefdc77"
   },
   {
     "url": "css/all.css",
@@ -246,10 +234,6 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "fingers.mp4",
     "revision": "f328ee4e80312aa3662e6774d5641c5a"
-  },
-  {
-    "url": "hello.js",
-    "revision": "d8e684a86e5645394d1f735d649ed935"
   },
   {
     "url": "img/1_sg-uLNm73whmdOgKlrQdZA.jpeg",
@@ -428,35 +412,11 @@ workbox.precaching.precacheAndRoute([
     "revision": "6091338ad5c0ea9b61306e044a9d4acb"
   },
   {
-    "url": "new-sw.js",
-    "revision": "fa66e2580c41cad88083611075d8ca9e"
-  },
-  {
     "url": "offline.html",
     "revision": "75d2ffeccd821438e2ee7b60b2928542"
   },
   {
-    "url": "second.js",
-    "revision": "53f198678f0c1912f457d466d6c2782e"
-  },
-  {
     "url": "sticky.js",
     "revision": "5d35ba2b8aea8db9a27b4b614a219a50"
-  },
-  {
-    "url": "story-sw.js",
-    "revision": "6f2684ba853ed10fc471f3c309fc087d"
-  },
-  {
-    "url": "storybook-sw.js",
-    "revision": "73260e106cff89e511bf445bd730b321"
-  },
-  {
-    "url": "sw-toolbox.js",
-    "revision": "89a849e145c2f8d50cf4bf886052454f"
-  },
-  {
-    "url": "y-sw-.js",
-    "revision": "7c18b6ad07d90461347f8f172ecd1e58"
   }
 ]);

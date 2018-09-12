@@ -23,6 +23,7 @@ const stories = require('./routes/stories');
 const popular = require('./routes/popular');
 const subscribe = require('./routes/subscribe');
 const push = require('./routes/push');
+const unsubscribe = require('./routes/unsubscribe');
 // const categories = require('./routes/categories');
 // Load Keys
 const keys = require('./config/keys');
@@ -117,7 +118,6 @@ app.use((req, res, next) => {
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(__dirname + '/build'));
 // Use Routes
 app.use('/', index);
 app.use('/auth', auth);
@@ -125,6 +125,7 @@ app.use('/stories', stories);
 app.use('/popular', popular);
 app.use('/subscribe', subscribe);
 app.use('/push', push);
+app.use('/unsubscribe', unsubscribe);
 // app.use('/categories', categories);
 
 

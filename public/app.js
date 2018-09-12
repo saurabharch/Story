@@ -20,7 +20,7 @@ function urlB64ToUint8Array(base64String) {
 if ('serviceWorker' in navigator && 'PushManager' in window) {
     console.log('Service Worker and Push is supported');
 
-    navigator.serviceWorker.register('/story-sw.js')
+    navigator.serviceWorker.register('/sw.js')
         .then(function (swReg) {
             console.log('service worker registered');
 
@@ -29,7 +29,6 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
             swRegistration.pushManager.getSubscription()
                 .then(function (subscription) {
                     isSubscribed = !(subscription === null);
-
                     if (isSubscribed) {
                         console.log('User is subscribed');
                     } else {
@@ -72,4 +71,20 @@ function saveSubscription(subscription) {
     };
 
     xmlHttp.send(JSON.stringify(subscription));
+}
+
+function unSubscribe(subscription) {
+     let xmlHttp = new XMLHttpRequest();
+     xmlHttp.open("DELETE", "/unsubscribe");
+     xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+     xmlHttp.onreadystatechange = function () {
+         if (xmlHttp.readyState != 4) return;
+         if (xmlHttp.status != 200 && xmlHttp.status != 304) {
+             console.log('HTTP error ' + xmlHttp.status, null);
+         } else {
+             console.log("User subscribed to server");
+         }
+     };
+
+     xmlHttp.send(JSON.stringify(subscription));
 }

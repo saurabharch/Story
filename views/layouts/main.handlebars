@@ -35,7 +35,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 <link href=/themes/custom/themekit/images/favicon/safari-pinned-tab.svg rel=mask-icon color=#0098e3>
 <meta content=#2b5797 name=msapplication-TileColor>
 <link href=manifest.json rel=manifest type=manifest+json>
-<script type="text/javascript" src="./new-install.js"></script>
+{{!-- <script type="text/javascript" src="./new-install.js"></script> --}}
 {{!-- <link rel="manifest" href="/manifest.json" />
 <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <script>
@@ -616,7 +616,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 </div>{{> _header}} {{> _side-nav}}  {{#if user}} {{> _add-btn}} {{/if}}
 <main>
     <div class=container>{{{body}}}</div>
-    <center><div><a href="#" id="btnAdd" class="btn-ahs white-text">Add to Home Screen</a></div></center>
+    {{!-- <center><div><a href="#" id="btnAdd" class="btn-ahs white-text">Add to Home Screen</a></div></center> --}}
 </main>{{> _footer}}
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js></script>
 {{!-- <script src=init.js></script> --}}
@@ -669,9 +669,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
             //     .catch(error => {
             //       console.error(error);
             //     });
-            if (window.location.href.indexOf("add") > -1 || window.location.href.indexOf("edit") > -1) {
-                CKEDITOR.replace('body');
-            }
+            
 
             // tinymce.init({ selector: 'textarea' });
             var elem = document.querySelector('.slider');
@@ -689,6 +687,9 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
     });</script>
 <script type="text/javascript">$(document).ready(() => {
         window.onload = function () {
+            if (window.location.href.indexOf("add") > -1 || window.location.href.indexOf("edit") > -1) {
+                CKEDITOR.replace('body');
+            }
             var display = $("#LandingHeader").css("display");
             var tagnav = $('nav').css("display");
             var navigator = $('#backNavigator').css("top");
@@ -774,57 +775,44 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
                 });
             });
     </script>
-    <script type="text/javascript">
+    {{!-- <script type="text/javascript"> --}}
     
-         let deferredPrompt;
-         var btnAdd = document.getElementById("btnAdd");
-         window.addEventListener('beforeinstallprompt', function (e) {
-                console.log('beforeinstallprompt Event fired');
-                e.preventDefault();
+        // let deferredPrompt;
+        // var btnAdd = document.getElementById("btnAdd");
+        // window.addEventListener('beforeinstallprompt', function (e) {
+        //        console.log('beforeinstallprompt Event fired');
+        //        e.preventDefault();
 
                 // Stash the event so it can be triggered later.
-                deferredPrompt = e;
+        //        deferredPrompt = e;
 
-                return false;
-            });
+        //        return false;
+        //    });
 
-            btnAdd.addEventListener('click', function () {
-                if (deferredPrompt !== undefined) {
+        //    btnAdd.addEventListener('click', function () {
+        //        if (deferredPrompt !== undefined) {
                     // The user has had a postive interaction with our app and Chrome
                     // has tried to prompt previously, so let's show the prompt.
-                    deferredPrompt.prompt();
+        //            deferredPrompt.prompt();
 
                     // Follow what the user has done with the prompt.
-                    deferredPrompt.userChoice.then(function (choiceResult) {
+        //          deferredPrompt.userChoice.then(function (choiceResult) {
 
-                        console.log(choiceResult.outcome);
+        //                console.log(choiceResult.outcome);
 
-                        if (choiceResult.outcome == 'dismissed') {
-                            console.log('User cancelled home screen install');
-                        }
-                        else {
-                            console.log('User added to home screen');
-                        }
+        //                if (choiceResult.outcome == 'dismissed') {
+        //                    console.log('User cancelled home screen install');
+        //                }
+        //                else {
+        //                    console.log('User added to home screen');
+        //                }
 
                         // We no longer need the prompt.  Clear it up.
-                        deferredPrompt = null;
-                    });
-                }
-            });
-    </script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log(`Service Worker registered! Scope: ${registration.scope}`);
-                    })
-                    .catch(err => {
-                        console.log(`Service Worker registration failed: ${err}`);
-                    });
-            });
-        }
-    </script>
+        //                deferredPrompt = null;
+        //            });
+        //        }
+        //    });
+   // </script>
 <script type=application/ld+json>{"@context":"http:\/\/schema.org",
 "@type":"WebSite",
 "url":window.location.href,
@@ -895,10 +883,8 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 </script> --}}
 {{!-- <script src=js/stripe-main.js></script> --}}
 
-{{!-- <script type="text/javascript" src="./app.js"></script> --}}
+<script type="text/javascript" src="./app.js"></script>
 {{!-- <script type="text/javascript" src="./second.js"></script> --}}
 <script src=//images.dmca.com/Badges/DMCABadgeHelper.min.js></script>
-{{!-- <script src="https://platform-api.sharethis.com/js/sharethis.js#property=&product=inline-share-buttons"></script> --}}
-{{!-- <script src="https://plateform-api.sharethis.com/js/sharethis.js#property=5b8b9dfff365de0011fdf53b&product=inline-share-buttons"></script> --}}
 <script>!function (e, t, a, n, g) { e[n] = e[n] || [], e[n].push({ "gtm.start": (new Date).getTime(), event: "gtm.js" }); var m = t.getElementsByTagName(a)[0], r = t.createElement(a); r.async = !0, r.src = "https://www.googletagmanager.com/gtm.js?id=GTM-N3R4GMN", m.parentNode.insertBefore(r, m) }(window, document, "script", "dataLayer")</script>
 <noscript><iframe height=0 src="https://www.googletagmanager.com/ns.html?id=GTM-N3R4GMN" style=display:none;visibility:hidden width=0></iframe></noscript>

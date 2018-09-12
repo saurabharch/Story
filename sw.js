@@ -52,8 +52,8 @@ const myPlugin = {
 workbox.core.setCacheNameDetails({
     prefix: 'StoryBook',
     suffix: 'v1',
-    precache: 'custom-precache-name',
-    runtime: 'custom-runtime-name'
+    precache: 'Story-precache-name',
+    runtime: 'Story-runtime-name'
 });
 workbox.routing.registerRoute(
     'https://new-storybook.herokuapp.com/*',
@@ -146,15 +146,11 @@ self.addEventListener('push', function (event) {
     notificationUrl = _data.url;
     event.waitUntil(
         self.registration.showNotification(_data.title, {
-            // body: _data.message,
-            // icon: _data.icon,
-            // tag: _data.tag
             body: _data.message,
             tag: _data.tag,
             image: _data.image,
             icon: _data.icon,
-            // timestamp: Date.now(),
-            badge: '/img/book-96X96.png'
+            badge: _data.badge
         })
     );
 });

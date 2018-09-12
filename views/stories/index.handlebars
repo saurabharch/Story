@@ -12,8 +12,8 @@
     <div class="row">
         <ul class="pagination">
             <li class="disabled"><a href="#!" ><i class="material-icons">chevron_left</i></a></li>
-            <li class="waves-effect active selective" onclick="location.href='/stories/1?size=6#popular';"><a href="#!">1</a></li>
-            <li class="waves-effect selective"><a href="#!" onclick="location.href='/stories/2?size=6#popular';">2</a></li>
+            <li class="waves-effect active selective" onclick="location.href='/stories/?page=1&size=6#popular';"><a href="#!">1</a></li>
+            <li class="waves-effect selective"><a href="#!" onclick="location.href='/stories/?page=2&size=6#popular';">2</a></li>
             <li class="waves-effect selective"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
         </ul>
     </div>
@@ -27,7 +27,7 @@
         </div>
         {{#each stories}}
         <div class="col s12 m4">
-            <div class="card card1 heartbeat" onclick="location.href='./user/show/{{id}}';">
+            <div class="card card1 heartbeat" onclick="location.href='./stories/user/show/{{id}}';">
                 <div class="card-image">
                     {{!-- {{#if user}} {{{editIcon user.id ../user.id id}}} {{/if}} --}}
                 </div>
