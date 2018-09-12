@@ -616,7 +616,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 </div>{{> _header}} {{> _side-nav}}  {{#if user}} {{> _add-btn}} {{/if}}
 <main>
     <div class=container>{{{body}}}</div>
-    {{!-- <center><div><a href="#" id="btnAdd" class="btn-ahs white-text">Add to Home Screen</a></div></center> --}}
+    <center><div><a href="#" id="btnAdd" class="btn-ahs white-text">Add to Home Screen</a></div></center>
 </main>{{> _footer}}
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js></script>
 {{!-- <script src=init.js></script> --}}
@@ -766,7 +766,6 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
             }
         }
     });</script>
-    <script scr="${pageContext.request.contextPath}stripe-main.js"></script>
     <script>
         $(function () {
                 var $h3s = $('.selective').click(function () {
@@ -775,44 +774,44 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
                 });
             });
     </script>
-    {{!-- <script type="text/javascript"> --}}
+    <script>
     
-        // let deferredPrompt;
-        // var btnAdd = document.getElementById("btnAdd");
-        // window.addEventListener('beforeinstallprompt', function (e) {
-        //        console.log('beforeinstallprompt Event fired');
-        //        e.preventDefault();
+         let deferredPrompt;
+         var btnAdd = document.getElementById("btnAdd");
+         window.addEventListener('beforeinstallprompt', function (e) {
+                console.log('beforeinstallprompt Event fired');
+                e.preventDefault();
 
                 // Stash the event so it can be triggered later.
-        //        deferredPrompt = e;
+                deferredPrompt = e;
 
-        //        return false;
-        //    });
+                return false;
+            });
 
-        //    btnAdd.addEventListener('click', function () {
-        //        if (deferredPrompt !== undefined) {
+            btnAdd.addEventListener('click', function () {
+                if (deferredPrompt !== undefined) {
                     // The user has had a postive interaction with our app and Chrome
                     // has tried to prompt previously, so let's show the prompt.
-        //            deferredPrompt.prompt();
+                    deferredPrompt.prompt();
 
                     // Follow what the user has done with the prompt.
-        //          deferredPrompt.userChoice.then(function (choiceResult) {
+                  deferredPrompt.userChoice.then(function (choiceResult) {
 
-        //                console.log(choiceResult.outcome);
+                        console.log(choiceResult.outcome);
 
-        //                if (choiceResult.outcome == 'dismissed') {
-        //                    console.log('User cancelled home screen install');
-        //                }
-        //                else {
-        //                    console.log('User added to home screen');
-        //                }
+                        if (choiceResult.outcome == 'dismissed') {
+                            console.log('User cancelled home screen install');
+                        }
+                        else {
+                            console.log('User added to home screen');
+                        }
 
                         // We no longer need the prompt.  Clear it up.
-        //                deferredPrompt = null;
-        //            });
-        //        }
-        //    });
-   // </script>
+                        deferredPrompt = null;
+                    });
+                }
+            });
+   </script>
 <script type=application/ld+json>{"@context":"http:\/\/schema.org",
 "@type":"WebSite",
 "url":window.location.href,
@@ -821,7 +820,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 "target":window.location.href+"\/?story={search_term}",
 "query-input":"required name=search_term"}
 }</script>
-{{!-- <script>
+ <script>
        var stripe = Stripe('pk_test_RekulS5PNe7uUNGtJV7g5Xfj');
 
         // Create an instance of Elements.
@@ -880,7 +879,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
                 }
             });
         });
-</script> --}}
+</script>  
 {{!-- <script src=js/stripe-main.js></script> --}}
 
 <script type="text/javascript" src="./app.js"></script>
