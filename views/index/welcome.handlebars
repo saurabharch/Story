@@ -152,27 +152,41 @@
                         </div>
                     </div>
                     <footer class="u-marginTop30 u-marginAuto container u-maxWidth740">
-                        <center>
+                        
                             <div class="u-flex u-flexWrap u-paddingTop10 u-paddingBottom25 m-breakWord u-borderTopLightest u-xs-paddingLeft20 u-xs-paddingRight20"
                                 style="position:justify;">
-                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="https://help.medium.com" title="Visit Medium’s help center"
+                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="#" title="Visit Medium’s help center"
                                     aria-label="Visit Medium’s help center">Help</a>
-                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="https://medium.statuspage.io"
+                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="#"
                                     title="Status of Medium" aria-label="Status of Medium">Status</a>
-                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="https://medium.com/creators"
+                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="#"
                                     title="Learn about writing on Medium" aria-label="Learn about writing on Medium">Writers</a>
-                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="https://medium.com/3minread"
+                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="#"
                                     title="Visit Medium’s blog" aria-label="Visit Medium’s blog">Blog</a>
-                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="https://medium.com/jobs-at-medium/work-at-medium-959d1a85284e"
+                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="#"
                                     title="View open job positions at Medium" aria-label="View open job positions at Medium">Careers</a>
-                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="https://medium.com/policy/f03bf92035c9"
+                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="#"
                                     title="Read Medium’s policies" aria-label="Read Medium’s policies">Privacy</a>
-                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="//medium.com/policy/9db0094a1e0f"
+                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0 u-marginRight16" href="#"
                                     title="Read Medium’s terms of service" aria-label="Read Medium’s terms of service">Terms</a>
-                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0" href="https://about.medium.com" title="More about Medium"
+                                <a class="link u-baseColor--link u-textColorNormal u-fontSize14 u-flex0" href="#" title="More about Medium"
                                     aria-label="More about Medium">About</a></div>
-                        </center>
                     </footer>
+                    <form action="/charge" method="post" id="payment-form">
+                        <div class="form-row">
+                            <label for="card-element">
+                                Credit or debit card
+                            </label>
+                            <div id="card-element">
+                                <!-- A Stripe Element will be inserted here. -->
+                            </div>
+                    
+                            <!-- Used to display form errors. -->
+                            <div id="card-errors" role="alert"></div>
+                        </div>
+                    
+                        <button>Submit Payment</button>
+                    </form>
                 </div>
             </div>
 

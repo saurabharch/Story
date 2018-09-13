@@ -19,25 +19,23 @@
         </div>
         <div class="row">
             <div class="input-field">
-               <select name="status">
-                   <option value="public" selected>Public</option>
-                   <option value="private">Private</option>
-                   <option value="upublished">Unpublished</option>
-               </select>
-               <label for="status">Status</label>
+                <select name="status" style="display:none">
+                    <option value="public" selected>Public</option>
+                    <option value="private">Private</option>
+                    <option value="unpublished">Unpublished</option>
+                </select>
+                <label for="status">Status</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field">
-                <select name="categoryType">
-                    {{#select story.category}}
-                    <option value="general" selected>General</option>
+                <select name="categoryType" style="display:none">
+                   <option value="general" selected>General</option>
                     <option value="sci-fi">Sci-Fi</option>
                     <option value="travel">Travel</option>
                     <option value="personal">Biography</option>
                     <option value="educational">Educational</option>
                     <option value="motivational">Motivational</option>
-                    {{/select}}
                 </select>
                 <label for="status">Category</label>
             </div>

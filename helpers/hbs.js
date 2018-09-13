@@ -143,17 +143,17 @@ module.exports = {
     categoryType: function (selected, option) {
         return options.fn(this).replace(new RegExp(' value=\"' + selected + '\"'), '$&selected="selected"').replace(new RegExp('>' + selected + '</option>'), 'selected="selected"$&');
     },
-    editIcon: function (storyUser, loggedUser, storyId, floating = true) {
-        if (storyUser == loggedUser) {
-            if (floating) {
-                return `<a href="/stories/edit/${storyId}" class="btn-floating btn-small halfway-fab red"><i class="fas fa-pencil-alt" style="font-size:.8rem;"></i></a>`;
-            } else {
-                return `<a href="/stories/edit/${storyId}"><i class="fas btn-small fa-pencil-alt" style="font-size:.8rem;"></i></a>`;
-            }
-        } else {
-            return '';
-        }
-    },
+   editIcon: function (storyUser, loggedUser, storyId, floating = true) {
+           if (storyUser == loggedUser) {
+               if (floating) {
+                   return `<a href="/stories/edit/${storyId}" class="btn-floating halfway-fab red"><i class="fas fa-pencil-alt"></i></a>`;
+               } else {
+                   return `<a href="/stories/edit/${storyId}"><i class="fas fa-pencil-alt"></i></a>`;
+               }
+           } else {
+               return '';
+           }
+        },
     moderateComments: function (storyUser, loggedUser, storyId, floating = true) {
         if (storyUser == loggedUser) {
             if (floating) { //add form post method on api request

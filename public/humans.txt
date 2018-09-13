@@ -1,0 +1,17 @@
+# humanstxt.org/
+# The humans responsible & technology and Research
+
+# TEAM
+
+    Saurabh Kashyap -- Lead Architect and Full Stack Developer -- @saurabh19867276
+
+# THANKS
+
+    Saurabh Kashyap
+
+# TECHNOLOGY 
+
+    Nodejs, HTML5, 
+    CSS3 , workbox
+    jQuery, javascript , 
+    Handlebars , MongoDB

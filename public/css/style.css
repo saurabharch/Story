@@ -595,7 +595,7 @@ section:nth-of-type(5) {
 }
 
 .card1 {
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 8px 8px 8px 8px;
     padding: 0px;
     margin-top: 0px;
 }
@@ -1577,7 +1577,13 @@ animated-background1 {
     #warning-message {
         display: none;
     }
-
+    .card-top-space{
+        margin-top:1rem;
+        margin-bottom:1rem;
+    }
+    img.img.responsive-img{
+        max-width:45% !important;
+    }
     .col.s1 {
         padding: 0.45rem;
         width: 7.333333% !important;
@@ -1603,6 +1609,9 @@ animated-background1 {
         background-size: cover;
     }
 
+    .btn-ahs{
+        display:none;   
+    }
     .herder {
         display: none;
     }
@@ -1927,7 +1936,10 @@ row.col.s1 {
         top: 62px;
         position: fixed;
     }
-
+.card-top-space {
+    margin-top: 15rem;
+    margin-bottom: 2rem;
+}
     .dashMaxres {
         margin-left: 2rem;
     }
@@ -3949,6 +3961,7 @@ margin-bottom:.8rem;
     margin-bottom: 10px;
     background-color: rgba(27, 76, 236, 0.151);
     color:#777 !important;
+    display:block;
 }
 p {
   font-size: 1em;
