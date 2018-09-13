@@ -1578,8 +1578,8 @@ animated-background1 {
         display: none;
     }
     .card-top-space{
-        margin-top:1rem;
-        margin-bottom:1rem;
+        margin-top:1rem !important;
+        margin-bottom:1rem !important;
     }
     img.img.responsive-img{
         max-width:45% !important;
@@ -1595,6 +1595,9 @@ animated-background1 {
 
     .fixed-action-btn {
         margin-bottom: 4rem;
+    }
+    .extreme-container4col{
+        display:none !important;
     }
 }
 
@@ -1936,6 +1939,9 @@ row.col.s1 {
         top: 62px;
         position: fixed;
     }
+    .extreme-container4col{
+        display:block;
+    }
 .card-top-space {
     margin-top: 15rem;
     margin-bottom: 2rem;
@@ -2203,9 +2209,7 @@ div {
     height: 145px !important;
 }
 
-.extreme-container4col {
-    width: 328px;
-}
+
 
 .u-heightInherit {
     height: inherit !important;
