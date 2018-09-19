@@ -220,12 +220,20 @@ workbox.precaching.precacheAndRoute([
     "revision": "658dde714e624426b1f0f9976f031513"
   },
   {
+    "url": "css/fonts/Roboto-Regular.woff",
+    "revision": "d60c6fd1200bb6fe2050f4296ace8d43"
+  },
+  {
+    "url": "css/fonts/Roboto-Regular.woff2",
+    "revision": "bde1ca6a5d7cefc8108c75fdaad29ed6"
+  },
+  {
     "url": "css/materialize.min.css",
     "revision": "cdb87749442a34b463ecd91eafbe9c86"
   },
   {
     "url": "css/style.css",
-    "revision": "ca8b3ad72596690dfe7b6949612950f7"
+    "revision": "727e888d048a2d186fcf55245987ea2c"
   },
   {
     "url": "fallback.json",
@@ -234,6 +242,14 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "fingers.mp4",
     "revision": "f328ee4e80312aa3662e6774d5641c5a"
+  },
+  {
+    "url": "fonts/roboto/Roboto-Regular.woff",
+    "revision": "d60c6fd1200bb6fe2050f4296ace8d43"
+  },
+  {
+    "url": "fonts/roboto/Roboto-Regular.woff2",
+    "revision": "bde1ca6a5d7cefc8108c75fdaad29ed6"
   },
   {
     "url": "img/1_sg-uLNm73whmdOgKlrQdZA.jpeg",
@@ -284,6 +300,30 @@ workbox.precaching.precacheAndRoute([
     "revision": "4e1de6d2f093b23638b6167545d29148"
   },
   {
+    "url": "img/emoji/emoji1.png",
+    "revision": "69425eb206c94dc0bbbfe2bb4edbad64"
+  },
+  {
+    "url": "img/emoji/emoji2.png",
+    "revision": "289db634d48df204325724e94491113a"
+  },
+  {
+    "url": "img/emoji/emoji3.png",
+    "revision": "a384ec7e5e92d6964343e3de876e97f0"
+  },
+  {
+    "url": "img/emoji/emoji4.png",
+    "revision": "3e2eb419fe1929f7638dda1e27cfe852"
+  },
+  {
+    "url": "img/emoji/emoji5.png",
+    "revision": "90c848f4f4ac0636f5e4f1031eaff7f7"
+  },
+  {
+    "url": "img/emoji/violin.png",
+    "revision": "b5e0060305fe952f74b7c429ef79ce66"
+  },
+  {
     "url": "img/fevicon.ico",
     "revision": "4f62a12b239c76e146dbf616ebb5e4bd"
   },
@@ -328,12 +368,12 @@ workbox.precaching.precacheAndRoute([
     "revision": "1e3c17e605c48bb13f48546703d840f4"
   },
   {
-    "url": "js/jquery.js",
-    "revision": "88975141b8a08775b47fe8e76d7a7380"
-  },
-  {
     "url": "js/materialize.min.js",
     "revision": "112042a4f34905104e0af0cf66b88fb8"
+  },
+  {
+    "url": "js/rater.js",
+    "revision": "042e2097b422028a7a2e2e9361bea172"
   },
   {
     "url": "js/scroll.js",
