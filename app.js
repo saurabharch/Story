@@ -24,6 +24,7 @@ const popular = require('./routes/popular');
 const subscribe = require('./routes/subscribe');
 const push = require('./routes/push');
 const unsubscribe = require('./routes/unsubscribe');
+const api = require('./routes/api');
 // const categories = require('./routes/categories');
 // Load Keys
 const keys = require('./config/keys');
@@ -45,7 +46,8 @@ const {
     googleplusShare,
     pinterestShare,
     linkedinShare,
-    moderateComments
+    moderateComments,
+    ratingCalculate
 } = require('./helpers/hbs');
 var Raven = require('raven');
 Raven.config('https://de8804919dea46698b2728a487303fb8@sentry.io/1272665').install();
@@ -60,6 +62,7 @@ mongoose.connect(keys.mongoURI, {
     .catch(err => console.log(err));
 
 const app = express();
+app.set('trust proxy', true);
 app.use(Raven.requestHandler());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
@@ -91,7 +94,8 @@ app.engine('handlebars', exphbs({
         googleplusShare: googleplusShare,
         pinterestShare: pinterestShare,
         linkedinShare: linkedinShare,
-        moderateComments: moderateComments
+        moderateComments: moderateComments,
+        ratingCalculate: ratingCalculate
     },
     defaultLayout: 'main'
 }));
@@ -119,6 +123,7 @@ app.use((req, res, next) => {
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 // Use Routes
+
 app.use('/', index);
 app.use('/auth', auth);
 app.use('/stories', stories);
@@ -126,6 +131,7 @@ app.use('/popular', popular);
 app.use('/subscribe', subscribe);
 app.use('/push', push);
 app.use('/unsubscribe', unsubscribe);
+app.use('/api', api);
 // app.use('/categories', categories);
 
 

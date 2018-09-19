@@ -71,6 +71,7 @@ router.get('/', (req, res) => {
                 total: totalCount,
                 page:page
             });
+            // console.log(stories);
             //res.json(stories);
         });
     });
@@ -290,6 +291,7 @@ router.get('/user/:userId', ensureGuest, (req, res) => {
 
 //Logged in Users Stories
 router.get('/my', ensureAuthenticated, (req, res) => {
+    console.log(req.user.id);
     Story.find({
             user: req.user.id
         })
@@ -400,7 +402,7 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
 });
 
 router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
-    console.log(req.body);
+   // console.log(req.body);
     Story.findOne({
         _id: req.params.id
     }).then(story => {
@@ -422,7 +424,32 @@ router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
     });
 });
 
-
+router.post('/rating/:id',ensureAuthenticated, (req, res) => {
+    const value = req.query.rate;
+    console.log(value);
+    Story.findByIdAndUpdate({
+            _id: req.params.id
+        }).then(story => {
+            if (req.params.id !== story.rating.RatedUser && parseInt(value) <= 6) {
+            const newRate = {
+                RateValue: value,
+                RateUser: req.user.id
+            }
+            console.log(newRate);
+            //Add to comments array
+            story.rating.unshift(newRate);
+            story.save()
+                .then(story => {
+                    res.redirect(`/stories/show/${story.id}`);
+                });
+            } else {
+                res.redirect(`/stories/show/${story.id}`);
+            }
+        })
+        .catch(err => {
+            res.redirect(`/stories/show/${story.id}`);
+        })
+})
 //Delete Story/
 router.delete(('/:id'), ensureAuthenticated, (req, res) => {
     Story.remove({

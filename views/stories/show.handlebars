@@ -75,7 +75,7 @@
 </div> --}}
 
 <div class="header showpage">
-    <h3 style="color:#777 !important">{{story.title}} <small>{{{editIcon story.user.id user.id story.id false}}}</small>  </h3>
+    <h3 style="color:#777 !important">{{story.title}} <small>{{{editIcon story.user.id user.id story.id false}}}</small></h3>
 </div>
 
 <div class="row showpage">
@@ -93,8 +93,9 @@
             </div> --}}
             {{/if}}
             <div class="card-content card-top-space">
-                <small class="card-title darken-1"style="font-size:14px;font-color:#333;font:italic;">{{formateDate story.date 'MMMM Do YYYY'}}</small>
+                <small class="card-title darken-1"style="font-size:14px;font-color:#333;font:italic;">{{formateDate story.date 'MMMM Do YYYY'}}</small><span class="right green" style="padding:.5rem;color:white;"><i class="fas fa-star"></i> {{ratingCalculate story.rating}}</span>
                 <small  class="right">
+                    
                     {{!-- <form method="post" action="/stories/thumbup/{{story.id}}">
                         <small style="padding:1rem;color:#666;font-weight:700;font-size:.92rem;">{{totalcount story.likes}} </small>
                         <i class="fa fa-sign-language" style="margin-right:-2rem;tab-index:-10;color:#999;font-size:1.3rem;margin-top:10px;font-size:2rem;"></i>

@@ -85,6 +85,64 @@ module.exports = {
             return num = 0;
         }
     },
+    ratingCalculate:function (rating ) {
+        console.log(rating);
+        var total = 0;
+         if(rating.length>0){
+             Array.prototype.sum = function (rating) {
+                 var total = 0
+                 for (var i = 0, _len = this.length; i < _len; i++) {
+                     total += this[i][rating]
+                 }
+                 return total
+             };
+             function nFormatter(num, digits) {
+                 var si = [{
+                         value: 1,
+                         symbol: ""
+                     },
+                     {
+                         value: 1E3,
+                         symbol: "k"
+                     },
+                     {
+                         value: 1E6,
+                         symbol: "M"
+                     },
+                     {
+                         value: 1E9,
+                         symbol: "G"
+                     },
+                     {
+                         value: 1E12,
+                         symbol: "T"
+                     },
+                     {
+                         value: 1E15,
+                         symbol: "P"
+                     },
+                     {
+                         value: 1E18,
+                         symbol: "E"
+                     }
+                 ];
+                 var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+                 var i;
+                 for (i = si.length - 1; i > 0; i--) {
+                     if (num >= si[i].value) {
+                         break;
+                     }
+                 }
+                 return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
+             }
+             let currentvalue = rating.sum('RateValue');
+             console.log(nFormatter(currentvalue));
+             return nFormatter(currentvalue / rating.length);
+         }
+         else{
+             return 0;
+         }
+    },
     viewcounting: function (counting) {
         if (counting > 0) {
             function nFormatter(counting, digits) {
@@ -168,15 +226,9 @@ module.exports = {
     ratingIcon: function (storyUser, loggedUser, storyId, floating = true) {
         if (storyId) {
             if (floating && loggedUser) {
-                return `<a href="/stories/rate/${storyId}" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;"> <div class="stars-outer">
-                                            <div class="stars-inner"></div>
-                                        </div>
-                                        <span class="number-rating"></span></a>`;
+                return `<div class="rate" type="checked" name="RateValue" data-rate-value='' id="${storyId}"></div>`;
             } else {
-                return `<a href="#" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;"> <div class="stars-outer">
-                                            <div class="stars-inner"></div>
-                                        </div>
-                                        <span class="number-rating"></span></a>`;
+                return `<div class="rate" type="checked" name="RateValue" data-rate-value='' id="${storyId}"></div>`;
             }
         } else {
             return '';

@@ -1,4 +1,10 @@
 module.exports = {
+
+    aws: {
+        bucketName: 'bseb-file-container',
+        accessKey: 'AKIAJ6TA7PR5VQ3R262A',
+        secretKey: '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'
+    },
     mongoURI: 'mongodb://saurabh:kash007@ds021046.mlab.com:21046/storybooks-prod-new', //process.env.MONGO_URI ||
    
     // Google Plus Credential

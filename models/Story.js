@@ -67,7 +67,8 @@ const StorySchema = new Schema({
             },
             likeUser: {
                 type: Schema.Types.ObjectId,
-                ref: 'users'
+                ref: 'users',
+                unique: true
             }
     }],
     dislikes:[{
@@ -81,15 +82,17 @@ const StorySchema = new Schema({
              },
              liketUser: {
                  type: Schema.Types.ObjectId,
-                 ref: 'users'
+                 ref: 'users',
+                 unique: true
              }
     }],
     rating: [{
                 RatedUser: {
                     type: Schema.Types.ObjectId,
-                    ref: 'users'
+                    ref: 'users',
+                    unique: true
                 },
-                RateCount: {
+                RateValue: {
                     type: Number,
                     default: 0
                 },
