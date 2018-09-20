@@ -64,13 +64,14 @@ mongoose.connect(keys.mongoURI, {
 const app = express();
 app.set('trust proxy', true);
 app.use(Raven.requestHandler());
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
 // parse application/json
 app.use(bodyParser.json());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(cookieParser());
+
 
 //Method override Middleware
 app.use(methodOverride('_method'));
@@ -97,12 +98,18 @@ app.engine('handlebars', exphbs({
         moderateComments: moderateComments,
         ratingCalculate: ratingCalculate
     },
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    partialsDir: __dirname+'/views/partials',
+    layoutsDir: __dirname+'/views/layouts',
+    extname: '.handlebars'
 }));
-app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname,'views'));
+app.set('view engine', '.handlebars');
 // Set the path directory for view templates
-// app.set('views', __dirname + '/public/views');
-app.use(cookieParser());
+
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
+// app.set('views', __dirname + '/public/js');
 app.use(session({
     secret: 'secret',
     resave: false,
@@ -120,8 +127,7 @@ app.use((req, res, next) => {
 });
 
 
-// Set static folder
-app.use(express.static(path.join(__dirname, 'public')));
+
 // Use Routes
 
 app.use('/', index);
@@ -133,6 +139,37 @@ app.use('/push', push);
 app.use('/unsubscribe', unsubscribe);
 app.use('/api', api);
 // app.use('/categories', categories);
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function (err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function (err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});
 
 
 const port = process.env.PORT || 5000;

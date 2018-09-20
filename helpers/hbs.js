@@ -86,7 +86,7 @@ module.exports = {
         }
     },
     ratingCalculate:function (rating ) {
-        console.log(rating);
+       // console.log(rating);
         var total = 0;
          if(rating.length>0){
              Array.prototype.sum = function (rating) {
@@ -136,7 +136,7 @@ module.exports = {
                  return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
              }
              let currentvalue = rating.sum('RateValue');
-             console.log(nFormatter(currentvalue));
+             //console.log(nFormatter(currentvalue));
              return nFormatter(currentvalue / rating.length);
          }
          else{

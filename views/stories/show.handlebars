@@ -75,7 +75,7 @@
 </div> --}}
 
 <div class="header showpage">
-    <h3 style="color:#777 !important">{{story.title}} <small>{{{editIcon story.user.id user.id story.id false}}}</small></h3>
+    <h3 class="titlebar" style="color:#777 !important">{{story.title}} <small>{{{editIcon story.user.id user.id story.id false}}}</small></h3>
 </div>
 
 <div class="row showpage">
@@ -93,7 +93,7 @@
             </div> --}}
             {{/if}}
             <div class="card-content card-top-space">
-                <small class="card-title darken-1"style="font-size:14px;font-color:#333;font:italic;">{{formateDate story.date 'MMMM Do YYYY'}}</small><span class="right green" style="padding:.5rem;color:white;"><i class="fas fa-star"></i> {{ratingCalculate story.rating}}</span>
+                <small class="card-title darken-1"style="font-size:14px;font-color:#333;font:italic;">{{formateDate story.date 'MMMM Do YYYY'}}</small>{{{ratingIcon story.user.id ../story.user.id story.id}}} <label for="RateValue">{{ratingCalculate story.rating}}</label>
                 <small  class="right">
                     
                     {{!-- <form method="post" action="/stories/thumbup/{{story.id}}">
@@ -102,7 +102,7 @@
                         <input type="submit" value="" class="waves-effect waves-grey transparent darken-5" style="border:1px green;width:2.6vw;height:2.6vh;padding:1rem;">
                     </form> --}}
                 </small>  <hr/>
-              <div class="" style="background-color:transparent !important;border-top:1px solid rgba(0, 0, 0, 0.14) !important;color:inherit !important;padding-top:2rem;padding-bottom:2rem;font-size: 1.3rem;">
+              <div class="bodybar" style="background-color:transparent !important;border-top:1px solid rgba(0, 0, 0, 0.14) !important;color:inherit !important;padding-top:2rem;padding-bottom:2rem;font-size: 1.3rem;">
                 {{{story.body}}}
               </div>
                    

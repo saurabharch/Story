@@ -89,8 +89,7 @@ const StorySchema = new Schema({
     rating: [{
                 RatedUser: {
                     type: Schema.Types.ObjectId,
-                    ref: 'users',
-                    unique: true
+                    ref: 'users'
                 },
                 RateValue: {
                     type: Number,

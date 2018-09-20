@@ -427,7 +427,7 @@ router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
 router.post('/rating/:id',ensureAuthenticated, (req, res) => {
     const value = req.query.rate;
     console.log(value);
-    Story.findByIdAndUpdate({
+    Story.findOne({
             _id: req.params.id
         }).then(story => {
             if (req.params.id !== story.rating.RatedUser && parseInt(value) <= 6) {
@@ -441,7 +441,10 @@ router.post('/rating/:id',ensureAuthenticated, (req, res) => {
             story.save()
                 .then(story => {
                     res.redirect(`/stories/show/${story.id}`);
-                });
+                })
+                .catch(err => {
+                    res.redirect(`/stories/show/${story.id}`);
+                })
             } else {
                 res.redirect(`/stories/show/${story.id}`);
             }
