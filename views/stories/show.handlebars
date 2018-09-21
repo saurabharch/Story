@@ -93,9 +93,10 @@
             </div> --}}
             {{/if}}
             <div class="card-content card-top-space">
-                <small class="card-title darken-1"style="font-size:14px;font-color:#333;font:italic;">{{formateDate story.date 'MMMM Do YYYY'}}</small>{{{ratingIcon story.user.id ../story.user.id story.id}}} <label for="RateValue">{{ratingCalculate story.rating}}</label>
+                <small class="card-title darken-1"style="font-size:14px;font-color:#333;font:italic;">{{formateDate story.date 'MMMM Do YYYY'}}</small>
                 <small  class="right">
-                    
+                    <span class="right green" style="padding:.4rem;font-size:.9rem;;color:white;"><i class="fas fa-star"></i>
+                        {{ratingCalculate story.rating}}</span>
                     {{!-- <form method="post" action="/stories/thumbup/{{story.id}}">
                         <small style="padding:1rem;color:#666;font-weight:700;font-size:.92rem;">{{totalcount story.likes}} </small>
                         <i class="fa fa-sign-language" style="margin-right:-2rem;tab-index:-10;color:#999;font-size:1.3rem;margin-top:10px;font-size:2rem;"></i>
