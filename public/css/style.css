@@ -1252,7 +1252,7 @@ section:nth-of-type(5) {
     h3 {
         font-size: 1.5rem !important;
     }
-
+    
     .titlename1 {
         visibility: visible;
         width: 100% !important;
@@ -4011,4 +4011,8 @@ p {
 
 ::-webkit-scrollbar-thumb:window-inactive {
     background: rgba(5, 172, 238, 0.8);
+}
+
+a.brand-logo.center {
+    font-size: 2rem !important;
 }
