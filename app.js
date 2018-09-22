@@ -12,6 +12,7 @@ const methodOverride = require('method-override');
 require('./models/User');
 require('./models/Story');
 require('./models/Push_Subscriber');
+require('appmetrics-dash').monitor();
 // require('./models/Categories');
 // Passport Config
 require('./config/passport')(passport);
