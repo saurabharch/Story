@@ -81,14 +81,14 @@
                                 <i class="material-icons text-grey text-left">remove_red_eye </i><small>{{viewcounting views}}</small>
                             </a>
                         </div>
-                        <div class="col s10">
-                            {{{ratingIcon user.id ../user.id id}}} <label for="RateValue">{{ratingCalculate rating}}</label>
-                           
-                        </div>
+                        
                     {{!-- <div class="col s12"> --}}
                         {{!-- {{#if user}} <div class="rate" data-rate-value="{{{ratingCalculate totalcount rating}}}"></div>{{/if}} --}}
                     {{!-- </div> --}}
 
+                    </div>
+                    <div class="row">
+                        {{{ratingIcon user.id ../user.id id}}} <label for="RateValue">{{ratingCalculate rating}}</label>
                     </div>
                 </div>
             </div>
