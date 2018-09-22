@@ -453,7 +453,7 @@
     }
 
     $.fn.rate.settings = {
-        max_value: 5,
+        max_value: 6,
         step_size: 0.5,
         initial_value: 0,
         symbols: {

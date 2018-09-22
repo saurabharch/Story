@@ -226,9 +226,9 @@ module.exports = {
     ratingIcon: function (storyUser, loggedUser, storyId, floating = true) {
         if (storyId) {
             if (floating && loggedUser) {
-                return `<div class="rate" type="checked" name="RateValue" data-rate-value='' id="${storyId}"></div>`;
+                return `<div class="rate" type="checked" name="RateValue" data-rate-value='' style="width:100px!important;" id="${storyId}"></div>`;
             } else {
-                return `<div class="rate" type="checked" name="RateValue" data-rate-value='' id="${storyId}"></div>`;
+                return `<div class="rate" type="checked" name="RateValue" data-rate-value='' style="width:100px!important;" id="${storyId}"></div>`;
             }
         } else {
             return '';
