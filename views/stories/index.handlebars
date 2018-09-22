@@ -75,21 +75,19 @@
                         <div class="background-masker image"></div>
                         {{/else}}
                     </div>
-                    <div class="row" style="background-color:transparent;border-top:1px solid rgba(0, 0, 0, 0.14);color: inherit;">
-                        <div class="col s6 offset-2">
+                    <div class="row" style="background-color:transparent;border-top:1px solid rgba(0, 0, 0, 0.14);color: inherit;margin-top: 20px;">
+                        <div class="col s4">
                             <a href="#" class="stateinfo" style="color:#888;height:46px;">
                                 <i class="material-icons text-grey text-left">remove_red_eye </i><small>{{viewcounting views}}</small>
                             </a>
                         </div>
                         
-                    {{!-- <div class="col s12"> --}}
-                        {{!-- {{#if user}} <div class="rate" data-rate-value="{{{ratingCalculate totalcount rating}}}"></div>{{/if}} --}}
-                    {{!-- </div> --}}
+                    <div class="col s8 m1">
+                        {{{ratingIcon user.id ../user.id id}}} <span class="color:#777 !important;font-weight:600 !important;">{{ratingCalculate rating}}</span>
+                    </div>
 
                     </div>
-                    <div class="row">
-                        {{{ratingIcon user.id ../user.id id}}} <label for="RateValue">{{ratingCalculate rating}}</label>
-                    </div>
+
                 </div>
             </div>
         </div>
