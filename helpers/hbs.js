@@ -133,7 +133,7 @@ module.exports = {
                          break;
                      }
                  }
-                 return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
+                 return (num / si[i].value).toFixed(2).replace(rx, "$1") + si[i].symbol;
              }
              let currentvalue = rating.sum('RateValue');
              //console.log(nFormatter(currentvalue));
