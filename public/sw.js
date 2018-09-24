@@ -233,7 +233,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "css/style.css",
-    "revision": "727e888d048a2d186fcf55245987ea2c"
+    "revision": "3d7a7413ee8f75a4feb6948243899e3a"
   },
   {
     "url": "fallback.json",
@@ -373,7 +373,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "js/rater.js",
-    "revision": "042e2097b422028a7a2e2e9361bea172"
+    "revision": "a999e992b8d9471568a6a1eb25b96145"
   },
   {
     "url": "js/scroll.js",
