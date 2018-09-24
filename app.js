@@ -7,12 +7,12 @@ const session = require('express-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const h5bp = require('h5bp');
+const compression = require('compression');
 // Load  Model
 require('./models/User');
 require('./models/Story');
 require('./models/Push_Subscriber');
-require('appmetrics-dash').monitor();
+//require('appmetrics-dash').monitor();
 // require('./models/Categories');
 // Passport Config
 require('./config/passport')(passport);
@@ -63,12 +63,9 @@ mongoose.connect(keys.mongoURI, {
     .catch(err => console.log(err));
 
 const app = express();
-app.use(h5bp({
-    root: __dirname + '/public'
-}));
+app.use(compression())
 
 // in order to serve files, you should add the two following middlewares
-app.use(express.compress());
 app.set('trust proxy', true);
 app.use(Raven.requestHandler());
 // parse application/json
