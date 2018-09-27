@@ -3943,12 +3943,28 @@ body.is-withMagicUnderlines .postArticle.is-withAccentColors .u-imageSpectrum .m
     margin-top: 40px;
     background-color: transparent;
     border-top: 1px solid rgba(0, 0, 0, 0.14);
-    color: inherit;
+    color: rgb(43, 41, 41);
+    
+}
+.min-height-250 {
+    min-height: 250px !important;
 }
 
+.border-radius-6 {
+    border-radius: 6px !important;
+}
+
+.gradient-45deg-red-pink {
+    background: #FF5252;
+    background: -webkit-linear-gradient(45deg, #FF5252 0%, #f48fb1 100%);
+    background: linear-gradient(45deg, #FF5252 0%, #f48fb1 100%);
+}
+.z-depth-3 {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.3);
+}
 .page-footer {
     padding-top: 20px;
-    color: #fff;
+    color: rgb(43, 41, 41);
     background-color: transparent;
 }
 
@@ -3966,6 +3982,9 @@ margin-bottom:.8rem;
     margin-right: 0px;
 }
 
+p.card-content{
+    color:#555 !important;
+}
 @media all and (display-mode: standalone) {
     body {
         background-color:#0000;

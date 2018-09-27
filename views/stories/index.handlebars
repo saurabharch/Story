@@ -10,104 +10,130 @@
         <div class="col s1 m1" onclick="location.href='?pageNo=1&size=6#popular';"><a class="btn btn-circle" style="color:white;background-color:#777 !important;">First</a></div>
     </div> --}}
     <div class="row">
-        <ul class="pagination">
-            <li class="disabled"><a href="#!" ><i class="material-icons">chevron_left</i></a></li>
-            <li class="waves-effect active selective" onclick="location.href='/stories/?page=1&size=6#popular'"><a href="#!">1</a></li>
-            <li class="waves-effect selective"><a href="#!" onclick="location.href='/stories/?page=2&size=6#popular'">2</a></li>
-            <li class="waves-effect selective"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-        </ul>
+        <div class="col s12 pb-5 center lighten-3">
+            <div class="container">
+                <div class="row pt-5 font-weight-900">
+                    <div class="col s4 m4" style="totalstick">Total Post Count: {{total}}</div>
+                    <div class="col s4 m4">Current page: {{page}}</div>
+                    <div class="col s4 m4">Total Pages: {{pages}}</div>
+                </div>
+            </div>
+            {{!-- <ul class="pagination">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <li class="waves-effect active selective" onclick="location.href='/stories/?page=1&size=6#popular'"><a href="#!">1</a></li>
+                <li class="waves-effect selective"><a href="#!" onclick="location.href='/stories/?page=2&size=6#popular'">2</a></li>
+                <li class="waves-effect selective"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul> --}}
+        </div>
+        
     </div>
     <div class="row">
-        <div class="container">
-            <div class="row">
-                <div class="col s4 m4" style="totalstick">Total Post Count: {{total}}</div>
-                <div class="col s4 m4">Current page: {{page}}</div>
-                <div class="col s4 m4">Total Pages: {{pages}}</div>
-            </div>
-        </div>
-        {{#each stories}}
-        <div class="col s12 m6">
-            {{!-- onclick="location.href='./stories/show/{{id}}'" --}}
-            <div class="card card1 heartbeat"> 
-                <div class="card-image">
-                    <span class="{{checkNew date}}"></span>
-                    {{#if user}} {{{editIcon user.id ../user.id id}}} {{/if}}
-                </div>
-                <div class="card-content center-align">
-                    <h5 class="storytitile" onclick="location.href='./stories/show/{{id}}'">{{title}} </span>
-                    </h5>
-                    {{#if body}}
-                    <small>
+        
+       <div class="col s12 center pb-7 grey lighten-3">
+            {{#each stories}}
+            <div class="col s12 m6">
+                {{!-- onclick="location.href='./stories/show/{{id}}'" --}}
+                <div class="card heartbeat border-radius-6 indigo lighten-3 min-height-250 indigo z-depth-3">
+                    <div class="card-image">
+                        <span class="{{checkNew date}}"></span>
+                        {{#if user}} {{{editIcon user.id ../user.id id}}} {{/if}}
+                    </div>
+                    <div class="card-content center vertical-align-center white blue-grey-text text-darken-3 mt-3 pt-2">
+                        <h5 class="lighten-4" onclick="location.href='./stories/show/{{id}}'">{{title}} </span>
+                        </h5>
+                        {{#if body}}
+                        <small>
                             <div class="col s12 left" style="border-radius:30px;text-align:left;">
-                                <p class="animated-background1" style="padding:.3rem;color:#888;width:100%;.opacity:0.7">{{formateDate date 'MMMM Do YYYY'}}</p>
+                                <p class="animated-background1" style="padding:.3rem;color:#888;width:100%;.opacity:0.7">{{formateDate
+                                    date 'MMMM Do YYYY'}}</p>
                             </div>
-                    </small>
-                    <p class="story-text page-footer docs-footer">{{stripTags (truncate body 150)}}</p>
-                    {{/if}} {{#else}}
-                    <div class="preloader-wrapper small active">
-                        <div class="spinner-layer spinner-green-only">
-                            <div class="circle-clipper left">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="gap-patch">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="circle-clipper right">
-                                <div class="circle"></div>
+                        </small>
+                        <p class="story-text page-footer docs-footer lighten-4 mb-4">{{stripTags (truncate body 150)}}</p>
+                        {{/if}} {{#else}}
+                        <div class="preloader-wrapper small active">
+                            <div class="spinner-layer spinner-green-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
                             </div>
                         </div>
+                        <div class="animated-background">
+                            <div class="background-masker paragraph1-bottom"></div>
+                            <div class="background-masker paragraph2-bottom"></div>
+                            <div class="background-masker paragraph3-bottom"></div>
+                            <div class="background-masker paragraph4-bottom"></div>
+                            <div class="background-masker paragraph5-bottom"></div>
+                            <div class="background-masker paragraph6-bottom"></div>"
+                        </div>
+                        {{/else}}
+                        <br>
+                        <div class="chip">
+                            {{#if user.image}}
+                            <img src="{{user.image}}" class="image-responsive"><a href="/stories/user/{{user.id}}" class="name-responsive">
+                                {{user.firstName}} {{user.lastName}} </a>
+                            {{/if}} {{#else}}
+                            <div class="background-masker image"></div>
+                            {{/else}}
+                        </div>
+                        <div class="row" style="background-color:transparent;border-top:1px solid rgba(0, 0, 0, 0.14);color: inherit;margin-top: 20px;">
+                            <div class="col s4">
+                                <a href="#" class="stateinfo" style="color:#888;height:46px;">
+                                    <i class="material-icons text-grey text-left">remove_red_eye </i><small>{{viewcounting views}}</small>
+                                </a>
+                            </div>
+            
+                            <div class="col s8 m1">
+                                {{{ratingIcon user.id ../user.id id}}} <span class="color:#777 !important;font-weight:600 !important;">{{ratingCalculate
+                                    rating}}</span>
+                            </div>
+            
+                        </div>
+            
                     </div>
+                </div>
+            </div>
+            {{else}}
+            <p>No Story Found</p>
+            <div class="timeline-wrapper">
+                <div class="timeline-item">
                     <div class="animated-background">
+                        <div class="background-masker image"></div>
+                        <div class="background-masker header-bottom"></div>
                         <div class="background-masker paragraph1-bottom"></div>
                         <div class="background-masker paragraph2-bottom"></div>
                         <div class="background-masker paragraph3-bottom"></div>
                         <div class="background-masker paragraph4-bottom"></div>
                         <div class="background-masker paragraph5-bottom"></div>
-                        <div class="background-masker paragraph6-bottom"></div>"
+                        <div class="background-masker paragraph6-bottom"></div>
                     </div>
-                    {{/else}}
-                    <br>
-                    <div class="chip">
-                        {{#if user.image}}
-                        <img src="{{user.image}}" class="image-responsive"><a href="/stories/user/{{user.id}}" class="name-responsive">
-                        {{user.firstName}} {{user.lastName}} </a>
-                        {{/if}} {{#else}}
-                        <div class="background-masker image"></div>
-                        {{/else}}
-                    </div>
-                    <div class="row" style="background-color:transparent;border-top:1px solid rgba(0, 0, 0, 0.14);color: inherit;margin-top: 20px;">
-                        <div class="col s4">
-                            <a href="#" class="stateinfo" style="color:#888;height:46px;">
-                                <i class="material-icons text-grey text-left">remove_red_eye </i><small>{{viewcounting views}}</small>
-                            </a>
-                        </div>
-                        
-                    <div class="col s8 m1">
-                        {{{ratingIcon user.id ../user.id id}}} <span class="color:#777 !important;font-weight:600 !important;">{{ratingCalculate rating}}</span>
-                    </div>
-
-                    </div>
-
                 </div>
             </div>
-        </div>
-        {{else}}
-        <p>No Story Found</p>
-        <div class="timeline-wrapper">
-            <div class="timeline-item">
-                <div class="animated-background">
-                    <div class="background-masker image"></div>
-                    <div class="background-masker header-bottom"></div>
-                    <div class="background-masker paragraph1-bottom"></div>
-                    <div class="background-masker paragraph2-bottom"></div>
-                    <div class="background-masker paragraph3-bottom"></div>
-                    <div class="background-masker paragraph4-bottom"></div>
-                    <div class="background-masker paragraph5-bottom"></div>
-                    <div class="background-masker paragraph6-bottom"></div>
+            {{/each}}
+       </div>
+    </div>
+    <div class="row">
+        <div class="col s12 pb-5 center lighten-3">
+            <div class="container">
+                <div class="row pt-5 font-weight-900">
+                    <div class="col s4 m4" style="totalstick">Total Post Count: {{total}}</div>
+                    <div class="col s4 m4">Current page: {{page}}</div>
+                    <div class="col s4 m4">Total Pages: {{pages}}</div>
                 </div>
             </div>
+            <ul class="pagination">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <li class="waves-effect active selective" onclick="location.href='/stories/?page=1&size=6#popular'"><a href="#!">1</a></li>
+                <li class="waves-effect selective"><a href="#!" onclick="location.href='/stories/?page=2&size=6#popular'">2</a></li>
+                <li class="waves-effect selective"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
         </div>
-        {{/each}}
+    
     </div>
 </div>
 {{!-- <div class="separator focus-in-contract-bck black" style="width:100%;">New Latest Posted Stories</div> --}}

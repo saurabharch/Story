@@ -6,7 +6,10 @@ const Story = mongoose.model('stories');
 const User = mongoose.model('users');
 const axios = require('axios');
 const keys = require('../config/keys');
-const {ensureAuthenticated,ensureGuest} = require('../helpers/auth');
+const {
+    ensureAuthenticated,
+    ensureGuest
+} = require('../helpers/auth');
 // const conn = mongoose.createConnection(keys.mongoURI);
 //Story Index
 
@@ -17,26 +20,28 @@ hostAddress = '';
 router.get('/', (req, res) => {
     var page = parseInt(req.query.page) || 1;
     var size = parseInt(req.query.size) || 5;
-   // console.log(`page: ${page}, size: ${size} `);
+    // console.log(`page: ${page}, size: ${size} `);
     var query = {
         status: 'public'
     };
-      if (page < 0 || page === 0) {
-          stories = {
-              "error": true,
-              "message": "invalid page number, should start with 1"
-          };
-          return res.json(stories);
-      }
+    if (page < 0 || page === 0) {
+        stories = {
+            "error": true,
+            "message": "invalid page number, should start with 1"
+        };
+        return res.json(stories);
+    }
     query.skip = size * (page - 1);
     query.limit = size;
     query.populate = 'user';
     query.sort = {
-        views:-1,
-        date:-1
+        views: -1,
+        date: -1
     };
     // Find some latest post by views count documents
-    Story.count({status:'public'}, function (err, totalCount) {
+    Story.count({
+        status: 'public'
+    }, function (err, totalCount) {
         if (err) {
             stories = {
                 "error": true,
@@ -51,12 +56,12 @@ router.get('/', (req, res) => {
                     "message": "Error fetching data"
                 };
             } else {
-                 var totalPages = Math.ceil(totalCount / size);
-                 response = {
-                     "error": false,
-                     "message": stories,
-                     "pages": totalPages
-                 };
+                var totalPages = Math.ceil(totalCount / size);
+                response = {
+                    "error": false,
+                    "message": stories,
+                    "pages": totalPages
+                };
             }
             res.locals.metaTags = {
                 title: 'StoryBook',
@@ -69,7 +74,7 @@ router.get('/', (req, res) => {
                 stories: response.message,
                 pages: totalPages,
                 total: totalCount,
-                page:page
+                page: page
             });
             // console.log(stories);
             //res.json(stories);
@@ -78,70 +83,70 @@ router.get('/', (req, res) => {
 });
 
 router.get('/popular/:page', (req, res) => {
-  var pages = parseInt(req.params.page) ;
-  var size = parseInt(req.query.size);
-  var popular = {
-      status: 'public'
-  };
-  if (pages < 0 || pages === 0) {
-      popular = {
-          "error": true,
-          "message": "invalid page number, should start with 1"
-      };
-      return res.json(popular);
-  }
-  popular.skip = size * (pages - 1);
-  popular.limit = size;
-  popular.populate = 'user';
-  popular.sort = {
-      views: -1,
-      date: -1
-  };
-  Story.count({
-      status: 'public'
-  }, function (err, totalC) {
-      if (err) {
-          popularpost = {
-              "error": true,
-              "message": "Error fetching data"
-          }
-      }
-      Story.find({}, {}, popular, function (err, popularpost, response) {
-          // Mongo command to fetch all data from collection.
-          if (err) {
-              response = {
-                  "error": true,
-                  "popularpost": "Error fetching data"
-              };
-          } else {
-              var totalP = Math.ceil(totalC / size);
-              response = {
-                  "error": false,
-                  "popular": popularpost,
-                  "pages": totalP
-              };
+    var pages = parseInt(req.params.page);
+    var size = parseInt(req.query.size);
+    var popular = {
+        status: 'public'
+    };
+    if (pages < 0 || pages === 0) {
+        popular = {
+            "error": true,
+            "message": "invalid page number, should start with 1"
+        };
+        return res.json(popular);
+    }
+    popular.skip = size * (pages - 1);
+    popular.limit = size;
+    popular.populate = 'user';
+    popular.sort = {
+        views: -1,
+        date: -1
+    };
+    Story.count({
+        status: 'public'
+    }, function (err, totalC) {
+        if (err) {
+            popularpost = {
+                "error": true,
+                "message": "Error fetching data"
+            }
+        }
+        Story.find({}, {}, popular, function (err, popularpost, response) {
+            // Mongo command to fetch all data from collection.
+            if (err) {
+                response = {
+                    "error": true,
+                    "popularpost": "Error fetching data"
+                };
+            } else {
+                var totalP = Math.ceil(totalC / size);
+                response = {
+                    "error": false,
+                    "popular": popularpost,
+                    "pages": totalP
+                };
 
-          }
-          res.locals.metaTags = {
-              title: 'StoryBook',
-              description: 'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.',
-              keywords: 'Affiliate Marketing,Money Making, Online Earning, Blog, Science and Technology,Software and web application development',
-              generator: 'Story Book MetaTag Generator v.1.0',
-              author: 'Saurabh Kashyap'
-          };
-          res.render('stories/popular', {
-              // stories: response.message,
-              // pages: totalPages,
-              // total: totalCount,
-              // page: page
-              popular: response.popular,
-              pageno: pages
-          });
-          // return  res.send(JSON.stringify(response));
-          // sendres = JSON.stringify(popularpost);
+            }
+            res.locals.metaTags = {
+                title: 'StoryBook',
+                description: 'StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing.',
+                keywords: 'Affiliate Marketing,Money Making, Online Earning, Blog, Science and Technology,Software and web application development',
+                generator: 'Story Book MetaTag Generator v.1.0',
+                author: 'Saurabh Kashyap'
+            };
+            res.render('stories/popular', {
+                // stories: response.message,
+                // pages: totalPages,
+                // total: totalCount,
+                // page: page
+                popular: response.popular,
+                pageno: pages
+            });
+            // return  res.send(JSON.stringify(response));
+            // sendres = JSON.stringify(popularpost);
 
-      });
-  });
+        });
+    });
 });
 //Show Single Stories
 router.get('/show/:id', (req, res) => {
@@ -211,9 +216,9 @@ router.get('/show/:id', (req, res) => {
 // Show Single Stories By Writer
 router.get('/user/show/:id', (req, res) => {
     //  console.log(req.headers.referer);
-  
+
     hostAddress = req.protocol + '://' + req.get('host') + req.originalUrl;
-    const obajectid = req.params.id.replace('app.js', '').replace('\n', '').replace('new-install.js','');
+    const obajectid = req.params.id.replace('app.js', '').replace('\n', '').replace('new-install.js', '');
     Story.findOne({
             _id: mongoose.Types.ObjectId(obajectid)
         })
@@ -239,7 +244,7 @@ router.get('/user/show/:id', (req, res) => {
                     likescount: story.likes,
                     dislikecount: story.dislikes,
                     ratedusers: story.rating,
-                    url:hostAddress,
+                    url: hostAddress,
                     layout: "main"
                 });
             } else {
@@ -329,7 +334,7 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
 router.post('/', ensureAuthenticated, (req, res) => {
     let allowComments;
     let likes = 0;
-   const url = req.protocol + '://' + req.get('host');
+    const url = req.protocol + '://' + req.get('host');
     if (req.body.allowComments) {
         allowComments = true;
     } else {
@@ -352,15 +357,15 @@ router.post('/', ensureAuthenticated, (req, res) => {
     new Story(newStory)
         .save()
         .then(story => {
-            
-            axios.post(url+'/push', {
-                   "title": story.title,
-                       "message": story.description,
-                       "url": url + '/stories/user/show/' + story.id,
-                       "ttl": 36000,
-                       "icon": url + '/img/book-192X192.png',
-                       "badge": url + '/img/book-192X192.png',
-                       "tag": story.keywords
+
+            axios.post(url + '/push', {
+                    "title": story.title,
+                    "message": story.description,
+                    "url": url + '/stories/user/show/' + story.id,
+                    "ttl": 36000,
+                    "icon": url + '/img/book-192X192.png',
+                    "badge": url + '/img/book-192X192.png',
+                    "tag": story.keywords
                 })
                 .then(function (response) {
                     console.log(response);
@@ -402,7 +407,7 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
 });
 
 router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
-   // console.log(req.body);
+    // console.log(req.body);
     Story.findOne({
         _id: req.params.id
     }).then(story => {
@@ -424,27 +429,27 @@ router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
     });
 });
 
-router.post('/rating/:id',ensureAuthenticated, (req, res) => {
+router.post('/rating/:id', ensureAuthenticated, (req, res) => {
     const value = req.query.rate;
     console.log(value);
     Story.findOne({
             _id: req.params.id
         }).then(story => {
             if (req.params.id !== story.rating.RatedUser && parseInt(value) <= 6) {
-            const newRate = {
-                RateValue: value,
-                RateUser: req.user.id
-            }
-            console.log(newRate);
-            //Add to comments array
-            story.rating.unshift(newRate);
-            story.save()
-                .then(story => {
-                    res.redirect(`/stories/show/${story.id}`);
-                })
-                .catch(err => {
-                    res.redirect(`/stories/show/${story.id}`);
-                })
+                const newRate = {
+                    RateValue: value,
+                    RateUser: req.user.id
+                }
+                console.log(newRate);
+                //Add to comments array
+                story.rating.unshift(newRate);
+                story.save()
+                    .then(story => {
+                        res.redirect(`/stories/show/${story.id}`);
+                    })
+                    .catch(err => {
+                        res.redirect(`/stories/show/${story.id}`);
+                    })
             } else {
                 res.redirect(`/stories/show/${story.id}`);
             }
@@ -483,6 +488,7 @@ router.post('/comment/:id', ensureAuthenticated, (req, res) => {
                 });
         });
 });
+
 
 // router.post('/addcategory/:id',ensureAuthenticated, (req, res) => {
 //    if(req.body.category != null){
