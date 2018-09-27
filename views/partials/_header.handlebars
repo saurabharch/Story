@@ -33,7 +33,7 @@
             <ul class="side-nav" id="main-menu" style="z-index:999;">
 
                 {{#if user}} {{else}}
-                <li>
+                {{!-- <li>
                     <a href="/auth/google" class="btn white btn-circle darken-1 shake-top" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;">Login With
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 48 48" style="fill:#000000;">
                             <g id="surface1">
@@ -93,14 +93,8 @@
                             <circle style="fill:url(#SVGID_3__43625);" cx="46" cy="18" r="3"></circle>
                         </svg>
                     </a>
-                </li>
-                {{/if}}
-                {{!-- <li>
-                    <a href="/stories/?pageNo=1&size=6" class="btn grey btn-circle darken-4">
-                        Public Stories
-                        <i class="fa fa-book white right m-4 shake-top"></i>
-                    </a>
                 </li> --}}
+                {{/if}}
                 <li class="divider"></li>
                 {{#if user}}
                 <li>
