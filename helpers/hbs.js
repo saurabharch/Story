@@ -213,11 +213,14 @@ module.exports = {
            }
         },
     moderateComments: function (storyUser, loggedUser, storyId, floating = true) {
-        if (storyUser == loggedUser) {
-            if (floating) { //add form post method on api request
-                return ` <div class="card-title right" style="padding-right:1rem;padding-top:.5rem;"><i style="color:#999;font-size:1.2rem;" class="material-icons right">close</i></div>`;
+        console.log(storyId);
+        console.log(storyUser);
+        console.log(loggedUser);
+        if (storyId) {
+            if (floating && loggedUser) { //add form post method on api request
+                return ` <div class="card-title right commentClose" id="${storyId}" data-value="${storyId}+"/"+${loggedUser}+"/"+${storyUser}" style="padding-right:1rem;padding-top:.5rem;"><i style="color:#999;font-size:1.2rem;" class="material-icons right">close</i></div>`;
             } else {
-                return ` <div class="card-title right" style="padding-right:1rem;padding-top:.5rem;"><i style="color:#999;font-size:1.2rem;" class="material-icons right">close</i></div>`;
+                return ` <div class="card-title right" id="${storyId}" data-value="${storyId}+"/"+${loggedUser}+"/"+${storyUser}" style="padding-right:1rem;padding-top:.5rem;"><i style="color:#999;font-size:1.2rem;" class="material-icons right">close</i></div>`;
             }
         } else {
             return '';

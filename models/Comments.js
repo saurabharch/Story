@@ -21,13 +21,9 @@ const CommentsSchema = new Schema({
       commentUser: {
           type: Schema.Types.ObjectId,
           ref: 'users'
-      },
-      stories:{
-          type: Schema.Types.ObjectId,
-          ref: 'stories'
       }
 
 });
 
 // Create collection and add schema
-mongoose.model('comments', CommentsSchema);
+mongoose.model('comments', CommentsSchema, 'comments');

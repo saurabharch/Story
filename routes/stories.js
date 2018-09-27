@@ -480,7 +480,7 @@ router.post('/comment/:id', ensureAuthenticated, (req, res) => {
                 commentUser: req.user.id
             }
             //Add to comments array
-            story.comments.unshift(newComment);
+            story.comments.push(newComment);
 
             story.save()
                 .then(story => {
@@ -489,7 +489,10 @@ router.post('/comment/:id', ensureAuthenticated, (req, res) => {
         });
 });
 
+// Remove Comment
+router.delete('/comment/:id/:commentid', ensureAuthenticated,(req,res) => {
 
+});
 // router.post('/addcategory/:id',ensureAuthenticated, (req, res) => {
 //    if(req.body.category != null){
 //         const newCategory = {

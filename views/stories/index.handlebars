@@ -29,11 +29,11 @@
     </div>
     <div class="row">
         
-       <div class="col s12 center pb-7 grey lighten-3">
+       <div class="col s12 center pb-7 grey lighten-5">
             {{#each stories}}
             <div class="col s12 m6">
                 {{!-- onclick="location.href='./stories/show/{{id}}'" --}}
-                <div class="card heartbeat border-radius-6 indigo lighten-3 min-height-250 indigo z-depth-3">
+                <div class="card heartbeat border-radius-6 indigo min-height-250 z-depth-1">
                     <div class="card-image">
                         <span class="{{checkNew date}}"></span>
                         {{#if user}} {{{editIcon user.id ../user.id id}}} {{/if}}
@@ -136,9 +136,3 @@
     
     </div>
 </div>
-{{!-- <div class="separator focus-in-contract-bck black" style="width:100%;">New Latest Posted Stories</div> --}}
-{{!-- <div class="" id="latest" style="margin-top:2rem">
-<iframe src="popular/1" sandbox="allow-same-origin allow-scripts" seamless="seamless" frameborder="0" style="border: 0px solid white;" width="100%" height="724px"></iframe>
-</div> --}}
-
-{{!-- {{> popular}} --}}

@@ -44,8 +44,7 @@ const StorySchema = new Schema({
             default: Date.now()
         },
         commentUser: {
-            type: Schema.Types.ObjectId,
-            ref: 'users'
+            
         }
     }],
     user: {

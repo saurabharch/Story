@@ -26,6 +26,18 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
         });
 });
 
+router.get('/comments/:storyid', ensureAuthenticated, (req, res) => {
+    Story.find({
+            _id: req.params.storyid
+        })
+        .then(stories => {
+            res.render('index/comments', {
+                story: story
+            });
+        });
+});
+
+
 router.get('/about', ensureGuest,(req, res) => {
     res.render('index/about');
 });
