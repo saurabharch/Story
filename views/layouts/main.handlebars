@@ -3,9 +3,9 @@
     dir=ltr lang=en prefix="content: http://purl.org/rss/1.0/modules/content/
 dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema#
 schema: http://schema.org/ sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core#
-xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article# xmlns:book=http://ogp.me/ns/book# xmlns:product=http://ogp.me/ns/product#
-    xmlns:profile=http://ogp.me/ns/profile# xmlns:video=http://ogp.me/ns/video#>
-<meta charset=UTF-8>
+xsd: http://www.w3.org/2001/XMLSchema# "
+    xmlns:article=http://ogp.me/ns/article# xmlns:book=http://ogp.me/ns/book# xmlns:product=http://ogp.me/ns/product#
+    xmlns:profile=http://ogp.me/ns/profile# xmlns:video=http://ogp.me/ns/video#> <meta charset=UTF-8>
 <meta content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1" name=viewport>
 <meta content="ie=edge" http-equiv="X-UA-Compatible">
 <title>{{metaTags.title}}</title>
@@ -19,7 +19,8 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
 
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css' integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ' crossorigin='anonymous'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css' integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ'
+    crossorigin='anonymous'>
 {{!--
 <link href=https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css rel=stylesheet crossorigin=anonymous
     integrity=sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN>--}}
@@ -35,17 +36,20 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 <link href="https://www.new-storybook.herokuapp.com/ae/" rel="hreflang" hreflang="en-AE">
 <link href="https://www.new-storybook.herokuapp.com/de/" rel="hreflang" hreflang="de">
 <link href="https://www.new-storybook.herokuapp.com/en/" rel="alternate" hreflang="en">
-{{!-- <link href="" rel="mask-icon" color="#0098e3"> --}}
+{{!--
+<link href="" rel="mask-icon" color="#0098e3"> --}}
 <meta content="#2b5797" name="msapplication-TileColor">
 <link href="https://www.new-storybook.herokuapp.com/manifest.json" rel="manifest" type="manifest+json">
-{{!-- <script type="text/javascript" src="./new-install.js"></script> --}}
+{{!--
+<script type="text/javascript" src="./new-install.js"></script> --}}
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
 <meta content="yes" name="apple-mobile-web-app-capable">
 <link href="/img/fevicon.ico" rel="icon" sizes="16x16 32x32 48x48">
 <link href="/img/book-512X512.png" rel="icon" sizes="512x512">
 <meta content="#0098e3" name="theme-color">
 <meta content="browserconfig.xml" name="msapplication-config">{{!-- SEO AREA START --}}
-<script>console.log("%c Stop! %cThis is a browser feature intended for developers.If someone told you to copy and paste something here to enable a Storybook feature or 'hack' someone's account, it is a scam and will give them access to your StoryBook account. %cSee https://new-storybook.herokuapp.com/security for more information. ", "font-weight:bold;font-size:50px;color:red;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;", "font-weight:500;font-size:20px;color:#404040;", "font-weight:500;font-size:22px;color:grey;")</script>{{!-- HTTP TO HTTPS REDIRECT --}}
+<script>console.log("%c Stop! %cThis is a browser feature intended for developers.If someone told you to copy and paste something here to enable a Storybook feature or 'hack' someone's account, it is a scam and will give them access to your StoryBook account. %cSee https://new-storybook.herokuapp.com/security for more information. ", "font-weight:bold;font-size:50px;color:red;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;", "font-weight:500;font-size:20px;color:#404040;", "font-weight:500;font-size:22px;color:grey;")</script>{{!--
+HTTP TO HTTPS REDIRECT --}}
 <script>"https:" != document.location.protocol && (document.location = document.URL.replace(/^http:/i, "https:"))</script>
 <script>var monsterinsights_frontend = { js_events_tracking: "true", is_debug_mode: "false", download_extensions: "doc,exe,js,pdf,ppt,tgz,zip,xls", inbound_paths: "/recommended/", home_url: "https://www.new-storybook.herokuapp.com", track_download_as: "event", internal_label: "aff", hash_tracking: "false" }</script>
 <script>var advanced_ads_responsive = { reload_on_resize: "0" }</script>
@@ -53,26 +57,34 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 <link href="https://www.new-storybook.herokuapp.com/" rel="https://api.w.org/">
 <meta content={{metaTags.generator}} name="generator">
 <link href="https://www.new-storybook.herokuapp.com/" rel="shortlink">
-<meta content="{{metaTags.generator}}" name="generator">{{!-- FACEBOOK PAGE HERE --}} {{!--<meta content=94019601674 property=fb:pages>--}}
+<meta content="{{metaTags.generator}}" name="generator">{{!-- FACEBOOK PAGE HERE --}} {{!--
+<meta content=94019601674 property=fb:pages>--}}
 <script>window._peq = window._peq || [], window._peq.push(["init"])</script>
-{{!--<script data-cfasync="false">var gtm4wp_scrollerscript_debugmode = !1, gtm4wp_scrollerscript_callbacktime = 100, gtm4wp_scrollerscript_readerlocation = 150, gtm4wp_scrollerscript_contentelementid = "content", gtm4wp_scrollerscript_scannertime = 60; jQuery(function () { gtm4wp_track_downloads("pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,gz,tar") }), dataLayer.push({ pagePostType: "frontpage", pagePostType2: "single-page", pagePostAuthor: "Saurabh Kashyap", browserName: "Chrome", browserVersion: "67.0.3396.99", browserEngineName: "Blink", browserEngineVersion: "", osName: "Windows", osVersion: "6.1", deviceType: "desktop", deviceManufacturer: "", deviceModel: "" })</script>--}}
+{{!--
+<script data-cfasync="false">var gtm4wp_scrollerscript_debugmode = !1, gtm4wp_scrollerscript_callbacktime = 100, gtm4wp_scrollerscript_readerlocation = 150, gtm4wp_scrollerscript_contentelementid = "content", gtm4wp_scrollerscript_scannertime = 60; jQuery(function () { gtm4wp_track_downloads("pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,gz,tar") }), dataLayer.push({ pagePostType: "frontpage", pagePostType2: "single-page", pagePostAuthor: "Saurabh Kashyap", browserName: "Chrome", browserVersion: "67.0.3396.99", browserEngineName: "Blink", browserEngineVersion: "", osName: "Windows", osVersion: "6.1", deviceType: "desktop", deviceManufacturer: "", deviceModel: "" })</script>--}}
 <script>var advadsCfpQueue = [], advadsCfpExpHours = 3, advadsCfpClickLimit = 3, advadsCfpPath = "", advadsCfpDomain = "new-storybook.herokuapp.com", advadsCfpAd = function (a) { "undefined" == typeof advadsProCfp ? advadsCfpQueue.push(a) : advadsProCfp.addElement(a) }</script>{{!--
 <link href=https://www.new-storybook.herokuapp.com/img/book-96x96.png rel=icon sizes=32x32>
 <link href=https://www.new-storybook.herokuapp.com/img/book-192x192.png rel=icon sizes=192x192>
 <link href=https://www.new-storybook.herokuapp.com/img/book-180x180.png rel=apple-touch-icon-precomposed>
-<meta content=https://www.new-storybook.herokuapp.com/img/book-256x256.png name=msapplication-TileImage>meta name="viewport" content="width=device-width, initial-scale=1" /> --}}
+<meta content=https://www.new-storybook.herokuapp.com/img/book-256x256.png name=msapplication-TileImage>meta
+name="viewport" content="width=device-width, initial-scale=1" /> --}}
 <script data-cfasync=false>var gtm4wp_datalayer_name = "dataLayer", dataLayer = dataLayer || []</script>
-{{!--<meta content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing." name="description">--}}
+{{!--
+<meta content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."
+    name="description">--}}
 <meta content="en_US" property="og:locale">
 <meta content="website" property="og:type">
 <meta content="{{metaTags.title}}" property="og:title">
-{{!-- <meta content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."
+{{!--
+<meta content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."
     property="og:description"> --}}
 <meta content="Octicons-book.svg.png" property="og:image">
 <meta content="https://www.new-storybook.herokuapp.com/" property="og:url">
 <meta content="StoryBook" property="og:site_name">
 <meta content="{{metaTags.title}}" name="twitter:card">
-{{!--<meta content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing." name=twitter:description>--}}
+{{!--
+<meta content="StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."
+    name=twitter:description>--}}
 <meta content="{{metaTags.title}}" name="twitter:title">
 <meta content="{{metaTags.TwitterLink}}" name="twitter:site">
 <meta content="{{metaTags.myTwitter}}" name="twitter:creator">
@@ -583,7 +595,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
     }
 </style>
 <style>
-.rate-base-layer
+    .rate-base-layer
         {
             color: #aaa;
         }
@@ -629,128 +641,132 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
         <div class="card">
             <div class="overlay"></div>
             <div class="overlay-content">Please rotate your device</div>
-            <div class="overlay-text">We don't support landscape mode yet. Please go back to portrait mode for the best experience</div>
+            <div class="overlay-text">We don't support landscape mode yet. Please go back to portrait mode for the best
+                experience</div>
         </div>
     </center>
-</div>{{> _header}} {{> _side-nav}}  {{#if user}} {{> _add-btn}} {{/if}}
+</div>{{> _header}} {{> _side-nav}} {{#if user}} {{> _add-btn}} {{/if}}
 <main>
     <div class="container">{{{body}}}</div>
-    <center><div><a href="#" id="btnAdd" class="btn-ahs white-text">Add to Home Screen</a></div></center>
+
 </main>{{> _footer}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-{{!-- <script src=init.js></script> --}}
+{{!--
+<script src=init.js></script> --}}
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://new-storybook.herokuapp.com/js/rater.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
 <script src="https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js"></script>
-{{!-- <script type="text/javascript" src="js/scroll.js"></script> --}}
+{{!--
+<script type="text/javascript" src="js/scroll.js"></script> --}}
 <script type="text/javascript" src="sticky.js"></script>
 <script>
- $(document).ready(function(){
-     var checkid = '';
-     var urlPost = '';
-     var setValue = '';
-    $('.rate').click(function () {
-         checkid = this.id;
-         urlPost = this.id;
-         setValue = $(this.id).data('rate-value');
-         checkid = 'https://new-storybook.herokuapp.com/stories/rating/' + checkid;
-         
-     });
-     var options = {
-                 max_value: 5,
-                step_size: 0.25,
-                selected_symbol_type: 'fontawesome_star',
-                url: checkid,
-                initial_value: 0
-            }
-            $(".rate").rate(options);
-            $(".rate").on("change", function(ev, data){
-                console.log(data.from, data.to);
-               // console.log(data);
-                $.post(checkid+'?rate='+data.to,
-                    {
-                        RateValue: data.to 
-                    });
-            });
+    $(document).ready(function () {
+        var checkid = '';
+        var urlPost = '';
+        var setValue = '';
+        $('.rate').click(function () {
+            checkid = this.id;
+            urlPost = this.id;
+            setValue = $(this.id).data('rate-value');
+            checkid = 'https://new-storybook.herokuapp.com/stories/rating/' + checkid;
 
-            $(".rate").on("updateError", function(ev, jxhr, msg, err){
-                console.log("This is a custom error event");
-            });
-
-            $(".rate").rate("setAdditionalData", {id: 42});
-            $(".rate").on("updateSuccess", function(ev, data){
-               // console.log(data);
-            });
-
-            var options3 = {
-                selected_symbol_type: 'utf8_emoticons',
-                max_value: 4,
-                step_size: 1,
-                convert_to_utf8: true,
-                only_select_one_symbol: true,
-            };
-            $("#rate3").rate(options3);
-
-            setTimeout(function(){
-                $("#rate4").rate({
-                    selected_symbol_type: 'fontawesome_beer',
-                    max_value: 5,
-                    step_size: 0.25,
-                });
-
-                $("#rate6").rate({
-                    selected_symbol_type: 'fontawesome_star',
-                    max_value: 5,
-                    step_size: 0.25,
-                });
-            }, 2000);
-
-            $("#rate5").rate({
-                selected_symbol_type: 'image',
-                max_value: 5,
-                step_size: 1,
-                symbols: {
-                    image: {
-                        base: '<div class="im">&nbsp;</div>',
-                        hover: '<div class="im">&nbsp;</div>',
-                        selected: '<div class="im">&nbsp;</div>',
-                    },
-                }
-            });
-
-            $("#rate7").rate({
-                selected_symbol_type: 'image2',
-                max_value: 5,
-                step_size: 1,
-                update_input_field_name: $("#input1"),
-                only_select_one_symbol: true,
-                symbols:{
-                    image2: {
-                        base: ['<div style="background-image: url(\'./img/emoji1.png\');" class="im2">&nbsp;</div>',
-                               '<div style="background-image: url(\'./img/emoji2.png\');" class="im2">&nbsp;</div>',
-                               '<div style="background-image: url(\'./img/emoji3.png\');" class="im2">&nbsp;</div>',
-                               '<div style="background-image: url(\'./img/emoji4.png\');" class="im2">&nbsp;</div>',
-                               '<div style="background-image: url(\'./img/emoji5.png\');" class="im2">&nbsp;</div>',],
-                        hover: ['<div style="background-image: url(\'./img/emoji1.png\');" class="im2">&nbsp;</div>',
-                               '<div style="background-image: url(\'./img/emoji2.png\');" class="im2">&nbsp;</div>',
-                               '<div style="background-image: url(\'./img/emoji3.png\');" class="im2">&nbsp;</div>',
-                               '<div style="background-image: url(\'./img/emoji4.png\');" class="im2">&nbsp;</div>',
-                               '<div style="background-image: url(\'./img/emoji5.png\');" class="im2">&nbsp;</div>',],
-                        selected: ['<div style="background-image: url(\'./img/emoji1.png\');" class="im2">&nbsp;</div>',
-                               '<div style="background-image: url(\'./img/emoji2.png\');" class="im2">&nbsp;</div>',
-                               '<div style="background-image: url(\'./img/emoji3.png\');" class="im2">&nbsp;</div>',
-                               '<div style="background-image: url(\'./img/emoji4.png\');" class="im2">&nbsp;</div>',
-                               '<div style="background-image: url(\'./img/emoji5.png\');" class="im2">&nbsp;</div>',],
-                    },
-                },
-            });
         });
+        var options = {
+            max_value: 5,
+            step_size: 0.25,
+            selected_symbol_type: 'fontawesome_star',
+            url: checkid,
+            initial_value: 0
+        }
+        $(".rate").rate(options);
+        $(".rate").on("change", function (ev, data) {
+            console.log(data.from, data.to);
+            // console.log(data);
+            $.post(checkid + '?rate=' + data.to,
+                {
+                    RateValue: data.to
+                });
+        });
+
+        $(".rate").on("updateError", function (ev, jxhr, msg, err) {
+            console.log("This is a custom error event");
+        });
+
+        $(".rate").rate("setAdditionalData", { id: 42 });
+        $(".rate").on("updateSuccess", function (ev, data) {
+            // console.log(data);
+        });
+
+        var options3 = {
+            selected_symbol_type: 'utf8_emoticons',
+            max_value: 4,
+            step_size: 1,
+            convert_to_utf8: true,
+            only_select_one_symbol: true,
+        };
+        $("#rate3").rate(options3);
+
+        setTimeout(function () {
+            $("#rate4").rate({
+                selected_symbol_type: 'fontawesome_beer',
+                max_value: 5,
+                step_size: 0.25,
+            });
+
+            $("#rate6").rate({
+                selected_symbol_type: 'fontawesome_star',
+                max_value: 5,
+                step_size: 0.25,
+            });
+        }, 2000);
+
+        $("#rate5").rate({
+            selected_symbol_type: 'image',
+            max_value: 5,
+            step_size: 1,
+            symbols: {
+                image: {
+                    base: '<div class="im">&nbsp;</div>',
+                    hover: '<div class="im">&nbsp;</div>',
+                    selected: '<div class="im">&nbsp;</div>',
+                },
+            }
+        });
+
+        $("#rate7").rate({
+            selected_symbol_type: 'image2',
+            max_value: 5,
+            step_size: 1,
+            update_input_field_name: $("#input1"),
+            only_select_one_symbol: true,
+            symbols: {
+                image2: {
+                    base: ['<div style="background-image: url(\'./img/emoji1.png\');" class="im2">&nbsp;</div>',
+                        '<div style="background-image: url(\'./img/emoji2.png\');" class="im2">&nbsp;</div>',
+                        '<div style="background-image: url(\'./img/emoji3.png\');" class="im2">&nbsp;</div>',
+                        '<div style="background-image: url(\'./img/emoji4.png\');" class="im2">&nbsp;</div>',
+                        '<div style="background-image: url(\'./img/emoji5.png\');" class="im2">&nbsp;</div>',],
+                    hover: ['<div style="background-image: url(\'./img/emoji1.png\');" class="im2">&nbsp;</div>',
+                        '<div style="background-image: url(\'./img/emoji2.png\');" class="im2">&nbsp;</div>',
+                        '<div style="background-image: url(\'./img/emoji3.png\');" class="im2">&nbsp;</div>',
+                        '<div style="background-image: url(\'./img/emoji4.png\');" class="im2">&nbsp;</div>',
+                        '<div style="background-image: url(\'./img/emoji5.png\');" class="im2">&nbsp;</div>',],
+                    selected: ['<div style="background-image: url(\'./img/emoji1.png\');" class="im2">&nbsp;</div>',
+                        '<div style="background-image: url(\'./img/emoji2.png\');" class="im2">&nbsp;</div>',
+                        '<div style="background-image: url(\'./img/emoji3.png\');" class="im2">&nbsp;</div>',
+                        '<div style="background-image: url(\'./img/emoji4.png\');" class="im2">&nbsp;</div>',
+                        '<div style="background-image: url(\'./img/emoji5.png\');" class="im2">&nbsp;</div>',],
+                },
+            },
+        });
+    });
 </script>
 <script>document.addEventListener("DOMContentLoaded", function () { try { enterView({ selector: "section", enter: function (e) { e.classList.add("entered") } }); var n = 1e3, e = document.getElementById("set-height"), o = document.getElementById("v0"); o.addEventListener("loadedmetadata", function () { e.style.height = Math.floor(o.duration) * n + "px" }), window.requestAnimationFrame(function e() { var t = window.pageYOffset / n; o.currentTime = t, window.requestAnimationFrame(e) }) } catch (e) { console.log(e) } })</script>
 <script>var name = JSON.stringify([{ title: "twitter:description", description: "StoryBook a app Share your Day story to the world. alpha version" }, { title: "og:description", description: "StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing." }]); for (x in myObje = JSON.parse(name), myObje) { var m = document.createElement("meta"); m.name = myObje[x].title, m.content = myObje[x].description, document.head.appendChild(m) }</script>
-<script type="text/javascript">$(document).ready(function () {
+<script type="text/javascript">
+$(document).ready(function () {
         $({ property: 0 }).animate({ property: 100 }, {
             duration: 4000,
             step: function () {
@@ -790,7 +806,7 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
             //     .catch(error => {
             //       console.error(error);
             //     });
-            
+
 
             // tinymce.init({ selector: 'textarea' });
             var elem = document.querySelector('.slider');
@@ -805,9 +821,11 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
         catch (err) {
             console.log(err)
         }
-    });</script>
+    });
+</script>
 
-<script type="text/javascript">$(document).ready(() => {
+<script type="text/javascript">
+    $(document).ready(() => {
         window.onload = function () {
             if (window.location.href.indexOf("add") > -1 || window.location.href.indexOf("edit") > -1) {
                 CKEDITOR.replace('body');
@@ -821,13 +839,13 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
             $('img').addClass('responsive-img');
             if (window.screen.width < 824 && footer == "none") {
                 $('.titlename2').css({ display: "block" });
-               if(window.location.href.indexOf("dashboard") > -1){
-                    $('#footerfloat').css({ right: "80%"});
-               }
-               else{
-                    $('#footerfloat').css({ right: "23px"});
-               }
-               
+                if (window.location.href.indexOf("dashboard") > -1) {
+                    $('#footerfloat').css({ right: "80%" });
+                }
+                else {
+                    $('#footerfloat').css({ right: "23px" });
+                }
+
             } else {
                 $('.titlename2').css({ display: "none" });
             }
@@ -838,23 +856,22 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
                     if (window.screen.width < 824 && tagnav != "none") {
                         $('nav').css({ display: "none" });
                         $('#backNavigator').css({ top: "0px" });
-                        if(window.location.href.indexOf("dashboard") > -1)
-                        {
+                        if (window.location.href.indexOf("dashboard") > -1) {
                             if (dashboard === 'fixed') {
                                 $('#footerfloat').css({ right: "80%" })
                             }
                         }
-                       
+
                     }
-                     if (window.location.href.indexOf("popular") > -1) {
+                    if (window.location.href.indexOf("popular") > -1) {
                         if (tagnav === 'block') {
-                          //  $('nav').css({ display: "none" });
-                           //  $('#sidenavigation').css({ display: "none" });
+                            //  $('nav').css({ display: "none" });
+                            //  $('#sidenavigation').css({ display: "none" });
                         }
                     }
                     // $("#LandingHeader").css("style", "display:block");
                 }
-                
+
 
             } else {
                 $('nav').css({ display: "block" });
@@ -887,53 +904,53 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
                 placeholder.appendChild(imgLarge);
             }
         }
-    });</script>
-    <script>
-        $(function () {
-                var $h3s = $('.selective').click(function () {
-                    $h3s.removeClass('active');
-                    $(this).addClass('active');
-                });
-            });
-    </script>
-    <script type="text/javascript">
-    
-         let deferredPrompt;
-         var btnAdd = document.getElementById("btnAdd");
-         window.addEventListener('beforeinstallprompt', function (e) {
-                console.log('beforeinstallprompt Event fired');
-                e.preventDefault();
+    });
+</script>
+<script>
+    $(function () {
+        var $h3s = $('.selective').click(function () {
+            $h3s.removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+</script>
+<script>
+   // let deferredPrompt;
+   // var btnAdd = document.getElementById("btnAdd");
+   // window.addEventListener('beforeinstallprompt', function (e) {
+     //   console.log('beforeinstallprompt Event fired');
+      //  e.preventDefault();
 
-                // Stash the event so it can be triggered later.
-                deferredPrompt = e;
+        // Stash the event so it can be triggered later.
+      //  deferredPrompt = e;
 
-                return false;
-            });
+        //return false;
+    //});
 
-            btnAdd.addEventListener('click', function () {
-                if (deferredPrompt !== undefined) {
-                    // The user has had a postive interaction with our app and Chrome
-                    // has tried to prompt previously, so let's show the prompt.
-                    deferredPrompt.prompt();
+ //   btnAdd.addEventListener('click', function () {
+   //     if (deferredPrompt !== undefined) {
+            // The user has had a postive interaction with our app and Chrome
+            // has tried to prompt previously, so let's show the prompt.
+     //       deferredPrompt.prompt();
 
-                    // Follow what the user has done with the prompt.
-                  deferredPrompt.userChoice.then(function (choiceResult) {
+            // Follow what the user has done with the prompt.
+       //     deferredPrompt.userChoice.then(function (choiceResult) {
 
-                        console.log(choiceResult.outcome);
+         //       console.log(choiceResult.outcome);
 
-                        if (choiceResult.outcome == 'dismissed') {
-                            console.log('User cancelled home screen install');
-                        }
-                        else {
-                            console.log('User added to home screen');
-                        }
+           //     if (choiceResult.outcome == 'dismissed') {
+             //       console.log('User cancelled home screen install');
+               // }
+              //  else {
+               //     console.log('User added to home screen');
+              //  }
 
-                        // We no longer need the prompt.  Clear it up.
-                        deferredPrompt = null;
-                    });
-                }
-            });
-   </script>
+                // We no longer need the prompt.  Clear it up.
+           //     deferredPrompt = null;
+         //   });
+     //   }
+   // });
+</script>
 <script type='application/ld+json'>{"@context":"http:\/\/schema.org",
 "@type":"WebSite",
 "url":window.location.href,
@@ -942,70 +959,72 @@ xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article#
 "target":window.location.href+"\/?story={search_term}",
 "query-input":"required name=search_term"}
 }</script>
- <script>
-       var stripe = Stripe('pk_test_RekulS5PNe7uUNGtJV7g5Xfj');
+<script>
+    var stripe = Stripe('pk_test_RekulS5PNe7uUNGtJV7g5Xfj');
 
-        // Create an instance of Elements.
-        var elements = stripe.elements();
+    // Create an instance of Elements.
+    var elements = stripe.elements();
 
-        // Custom styling can be passed to options when creating an Element.
-        // (Note that this demo uses a wider set of styles than the guide below.)
-        var style = {
-            base: {
-                color: '#32325d',
-                lineHeight: '18px',
-                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-                fontSmoothing: 'antialiased',
-                fontSize: '16px',
-                '::placeholder': {
-                    color: '#aab7c4'
-                }
-            },
-            invalid: {
-                color: '#fa755a',
-                iconColor: '#fa755a'
+    // Custom styling can be passed to options when creating an Element.
+    // (Note that this demo uses a wider set of styles than the guide below.)
+    var style = {
+        base: {
+            color: '#32325d',
+            lineHeight: '18px',
+            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+            fontSmoothing: 'antialiased',
+            fontSize: '16px',
+            '::placeholder': {
+                color: '#aab7c4'
             }
-        };
+        },
+        invalid: {
+            color: '#fa755a',
+            iconColor: '#fa755a'
+        }
+    };
 
-        // Create an instance of the card Element.
-        var card = elements.create('card', {
-            style: style
-        });
+    // Create an instance of the card Element.
+    var card = elements.create('card', {
+        style: style
+    });
 
-        // Add an instance of the card Element into the `card-element` <div>.
-        card.mount('#card-element');
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount('#card-element');
 
-        // Handle real-time validation errors from the card Element.
-        card.addEventListener('change', function (event) {
-            var displayError = document.getElementById('card-errors');
-            if (event.error) {
-                displayError.textContent = event.error.message;
+    // Handle real-time validation errors from the card Element.
+    card.addEventListener('change', function (event) {
+        var displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
+        } else {
+            displayError.textContent = '';
+        }
+    });
+
+    // Handle form submission.
+    var form = document.getElementById('payment-form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        stripe.createToken(card).then(function (result) {
+            if (result.error) {
+                // Inform the user if there was an error.
+                var errorElement = document.getElementById('card-errors');
+                errorElement.textContent = result.error.message;
             } else {
-                displayError.textContent = '';
+                // Send the token to your server.
+                stripeTokenHandler(result.token);
             }
         });
-
-        // Handle form submission.
-        var form = document.getElementById('payment-form');
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            stripe.createToken(card).then(function (result) {
-                if (result.error) {
-                    // Inform the user if there was an error.
-                    var errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = result.error.message;
-                } else {
-                    // Send the token to your server.
-                    stripeTokenHandler(result.token);
-                }
-            });
-        });
-</script>  
+    });
+</script>
 <script src="js/stripe-main.js"></script>
 
 <script type="text/javascript" src="/app.js"></script>
-{{!-- <script type="text/javascript" src="./second.js"></script> --}}
+{{!--
+<script type="text/javascript" src="./second.js"></script> --}}
 <script src="//images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
 <script>!function (e, t, a, n, g) { e[n] = e[n] || [], e[n].push({ "gtm.start": (new Date).getTime(), event: "gtm.js" }); var m = t.getElementsByTagName(a)[0], r = t.createElement(a); r.async = !0, r.src = "https://www.googletagmanager.com/gtm.js?id=GTM-N3R4GMN", m.parentNode.insertBefore(r, m) }(window, document, "script", "dataLayer")</script>
-<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-N3R4GMN" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-N3R4GMN" style="display:none;visibility:hidden"
+        width="0"></iframe></noscript>
