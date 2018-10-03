@@ -53,7 +53,11 @@ workbox.core.setCacheNameDetails({
     prefix: 'StoryBook',
     suffix: 'v1',
     precache: 'Story-precache-name',
-    runtime: 'Story-runtime-name'
+    runtime: 'Story-runtime-name',
+    cacheId: 'StoryBook',
+    clientsClaim: 'true',
+    directoryIndex: '/'
+
 });
 workbox.routing.registerRoute(
     'https://new-storybook.herokuapp.com/*',
@@ -62,8 +66,8 @@ workbox.routing.registerRoute(
         cacheName: 'stories',
         plugins: [
             new workbox.expiration.Plugin({
-                maxEntries: 50,
-                maxAgeSeconds: 5 * 60, // 5 minutes
+                maxEntries: 100,
+                maxAgeSeconds: 5 * 60 * 60, // 5 minutes
             }),
         ],
     }),
@@ -74,7 +78,7 @@ workbox.routing.registerRoute(
         cacheName: 'images',
         plugins: [
             new workbox.expiration.Plugin({
-                maxEntries: 60,
+                maxEntries: 100,
                 maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
             }),
         ],
@@ -106,6 +110,7 @@ workbox.routing.registerRoute(
         cacheName: 'gstatic',
     }),
 );
+
 workbox.routing.registerRoute(
     new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
     workbox.strategies.cacheFirst({
@@ -113,6 +118,7 @@ workbox.routing.registerRoute(
         plugins: [
             new workbox.expiration.Plugin({
                 maxEntries: 30,
+                maxAgeSeconds: 30 * 24 * 60 * 60,
             }),
             new workbox.cacheableResponse.Plugin({
                 statuses: [0, 200]
@@ -120,6 +126,86 @@ workbox.routing.registerRoute(
         ],
     }),
 );
+
+workbox.routing.registerRoute(
+    new RegExp('https://cdn.ckeditor.com/(.*)'),
+    workbox.strategies.cacheFirst({
+        cacheName: 'ckeditor',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 100,
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+            }),
+            new workbox.cacheableResponse.Plugin({
+                statuses: [0, 200]
+            }),
+        ],
+    }),
+);
+
+workbox.routing.registerRoute(
+    new RegExp('https://cdnjs.cloudflare.com/(.*)'),
+    workbox.strategies.cacheFirst({
+        cacheName: 'supportive-library',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 100,
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+            }),
+            new workbox.cacheableResponse.Plugin({
+                statuses: [0, 200]
+            }),
+        ],
+    }),
+);
+workbox.routing.registerRoute(
+    new RegExp('https://use.fontawesome.com/(.*)'),
+    workbox.strategies.cacheFirst({
+        cacheName: 'supportive-library',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 150,
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+            }),
+            new workbox.cacheableResponse.Plugin({
+                statuses: [0, 200]
+            }),
+        ],
+    }),
+);
+workbox.routing.registerRoute(
+    new RegExp('https://s3-us-west-2.amazonaws.com/(.*)'),
+    workbox.strategies.cacheFirst({
+        cacheName: 'supportive-fonts',
+
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 150,
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+            }),
+            new workbox.cacheableResponse.Plugin({
+                statuses: [0, 200]
+            }),
+        ],
+    }),
+);
+workbox.routing.registerRoute(
+    new RegExp('https://use.typekit.net/(.*)'),
+    workbox.strategies.cacheFirst({
+        cacheName: 'browser-supportive',
+
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 150,
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+            }),
+            new workbox.cacheableResponse.Plugin({
+                statuses: [0, 200]
+            }),
+        ],
+    }),
+);
+
 let isSubscribed = false;
 let swRegistration = null;
 let applicationKey = "BCWxoXJo6AfZp5T4GOAqw9XLEgU7zXbFz2zySuUjy4sAmt7ADQ-_XDCG6qQyRGAs0x7G9W9gYNLUAaMF9BMOgdo";
@@ -169,6 +255,7 @@ self.addEventListener('notificationclick', function (event) {
         })
     );
 });
+
 function saveSubscription(subscription) {
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open("POST", "/subscribe");

@@ -17,9 +17,11 @@ likescount = [];
 dislikecount = [];
 ratedusers = [];
 hostAddress = '';
+
+//Story Page Load
 router.get('/', (req, res) => {
     var page = parseInt(req.query.page) || 1;
-    var size = parseInt(req.query.size) || 5;
+    var size = parseInt(req.query.size) || 6;
     // console.log(`page: ${page}, size: ${size} `);
     var query = {
         status: 'public'
@@ -34,6 +36,7 @@ router.get('/', (req, res) => {
     query.skip = size * (page - 1);
     query.limit = size;
     query.populate = 'user';
+    query.status = 'public';
     query.sort = {
         views: -1,
         date: -1
@@ -152,7 +155,7 @@ router.get('/popular/:page', (req, res) => {
 router.get('/show/:id', (req, res) => {
     //  console.log(quantity);
     hostAddress = req.params;
-    console.log(hostAddress);
+    //console.log(hostAddress);
     const obajectid = req.params.id.replace('app.js', '').replace('\n', '');
     Story.findOne({
             _id: mongoose.Types.ObjectId(obajectid)
@@ -296,7 +299,7 @@ router.get('/user/:userId', ensureGuest, (req, res) => {
 
 //Logged in Users Stories
 router.get('/my', ensureAuthenticated, (req, res) => {
-    console.log(req.user.id);
+    //console.log(req.user.id);
     Story.find({
             user: req.user.id
         })
@@ -309,7 +312,7 @@ router.get('/my', ensureAuthenticated, (req, res) => {
 });
 //Add Story Form
 router.get('/add', ensureAuthenticated, (req, res) => {
-    console.log('redirect hit');
+   // console.log('redirect hit');
     res.render('stories/add');
 });
 
@@ -368,7 +371,7 @@ router.post('/', ensureAuthenticated, (req, res) => {
                     "tag": story.keywords
                 })
                 .then(function (response) {
-                    console.log(response);
+                   // console.log(response);
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -378,6 +381,7 @@ router.post('/', ensureAuthenticated, (req, res) => {
         });
 });
 
+//Update Story Post
 router.put('/:id', ensureAuthenticated, (req, res) => {
     Story.findOne({
             _id: req.params.id
@@ -406,6 +410,7 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
 
 });
 
+//Add Clap for Story
 router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
     // console.log(req.body);
     Story.findOne({
@@ -429,6 +434,7 @@ router.post("/thumbup/:id", ensureAuthenticated, (req, res) => {
     });
 });
 
+// Add Rating for post
 router.post('/rating/:id', ensureAuthenticated, (req, res) => {
     const value = req.query.rate;
     console.log(value);
@@ -458,6 +464,7 @@ router.post('/rating/:id', ensureAuthenticated, (req, res) => {
             res.redirect(`/stories/show/${story.id}`);
         })
 })
+
 //Delete Story/
 router.delete(('/:id'), ensureAuthenticated, (req, res) => {
     Story.remove({
@@ -490,8 +497,21 @@ router.post('/comment/:id', ensureAuthenticated, (req, res) => {
 });
 
 // Remove Comment
-router.delete('/comment/:id/:commentid', ensureAuthenticated,(req,res) => {
+router.delete('/comments/:id/:commentid',(req,res) => {
+    const commentid = req.params.commentid;
+    const storyid = req.params.id;
 
+    Story.findById(storyid)
+    .then(story => {
+         post.comments.id(commentid).remove();
+         post.save(function (err) {
+
+             res.render(`/comments/${storyid}`);
+         });
+    })
+    .catch(() => {
+         res.render(`/stories/show/${storyid}`);
+    })
 });
 // router.post('/addcategory/:id',ensureAuthenticated, (req, res) => {
 //    if(req.body.category != null){

@@ -212,13 +212,14 @@ module.exports = {
                return '';
            }
         },
-    moderateComments: function (storyUser, loggedUser, storyId, floating = true) {
-        console.log(storyId);
-        console.log(storyUser);
-        console.log(loggedUser);
+    moderateComments: function (storyUser, loggedUser, storyId,commentId, floating = true) {
+        console.log(`story id : ${storyId}`);
+        console.log(`writer id : ${storyUser}`);
+        console.log(`logged user id : ${loggedUser}`);
+        console.log(`comment id : ${commentId}`);
         if (storyId) {
             if (floating && loggedUser) { //add form post method on api request
-                return ` <div class="card-title right commentClose" id="${storyId}" data-value="${storyId}+"/"+${loggedUser}+"/"+${storyUser}" style="padding-right:1rem;padding-top:.5rem;"><i style="color:#999;font-size:1.2rem;" class="material-icons right">close</i></div>`;
+                return ` <div class="card-title right commentClose" id="${storyId}" data-value="${storyId}+"/"+${commentId}" style="padding-right:1rem;padding-top:.5rem;"><i style="color:#999;font-size:1.2rem;" class="material-icons right">close</i></div>`;
             } else {
                 return ` <div class="card-title right" id="${storyId}" data-value="${storyId}+"/"+${loggedUser}+"/"+${storyUser}" style="padding-right:1rem;padding-top:.5rem;"><i style="color:#999;font-size:1.2rem;" class="material-icons right">close</i></div>`;
             }

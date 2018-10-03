@@ -79,7 +79,7 @@
 </div>
 
 <div class="row showpage">
-    <div class="leftcolumn col s12 m9">
+    <div class="leftcolumn col s12 m9 pb-5 grey lighten-4" style="border-radius:20px;">
         <div class="card card1 heartbeat">
             {{#if story.bodyImage}}
                 <div class="card-image shake-top animated-background">
@@ -178,7 +178,7 @@
             
             </div>   
         </div>
- {{#if story.allowComments}}
+ {{!-- {{#if story.allowComments}}
 <div class="card">
     <div class="sharethis-inline-reaction-buttons"></div>
     <div class="card-content">
@@ -236,7 +236,7 @@
 
  {{#each story.comments}}
     <div class="card card1">
-    {{{moderateComments story.user.id user.id story.id false}}}
+    {{{moderateComments story.user.id user.id story.id story.comments.id false}}}
         
       
         <div class="card-content">
@@ -258,11 +258,31 @@
             <small class="u-borderBottomLightest">Posted: {{formateDate commentDate 'MMMM Do YYYY'}}</small>
         </div>
     </div>
-    {{/each}} {{/if}}
-   
+    {{/each}} {{/if}} --}}
+    <div id="disqus_thread"></div>
+<script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url
+     = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://storybook-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
     <div class="rightcolumn" style="position: -webkit-sticky;position: sticky;">
-        <div class="card card1">
+        <div class="card card1" style="box-shadow:-5px  5px 5px 5px #82a2bd">
             <div class="card-content center-align">
                 <span class="card-title" style="font-size:1rem;">{{story.user.firstName}} {{story.user.lastName}}</span>
                 {{#if story.user.image}}

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const mongoosePaginate = require('mongoose-paginate');
+
 // Create Schema
 const StorySchema = new Schema({
     title: {
@@ -44,7 +45,8 @@ const StorySchema = new Schema({
             default: Date.now()
         },
         commentUser: {
-            
+             type: Schema.Types.ObjectId,
+             ref: 'users'
         }
     }],
     user: {

@@ -87,6 +87,7 @@ p {
     color: white;
     margin-top: 2rem;
     padding: .3rem;
+    box-shadow: 5px 5px 5px 0px #ac82bd;
 }
 
 .navbar::after {
@@ -615,6 +616,7 @@ section:nth-of-type(5) {
     border-radius: 8px 8px 8px 8px;
     padding: 0px;
     margin-top: 0px;
+    box-shadow: 5px 5px 5px 0px #82a2bd;
 }
 
 .row:after {
@@ -4034,4 +4036,10 @@ p {
 
 a.brand-logo.center {
     font-size: 1.9rem !important;
+}
+
+@media(min-device-width:320px) and (max-device-width:960px) {
+    img.responsive-img{
+        max-width: 50% !important;
+    }
 }

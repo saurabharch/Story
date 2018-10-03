@@ -6,7 +6,8 @@ schema: http://schema.org/ sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org
 xsd: http://www.w3.org/2001/XMLSchema# "
     xmlns:article=http://ogp.me/ns/article# xmlns:book=http://ogp.me/ns/book# xmlns:product=http://ogp.me/ns/product#
     xmlns:profile=http://ogp.me/ns/profile# xmlns:video=http://ogp.me/ns/video#> <meta charset=UTF-8>
-<meta content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1" name=viewport>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<link rel="stylesheet" href="https://use.typekit.net/jnq3uxd.css">
 <meta content="ie=edge" http-equiv="X-UA-Compatible">
 <title>{{metaTags.title}}</title>
 <meta content="{{metaTags.title}}" name="title">
@@ -39,7 +40,7 @@ xsd: http://www.w3.org/2001/XMLSchema# "
 {{!--
 <link href="" rel="mask-icon" color="#0098e3"> --}}
 <meta content="#2b5797" name="msapplication-TileColor">
-<link href="https://www.new-storybook.herokuapp.com/manifest.json" rel="manifest" type="manifest+json">
+<link href="/manifest.json" rel="manifest" type="manifest+json">
 {{!--
 <script type="text/javascript" src="./new-install.js"></script> --}}
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
@@ -50,7 +51,7 @@ xsd: http://www.w3.org/2001/XMLSchema# "
 <meta content="browserconfig.xml" name="msapplication-config">{{!-- SEO AREA START --}}
 <script>console.log("%c Stop! %cThis is a browser feature intended for developers.If someone told you to copy and paste something here to enable a Storybook feature or 'hack' someone's account, it is a scam and will give them access to your StoryBook account. %cSee https://new-storybook.herokuapp.com/security for more information. ", "font-weight:bold;font-size:50px;color:red;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;", "font-weight:500;font-size:20px;color:#404040;", "font-weight:500;font-size:22px;color:grey;")</script>{{!--
 HTTP TO HTTPS REDIRECT --}}
-<script>"https:" != document.location.protocol && (document.location = document.URL.replace(/^http:/i, "https:"))</script>
+{{!-- <script>"https:" != document.location.protocol && (document.location = document.URL.replace(/^http:/i, "https:"))</script> --}}
 <script>var monsterinsights_frontend = { js_events_tracking: "true", is_debug_mode: "false", download_extensions: "doc,exe,js,pdf,ppt,tgz,zip,xls", inbound_paths: "/recommended/", home_url: "https://www.new-storybook.herokuapp.com", track_download_as: "event", internal_label: "aff", hash_tracking: "false" }</script>
 <script>var advanced_ads_responsive = { reload_on_resize: "0" }</script>
 <script>var advanced_ads_pro_visitor_conditions = { referrer_cookie_name: "advanced_ads_pro_visitor_referrer", referrer_exdays: "365", page_impr_cookie_name: "advanced_ads_page_impressions", page_impr_exdays: "3650" }</script>
@@ -652,15 +653,15 @@ HTTP TO HTTPS REDIRECT --}}
 </main>{{> _footer}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<script src="init.js"></script>
+<script src="/init.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="https://new-storybook.herokuapp.com/js/rater.js"></script>
+<script src="/js/rater.js"></script>
 {{!-- <script src="https://js.stripe.com/v3/"></script> --}}
 <script src="https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js"></script>
 {{!--
-<script type="text/javascript" src="js/scroll.js"></script> --}}
-<script type="text/javascript" src="sticky.js"></script>
+<script type="text/javascript" src="/js/scroll.js"></script> --}}
+<script type="text/javascript" src="/sticky.js"></script>
 <script>
     $(document).ready(function () {
         var checkid = '';
@@ -967,7 +968,7 @@ $(document).ready(function () {
 "target":window.location.href+"\/?story={search_term}",
 "query-input":"required name=search_term"}
 }</script>
-<script src="js/stripe-main.js"></script>
+{{!-- <script src="/js/stripe-main.js"></script> --}}
 
 <script type="text/javascript" src="/app.js"></script>
 {{!--

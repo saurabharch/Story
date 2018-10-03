@@ -66,7 +66,7 @@ mongoose.connect(keys.mongoURI, {
 const app = express();
 app.use(cors());
 app.use(compression());
-
+app.disable('x-powered-by');
 // in order to serve files, you should add the two following middlewares
 app.set('trust proxy', true);
 app.use(Raven.requestHandler());

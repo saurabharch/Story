@@ -245,13 +245,14 @@ router.get('/story/comments/:storyid', (req,res) => {
 
 router.get('/story/comments/get/:storyid/:id', (req, res) => {
     const storyid = req.params.storyid;
+    const commentid = req.params.id;
     // let filter = req.query;
     Story.findOne(storyid)
         .populate('comments')
-        .then(comments => {
+        .then(story => {
             res.json({
                 status: 'success',
-                data: comments.comments
+                data: story.comments.id(commentid).toString()
             });
         })
         .catch(err => {
@@ -261,6 +262,7 @@ router.get('/story/comments/get/:storyid/:id', (req, res) => {
             })
         })
 });
+
 
 router.get('/db/story/status' , (req, res) => {
     Story.collection.stats()

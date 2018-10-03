@@ -27,14 +27,49 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
 });
 
 router.get('/comments/:storyid', ensureAuthenticated, (req, res) => {
-    Story.find({
-            _id: req.params.storyid
-        })
-        .then(stories => {
-            res.render('index/comments', {
-                story: story
-            });
-        });
+    const obajectid = req.params.storyid;
+   hostAddress = req.protocol + '://' + req.get('host') + req.originalUrl;
+   Story.findOne({
+           _id: mongoose.Types.ObjectId(obajectid)
+       })
+       .populate('comments')
+       .then(story => {
+           if (story.status == 'public') {
+               res.locals.metaTags = {
+                   title: story.title,
+                   description: story.description,
+                   keywords: story.keywords,
+                   generator: 'Story Book MetaTag Generator v.1.0',
+                   author: story.user.firstName + " " + story.user.lastName,
+                   myTwitter: story.user.twitterId,
+                   TwitterLink: '@storybook'
+
+               };
+               res.render('index/comments', {
+                   story: story.comments,
+                   storyTitle: story.title,
+                   url: hostAddress,
+                   layout: "main"
+               });
+           } else {
+               if (req.user) {
+                   if (req.user.id == story.user._id) {
+
+                       res.render('comments', {
+                           story: story.comments,
+                           user: user
+                       });
+                   } else {
+                       res.redirect('/index');
+                   }
+
+               } else {
+                   res.redirect('/index');
+               }
+           }    
+           console.log(story.comments);
+       });
+
 });
 
 
