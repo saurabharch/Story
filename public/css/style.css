@@ -161,8 +161,8 @@ body {
 
 @font-face {
     font-family: 'Genericons';
-    src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/genericons-regular-webfont.eot");
-    src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/genericons-regular-webfont.woff") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/genericons-regular-webfont.eot") format("truetype");
+    src: url("./fonts/genericons-regular-webfont.eot");
+    src: url("./fonts/genericons-regular-webfont.woff") format("woff"), url("./fonts/genericons-regular-webfont.eof") format("truetype");
 }
 
 .container1 {
@@ -371,7 +371,7 @@ header h1 {
 }
 
 .cardbg {
-    background: url('https://cdn.iconscout.com/public/images/icon/premium/png-256/story-book-open-36e6148c22052e3d-256x256.png') no-repeat 0% 0%;
+    background: url('./../img/story-book-9-651480.png') no-repeat 0% 0%;
     background-size: cover;
     widows: 600px;
     height: 400px;

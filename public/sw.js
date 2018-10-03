@@ -299,6 +299,10 @@ workbox.precaching.precacheAndRoute([
     "revision": "0ab54153eeeca0ce03978cc463b257f7"
   },
   {
+    "url": "css/fonts/genericons-regular-webfont.1.woff",
+    "revision": "388f97352ced79c3a2280c8de4552d15"
+  },
+  {
     "url": "css/fonts/genericons-regular-webfont.woff",
     "revision": "388f97352ced79c3a2280c8de4552d15"
   },
@@ -315,12 +319,28 @@ workbox.precaching.precacheAndRoute([
     "revision": "bde1ca6a5d7cefc8108c75fdaad29ed6"
   },
   {
+    "url": "css/fonts/roboto/Roboto-Light.woff",
+    "revision": "3b813c2ae0d04909a33a18d792912ee7"
+  },
+  {
+    "url": "css/fonts/roboto/Roboto-Light.woff2",
+    "revision": "69f8a0617ac472f78e45841323a3df9e"
+  },
+  {
+    "url": "css/fonts/roboto/Roboto-Regular.woff",
+    "revision": "d60c6fd1200bb6fe2050f4296ace8d43"
+  },
+  {
+    "url": "css/fonts/roboto/Roboto-Regular.woff2",
+    "revision": "bde1ca6a5d7cefc8108c75fdaad29ed6"
+  },
+  {
     "url": "css/materialize.min.css",
     "revision": "cdb87749442a34b463ecd91eafbe9c86"
   },
   {
     "url": "css/style.css",
-    "revision": "0d32f1511c74d41139ee322408e6c9d3"
+    "revision": "77ced16867eb2eb3a4dde8fb37367c1e"
   },
   {
     "url": "fallback.json",
@@ -329,6 +349,10 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "fingers.mp4",
     "revision": "f328ee4e80312aa3662e6774d5641c5a"
+  },
+  {
+    "url": "fonts/genericons-regular-webfont.woff",
+    "revision": "388f97352ced79c3a2280c8de4552d15"
   },
   {
     "url": "fonts/roboto/Roboto-Light.woff",
@@ -345,6 +369,10 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "fonts/roboto/Roboto-Regular.woff2",
     "revision": "bde1ca6a5d7cefc8108c75fdaad29ed6"
+  },
+  {
+    "url": "images/donate.png",
+    "revision": "3caa1758c3d418390583cb96883eedb1"
   },
   {
     "url": "img/1_sg-uLNm73whmdOgKlrQdZA.jpeg",
@@ -449,6 +477,10 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "img/splash.svg",
     "revision": "9a0640a3925ef4f18617bab1f854e0b8"
+  },
+  {
+    "url": "img/story-book-9-651480.png",
+    "revision": "30b7b8c386bc58eade8441fc358970e7"
   },
   {
     "url": "img/WelcomeSplash.svg",
