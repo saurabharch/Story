@@ -280,7 +280,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "app.js",
-    "revision": "c8e68d728a541d7edf83631502faaf42"
+    "revision": "028449c66bbdc4f7d83a9fd719038115"
   },
   {
     "url": "browserconfig.xml",
@@ -329,6 +329,14 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "fingers.mp4",
     "revision": "f328ee4e80312aa3662e6774d5641c5a"
+  },
+  {
+    "url": "fonts/roboto/Roboto-Light.woff",
+    "revision": "3b813c2ae0d04909a33a18d792912ee7"
+  },
+  {
+    "url": "fonts/roboto/Roboto-Light.woff2",
+    "revision": "69f8a0617ac472f78e45841323a3df9e"
   },
   {
     "url": "fonts/roboto/Roboto-Regular.woff",
