@@ -72,6 +72,7 @@ workbox.routing.registerRoute(
         ],
     }),
 );
+
 workbox.routing.registerRoute(
     /\.(?:png|gif|jpg|jpeg|svg)$/,
     workbox.strategies.cacheFirst({
@@ -89,7 +90,7 @@ workbox.routing.registerRoute(
     workbox.strategies.cacheFirst()
 );
 workbox.routing.registerRoute(
-    /\.(?:js|css)$/,
+    /\.(?:js|css|json)$/,
     workbox.strategies.staleWhileRevalidate({
         cacheName: 'static-resources',
     }),

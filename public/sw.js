@@ -72,6 +72,7 @@ workbox.routing.registerRoute(
         ],
     }),
 );
+
 workbox.routing.registerRoute(
     /\.(?:png|gif|jpg|jpeg|svg)$/,
     workbox.strategies.cacheFirst({
@@ -89,7 +90,7 @@ workbox.routing.registerRoute(
     workbox.strategies.cacheFirst()
 );
 workbox.routing.registerRoute(
-    /\.(?:js|css)$/,
+    /\.(?:js|css|json)$/,
     workbox.strategies.staleWhileRevalidate({
         cacheName: 'static-resources',
     }),
@@ -280,7 +281,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "app.js",
-    "revision": "028449c66bbdc4f7d83a9fd719038115"
+    "revision": "310b5db914279e2a65afb88a24450a73"
   },
   {
     "url": "browserconfig.xml",
