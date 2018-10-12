@@ -635,6 +635,7 @@ HTTP TO HTTPS REDIRECT --}}
             opacity: 0.5;
         }
 </style>
+<script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
 <link href="https://new-storybook.herokuapp.com" rel="dns-prefetch"> {{!-- SEO AREA END --}}
 <div id="wrapper"></div>
 <div id="warning-message">
@@ -652,7 +653,8 @@ HTTP TO HTTPS REDIRECT --}}
 
 </main>{{> _footer}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/standard/ckeditor.js"></script>
+{{!-- <script src="/js/standard/ckeditor.js"></script> --}}
+
 <script src="/init.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -829,7 +831,14 @@ $(document).ready(function () {
     $(document).ready(() => {
         window.onload = function () {
             if (window.location.href.indexOf("add") > -1 || window.location.href.indexOf("edit") > -1) {
-                CKEDITOR.replace('body');
+               ClassicEditor
+                    .create(document.querySelector('#editor'))
+                    .then(editor => {
+                        console.log(editor);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
                 
                 $(document).ready(function () {
                     $('.fixed-action-btn').floatingActionButton();

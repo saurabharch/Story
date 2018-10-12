@@ -20,7 +20,8 @@ const myPlugin = {
                 // Note: `newResponse.bodyUsed` is `true` when this is called,
                 // meaning the body has already been read. If you need access to
                 // the body of the fresh response, use a technique like:
-                // const freshResponse = await caches.match(request, {cacheName});
+                const freshResponse = await caches.match(request, {cacheName});
+                return freshResponse;
             },
             cachedResponseWillBeUsed: async ({
                     cacheName,
@@ -258,19 +259,19 @@ self.addEventListener('notificationclick', function (event) {
 });
 
 function saveSubscription(subscription) {
-    let xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("POST", "/subscribe");
-    xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xmlHttp.onreadystatechange = function () {
-        if (xmlHttp.readyState != 4) return;
-        if (xmlHttp.status != 200 && xmlHttp.status != 304) {
-            console.log('HTTP error ' + xmlHttp.status, null);
-        } else {
-            console.log("User subscribed to server");
-        }
-    };
+   let xmlHttp = new XMLHttpRequest();
+   xmlHttp.open("POST", "/subscribe");
+   xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+   xmlHttp.onreadystatechange = function () {
+       if (xmlHttp.readyState != 4) return;
+       if (xmlHttp.status != 200 && xmlHttp.status != 304) {
+           console.log('HTTP error ' + xmlHttp.status, null);
+       } else {
+           console.log("User subscribed to server");
+       }
+   };
 
-    xmlHttp.send(JSON.stringify(subscription));
+   xmlHttp.send(JSON.stringify(subscription));
 
 }
 
@@ -281,7 +282,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "app.js",
-    "revision": "310b5db914279e2a65afb88a24450a73"
+    "revision": "eb3915b2706811e8244ac46ccd82aa7b"
   },
   {
     "url": "browserconfig.xml",
