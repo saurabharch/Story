@@ -9,6 +9,8 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const compression = require('compression');
 const cors = require('cors');
+const csrf = require('csurf')
+const cluster = require('cluster');
 // Load  Model
 require('./models/User');
 require('./models/Story');
@@ -30,6 +32,8 @@ const api = require('./routes/api');
 // const categories = require('./routes/categories');
 // Load Keys
 const keys = require('./config/keys');
+const helmet = require('helmet');
+const RateLimit = require('express-rate-limit');
 //Handlebars Helpers
 const {
     truncate,
@@ -57,16 +61,42 @@ Raven.config('https://de8804919dea46698b2728a487303fb8@sentry.io/1272665').insta
 mongoose.Promise = global.Promise;
 
 // Mongoose Connect
+if(cluster.isMaster){
+    let cpus = require('os').cpus().length;
+    for (let i = 0; i < cpus; i += 1) {
+        cluster.fork();
+    }
+    cluster.on('online', function (worker) {
+        console.log('Worker ' + worker.process.pid + ' is online');
+    });
+
+    cluster.on('exit', function (worker, code, signal) {
+        console.log('Worker ' + worker.process.pid + ' died with code: ' + code + ', and signal: ' + signal);
+        console.log('Starting a new worker');
+        cluster.fork();
+    });
+}
+else{
 mongoose.connect(keys.mongoURI, {
         useMongoClient: true
     })
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
-
+var limiter = new RateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes 
+    max: 100, // limit each IP to 100 requests per windowMs 
+    delayMs: 0 // disable delaying - full speed until the max limit is reached 
+});
 const app = express();
+app.use(limiter);
 app.use(cors());
+app.use(helmet({
+    frameguard: {
+        action: 'deny'
+    }
+}));
 app.use(compression());
-app.disable('x-powered-by');
+app.set('x-powered-by','RainDigital');
 // in order to serve files, you should add the two following middlewares
 app.set('trust proxy', true);
 app.use(Raven.requestHandler());
@@ -77,7 +107,9 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
-
+app.use(csrf({
+    cookie: true
+}))
 
 //Method override Middleware
 app.use(methodOverride('_method'));
@@ -105,17 +137,18 @@ app.engine('handlebars', exphbs({
         ratingCalculate: ratingCalculate
     },
     defaultLayout: 'main',
-    partialsDir: __dirname+'/views/partials',
-    layoutsDir: __dirname+'/views/layouts',
+    partialsDir: __dirname + '/views/partials',
+    layoutsDir: __dirname + '/views/layouts',
     extname: '.handlebars'
 }));
-app.set('views', path.join(__dirname,'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.handlebars');
 // Set the path directory for view templates
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
-// app.set('views', __dirname + '/public/js');
+app.use(express.static(path.join(__dirname, 'public/images')));
+// app.set('views', __dirname + '/public/images');
 app.use(session({
     secret: 'secret',
     resave: false,
@@ -183,3 +216,7 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
+}
+
+
+

@@ -11,6 +11,8 @@ const {ensureAuthenticated,ensureGuest} = require('../helpers/auth');
 const aws = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
+const os = require('os');
+const v8 = require('v8');
 const s3 = new aws.S3({
     accessKeyId: keys.aws.accessKey,
     secretAccessKey: keys.aws.secretKey
@@ -312,6 +314,17 @@ router.get('/ip',(req,res) => {
     })
 });
 
+router.get('/location.json',(req,res) =>{
+    const ip = req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
+    var geo =  getdata(async data => {
+     data = geoip.lookup('10.71.34.1');
+     return data;
+    });
+    res.json({
+        status: 'ok',
+        data: geo
+    })
+})
 
 
 // Upload function using multer and multer-S3
@@ -368,4 +381,22 @@ router.post('/file/story', [ensureAuthenticated, upload.single('bodyImage')], (r
         });
     });
 });
+
+//Server Status Api
+router.get('/server/stat', (req, res, next) => {
+    var stats = {
+        'Load Average': os.loadavg().join(' '),
+        'CPU Count': os.cpus().length,
+        'Free Memory': os.freemem(),
+        'Current Malloced Memory': v8.getHeapStatistics().malloced_memory,
+        'Peak Malloced Memory': v8.getHeapStatistics().peak_malloced_memory,
+        'Allocated Heap Used (%)': Math.round((v8.getHeapStatistics().used_heap_size / v8.getHeapStatistics().total_heap_size) * 100),
+        'Available Heap Allocated (%)': Math.round((v8.getHeapStatistics().total_heap_size / v8.getHeapStatistics().heap_size_limit) * 100),
+        'Uptime': os.uptime() + ' Seconds'
+    };
+    res.json({
+        status: 'ok',
+        message: stats
+    })
+})
 module.exports = router;

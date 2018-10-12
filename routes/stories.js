@@ -6,6 +6,9 @@ const Story = mongoose.model('stories');
 const User = mongoose.model('users');
 const axios = require('axios');
 const keys = require('../config/keys');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const csrf = require('csurf')
 const {
     ensureAuthenticated,
     ensureGuest
@@ -17,7 +20,12 @@ likescount = [];
 dislikecount = [];
 ratedusers = [];
 hostAddress = '';
-
+const csrfProtection = csrf({
+    cookie: true
+})
+const parseForm = bodyParser.urlencoded({
+    extended: false
+})
 //Story Page Load
 router.get('/', (req, res) => {
     var page = parseInt(req.query.page) || 1;
@@ -311,13 +319,15 @@ router.get('/my', ensureAuthenticated, (req, res) => {
         });
 });
 //Add Story Form
-router.get('/add', ensureAuthenticated, (req, res) => {
+router.get('/add', csrfProtection, ensureAuthenticated, (req, res) => {
    // console.log('redirect hit');
-    res.render('stories/add');
+    res.render('stories/add', {
+        csrfToken: req.csrfToken()
+    });
 });
 
 // Edit Story Form
-router.get('/edit/:id', ensureAuthenticated, (req, res) => {
+router.get('/edit/:id', csrfProtection, ensureAuthenticated, (req, res) => {
     const requerstId = req.params.id.replace('app.js', '').replace('\n', '');
     Story.findOne({
             _id: mongoose.Types.ObjectId(requerstId)
@@ -327,14 +337,15 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
                 res.redirect('/stories');
             } else {
                 res.render('stories/edit', {
-                    story: story
+                    story: story,
+                    csrfToken: req.csrfToken()
                 });
             }
         });
 });
 
 //Process Add Story
-router.post('/', ensureAuthenticated, (req, res) => {
+router.post('/', parseForm, csrfProtection, ensureAuthenticated, (req, res) => {
     let allowComments;
     let likes = 0;
     const url = req.protocol + '://' + req.get('host');
@@ -382,7 +393,7 @@ router.post('/', ensureAuthenticated, (req, res) => {
 });
 
 //Update Story Post
-router.put('/:id', ensureAuthenticated, (req, res) => {
+router.put('/:id', parseForm, csrfProtection, ensureAuthenticated, (req, res) => {
     Story.findOne({
             _id: req.params.id
         })
@@ -484,10 +495,11 @@ router.post('/comment/:id', ensureAuthenticated, (req, res) => {
             const newComment = {
                 commentTitle: req.body.commentTitle,
                 commentBody: req.body.commentBody,
-                commentUser: req.user.id
+                commentUser: req.user.id,
+                storyid:  req.params.id
             }
             //Add to comments array
-            story.comments.push(newComment);
+            story.comments.unshift(newComment);
 
             story.save()
                 .then(story => {
@@ -497,12 +509,12 @@ router.post('/comment/:id', ensureAuthenticated, (req, res) => {
 });
 
 // Remove Comment
-router.delete('/comments/:id/:commentid',(req,res) => {
+router.delete('/comments/:id/:commentid', ensureAuthenticated,(req, res) => {
     const commentid = req.params.commentid;
     const storyid = req.params.id;
 
     Story.findById(storyid)
-    .then(story => {
+    .then(() => {
          post.comments.id(commentid).remove();
          post.save(function (err) {
 

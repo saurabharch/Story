@@ -489,7 +489,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "init.js",
-    "revision": "b2ba551de7c721928b1bc89051f21b1f"
+    "revision": "adc1df01f640d1006a4ea7f1063734ee"
   },
   {
     "url": "js/classic/ckeditor.js",

@@ -196,7 +196,7 @@ module.exports = {
         return moment(date).format(format);
     },
     select: function (selected, options) {
-        return options.fn(this).replace(new RegExp(' value=\"' + selected + '\"'), '$&selected="selected"').replace(new RegExp('>' + selected + '</option>'), 'selected="selected"$&');
+    return options.fn(this).replace(new RegExp(' value=\"' + selected + '\"'), '$&selected="selected"').replace(new RegExp('>' + selected + '</option>'), 'selected="selected"$&');
     },
     categoryType: function (selected, option) {
         return options.fn(this).replace(new RegExp(' value=\"' + selected + '\"'), '$&selected="selected"').replace(new RegExp('>' + selected + '</option>'), 'selected="selected"$&');
@@ -211,17 +211,33 @@ module.exports = {
            } else {
                return '';
            }
-        },
-    moderateComments: function (storyUser, loggedUser, storyId,commentId, floating = true) {
-        console.log(`story id : ${storyId}`);
-        console.log(`writer id : ${storyUser}`);
-        console.log(`logged user id : ${loggedUser}`);
+    },
+//    storyinfo:function (storyid,userid,loggedid) {
+//             var info = {
+//                 storyid : storyid,
+//                 user: userid,
+//                 loggedid: loggedid
+//             };
+//             console.log(info);
+//             if(info.user == null){
+//                 return info;
+//             }
+//             else {
+//                 return info;
+//             }
+            
+//     },
+    moderateComments: function (storyId,commentId, floating = true) {
+        // console.log(`story id : ${storyId}`);
+       // console.log(`writer id : ${storyUser}`);
+       // console.log(`logged user id : ${loggedUser}`);
+         const Storyid = storyId;
         console.log(`comment id : ${commentId}`);
-        if (storyId) {
-            if (floating && loggedUser) { //add form post method on api request
-                return ` <div class="card-title right commentClose" id="${storyId}" data-value="${storyId}+"/"+${commentId}" style="padding-right:1rem;padding-top:.5rem;"><i style="color:#999;font-size:1.2rem;" class="material-icons right">close</i></div>`;
+        if (commentId) {
+            if (floating) { //add form post method on api request
+                return ` <div class="card-title right commentClose" id="${Storyid}" data-value="${Storyid}/${commentId}" style="padding-right:1rem;padding-top:.5rem;"><i style="color:#999;font-size:1.2rem;" class="material-icons right">close</i></div>`;
             } else {
-                return ` <div class="card-title right" id="${storyId}" data-value="${storyId}+"/"+${loggedUser}+"/"+${storyUser}" style="padding-right:1rem;padding-top:.5rem;"><i style="color:#999;font-size:1.2rem;" class="material-icons right">close</i></div>`;
+                return ` <div class="card-title right" id="${Storyid}" data-value="${Storyid}/${commentId}" style="padding-right:1rem;padding-top:.5rem;"><i style="color:#999;font-size:1.2rem;" class="material-icons right">close</i></div>`;
             }
         } else {
             return '';

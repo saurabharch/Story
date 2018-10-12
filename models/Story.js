@@ -47,6 +47,10 @@ const StorySchema = new Schema({
         commentUser: {
              type: Schema.Types.ObjectId,
              ref: 'users'
+        },
+        storyid: {
+            type:String,
+             require: true
         }
     }],
     user: {

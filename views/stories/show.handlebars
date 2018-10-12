@@ -233,12 +233,12 @@
         
     </div>
 </div>
-
+{{!-- {{{storyinfo story.id story.user.id user.id false}}} --}}
  {{#each story.comments}}
     <div class="card card1">
-    {{{moderateComments story.user.id user.id story.id story.comments.id false}}}
+    {{{moderateComments storyid id false}}}
         
-      
+      <p  class="dark">{{story.comments}}</p>
         <div class="card-content">
            
             {{#if commentUser.image}}
