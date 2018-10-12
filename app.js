@@ -84,7 +84,7 @@ mongoose.connect(keys.mongoURI, {
     .catch(err => console.log(err));
 var limiter = new RateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes 
-    max: 100, // limit each IP to 100 requests per windowMs 
+    max: 1000, // limit each IP to 100 requests per windowMs 
     delayMs: 0 // disable delaying - full speed until the max limit is reached 
 });
 const app = express();
@@ -96,7 +96,7 @@ app.use(helmet({
     }
 }));
 app.use(compression());
-app.set('x-powered-by','RainDigital');
+app.set('x-powered-by','RainDigi');
 // in order to serve files, you should add the two following middlewares
 app.set('trust proxy', true);
 app.use(Raven.requestHandler());
@@ -109,7 +109,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(csrf({
     cookie: true
-}))
+}));
 
 //Method override Middleware
 app.use(methodOverride('_method'));

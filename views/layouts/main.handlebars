@@ -7,7 +7,8 @@ xsd: http://www.w3.org/2001/XMLSchema# "
     xmlns:article=http://ogp.me/ns/article# xmlns:book=http://ogp.me/ns/book# xmlns:product=http://ogp.me/ns/product#
     xmlns:profile=http://ogp.me/ns/profile# xmlns:video=http://ogp.me/ns/video#> <meta charset=UTF-8>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-{{!-- <link rel="stylesheet" href="https://use.typekit.net/bcr0bwp.css"> --}}
+{{!--
+<link rel="stylesheet" href="https://use.typekit.net/bcr0bwp.css"> --}}
 <meta content="ie=edge" http-equiv="X-UA-Compatible">
 <title>{{metaTags.title}}</title>
 <meta content="{{metaTags.title}}" name="title">
@@ -51,7 +52,9 @@ xsd: http://www.w3.org/2001/XMLSchema# "
 <meta content="browserconfig.xml" name="msapplication-config">{{!-- SEO AREA START --}}
 <script>console.log("%c Stop! %cThis is a browser feature intended for developers.If someone told you to copy and paste something here to enable a Storybook feature or 'hack' someone's account, it is a scam and will give them access to your StoryBook account. %cSee https://new-storybook.herokuapp.com/security for more information. ", "font-weight:bold;font-size:50px;color:red;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;", "font-weight:500;font-size:20px;color:#404040;", "font-weight:500;font-size:22px;color:grey;")</script>{{!--
 HTTP TO HTTPS REDIRECT --}}
+{{!--
 <script>"https:" != document.location.protocol && (document.location = document.URL.replace(/^http:/i, "https:"))</script>
+--}}
 <script>var monsterinsights_frontend = { js_events_tracking: "true", is_debug_mode: "false", download_extensions: "doc,exe,js,pdf,ppt,tgz,zip,xls", inbound_paths: "/recommended/", home_url: "https://www.new-storybook.herokuapp.com", track_download_as: "event", internal_label: "aff", hash_tracking: "false" }</script>
 <script>var advanced_ads_responsive = { reload_on_resize: "0" }</script>
 <script>var advanced_ads_pro_visitor_conditions = { referrer_cookie_name: "advanced_ads_pro_visitor_referrer", referrer_exdays: "365", page_impr_cookie_name: "advanced_ads_page_impressions", page_impr_exdays: "3650" }</script>
@@ -635,7 +638,7 @@ HTTP TO HTTPS REDIRECT --}}
             opacity: 0.5;
         }
 </style>
-<script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
+
 <link href="https://new-storybook.herokuapp.com" rel="dns-prefetch"> {{!-- SEO AREA END --}}
 <div id="wrapper"></div>
 <div id="warning-message">
@@ -653,123 +656,133 @@ HTTP TO HTTPS REDIRECT --}}
 
 </main>{{> _footer}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-{{!-- <script src="/js/standard/ckeditor.js"></script> --}}
+<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
+<script>
+     try {
+            CKEDITOR.replace('body');
+        }
+        catch {
 
+        }
+</script>
 <script src="/init.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="/js/rater.js"></script>
-{{!-- <script src="https://js.stripe.com/v3/"></script> --}}
+{{!--
+<script src="https://js.stripe.com/v3/"></script> --}}
 
 {{!--
 <script type="text/javascript" src="/js/scroll.js"></script> --}}
 <script type="text/javascript" src="/sticky.js"></script>
 <script>
     $(document).ready(function () {
-        var checkid = '';
-        var urlPost = '';
-        var setValue = '';
-        $('.rate').click(function () {
-            checkid = this.id;
-            urlPost = this.id;
-            setValue = $(this.id).data('rate-value');
-            checkid = 'https://new-storybook.herokuapp.com/stories/rating/' + checkid;
+        if(window.location.href.indexOf("stories") > -1 ){
+            var checkid = '';
+            var urlPost = '';
+            var setValue = '';
+            $('.rate').click(function () {
+                checkid = this.id;
+                urlPost = this.id;
+                setValue = $(this.id).data('rate-value');
+                checkid = 'https://new-storybook.herokuapp.com/stories/rating/' + checkid;
 
-        });
-        var options = {
-            max_value: 5,
-            step_size: 0.25,
-            selected_symbol_type: 'fontawesome_star',
-            url: checkid,
-            initial_value: 0
-        }
-        $(".rate").rate(options);
-        $(".rate").on("change", function (ev, data) {
-            console.log(data.from, data.to);
-            // console.log(data);
-            $.post(checkid + '?rate=' + data.to,
-                {
-                    RateValue: data.to
-                });
-        });
-
-        $(".rate").on("updateError", function (ev, jxhr, msg, err) {
-            console.log("This is a custom error event");
-        });
-
-        $(".rate").rate("setAdditionalData", { id: 42 });
-        $(".rate").on("updateSuccess", function (ev, data) {
-            // console.log(data);
-        });
-
-        var options3 = {
-            selected_symbol_type: 'utf8_emoticons',
-            max_value: 4,
-            step_size: 1,
-            convert_to_utf8: true,
-            only_select_one_symbol: true,
-        };
-        $("#rate3").rate(options3);
-
-        setTimeout(function () {
-            $("#rate4").rate({
-                selected_symbol_type: 'fontawesome_beer',
+            });
+            var options = {
                 max_value: 5,
                 step_size: 0.25,
-            });
-
-            $("#rate6").rate({
                 selected_symbol_type: 'fontawesome_star',
-                max_value: 5,
-                step_size: 0.25,
-            });
-        }, 2000);
-
-        $("#rate5").rate({
-            selected_symbol_type: 'image',
-            max_value: 5,
-            step_size: 1,
-            symbols: {
-                image: {
-                    base: '<div class="im">&nbsp;</div>',
-                    hover: '<div class="im">&nbsp;</div>',
-                    selected: '<div class="im">&nbsp;</div>',
-                },
+                url: checkid,
+                initial_value: 0
             }
-        });
+            $(".rate").rate(options);
+            $(".rate").on("change", function (ev, data) {
+                console.log(data.from, data.to);
+                // console.log(data);
+                $.post(checkid + '?rate=' + data.to,
+                    {
+                        RateValue: data.to
+                    });
+            });
 
-        $("#rate7").rate({
-            selected_symbol_type: 'image2',
-            max_value: 5,
-            step_size: 1,
-            update_input_field_name: $("#input1"),
-            only_select_one_symbol: true,
-            symbols: {
-                image2: {
-                    base: ['<div style="background-image: url(\'./img/emoji1.png\');" class="im2">&nbsp;</div>',
-                        '<div style="background-image: url(\'./img/emoji2.png\');" class="im2">&nbsp;</div>',
-                        '<div style="background-image: url(\'./img/emoji3.png\');" class="im2">&nbsp;</div>',
-                        '<div style="background-image: url(\'./img/emoji4.png\');" class="im2">&nbsp;</div>',
-                        '<div style="background-image: url(\'./img/emoji5.png\');" class="im2">&nbsp;</div>',],
-                    hover: ['<div style="background-image: url(\'./img/emoji1.png\');" class="im2">&nbsp;</div>',
-                        '<div style="background-image: url(\'./img/emoji2.png\');" class="im2">&nbsp;</div>',
-                        '<div style="background-image: url(\'./img/emoji3.png\');" class="im2">&nbsp;</div>',
-                        '<div style="background-image: url(\'./img/emoji4.png\');" class="im2">&nbsp;</div>',
-                        '<div style="background-image: url(\'./img/emoji5.png\');" class="im2">&nbsp;</div>',],
-                    selected: ['<div style="background-image: url(\'./img/emoji1.png\');" class="im2">&nbsp;</div>',
-                        '<div style="background-image: url(\'./img/emoji2.png\');" class="im2">&nbsp;</div>',
-                        '<div style="background-image: url(\'./img/emoji3.png\');" class="im2">&nbsp;</div>',
-                        '<div style="background-image: url(\'./img/emoji4.png\');" class="im2">&nbsp;</div>',
-                        '<div style="background-image: url(\'./img/emoji5.png\');" class="im2">&nbsp;</div>',],
+            $(".rate").on("updateError", function (ev, jxhr, msg, err) {
+                console.log("This is a custom error event");
+            });
+
+            $(".rate").rate("setAdditionalData", { id: 42 });
+            $(".rate").on("updateSuccess", function (ev, data) {
+                // console.log(data);
+            });
+
+            var options3 = {
+                selected_symbol_type: 'utf8_emoticons',
+                max_value: 4,
+                step_size: 1,
+                convert_to_utf8: true,
+                only_select_one_symbol: true,
+            };
+            $("#rate3").rate(options3);
+
+            setTimeout(function () {
+                $("#rate4").rate({
+                    selected_symbol_type: 'fontawesome_beer',
+                    max_value: 5,
+                    step_size: 0.25,
+                });
+
+                $("#rate6").rate({
+                    selected_symbol_type: 'fontawesome_star',
+                    max_value: 5,
+                    step_size: 0.25,
+                });
+            }, 2000);
+
+            $("#rate5").rate({
+                selected_symbol_type: 'image',
+                max_value: 5,
+                step_size: 1,
+                symbols: {
+                    image: {
+                        base: '<div class="im">&nbsp;</div>',
+                        hover: '<div class="im">&nbsp;</div>',
+                        selected: '<div class="im">&nbsp;</div>',
+                    },
+                }
+            });
+
+            $("#rate7").rate({
+                selected_symbol_type: 'image2',
+                max_value: 5,
+                step_size: 1,
+                update_input_field_name: $("#input1"),
+                only_select_one_symbol: true,
+                symbols: {
+                    image2: {
+                        base: ['<div style="background-image: url(\'./img/emoji1.png\');" class="im2">&nbsp;</div>',
+                            '<div style="background-image: url(\'./img/emoji2.png\');" class="im2">&nbsp;</div>',
+                            '<div style="background-image: url(\'./img/emoji3.png\');" class="im2">&nbsp;</div>',
+                            '<div style="background-image: url(\'./img/emoji4.png\');" class="im2">&nbsp;</div>',
+                            '<div style="background-image: url(\'./img/emoji5.png\');" class="im2">&nbsp;</div>',],
+                        hover: ['<div style="background-image: url(\'./img/emoji1.png\');" class="im2">&nbsp;</div>',
+                            '<div style="background-image: url(\'./img/emoji2.png\');" class="im2">&nbsp;</div>',
+                            '<div style="background-image: url(\'./img/emoji3.png\');" class="im2">&nbsp;</div>',
+                            '<div style="background-image: url(\'./img/emoji4.png\');" class="im2">&nbsp;</div>',
+                            '<div style="background-image: url(\'./img/emoji5.png\');" class="im2">&nbsp;</div>',],
+                        selected: ['<div style="background-image: url(\'./img/emoji1.png\');" class="im2">&nbsp;</div>',
+                            '<div style="background-image: url(\'./img/emoji2.png\');" class="im2">&nbsp;</div>',
+                            '<div style="background-image: url(\'./img/emoji3.png\');" class="im2">&nbsp;</div>',
+                            '<div style="background-image: url(\'./img/emoji4.png\');" class="im2">&nbsp;</div>',
+                            '<div style="background-image: url(\'./img/emoji5.png\');" class="im2">&nbsp;</div>',],
+                    },
                 },
-            },
-        });
+            });
+        }
     });
 </script>
 <script>document.addEventListener("DOMContentLoaded", function () { try { enterView({ selector: "section", enter: function (e) { e.classList.add("entered") } }); var n = 1e3, e = document.getElementById("set-height"), o = document.getElementById("v0"); o.addEventListener("loadedmetadata", function () { e.style.height = Math.floor(o.duration) * n + "px" }), window.requestAnimationFrame(function e() { var t = window.pageYOffset / n; o.currentTime = t, window.requestAnimationFrame(e) }) } catch (e) { console.log(e) } })</script>
 <script>var name = JSON.stringify([{ title: "twitter:description", description: "StoryBook a app Share your Day story to the world. alpha version" }, { title: "og:description", description: "StoryBook is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing." }]); for (x in myObje = JSON.parse(name), myObje) { var m = document.createElement("meta"); m.name = myObje[x].title, m.content = myObje[x].description, document.head.appendChild(m) }</script>
 <script type="text/javascript">
-$(document).ready(function () {
+    $(document).ready(function () {
         $({ property: 0 }).animate({ property: 100 }, {
             duration: 4000,
             step: function () {
@@ -791,26 +804,6 @@ $(document).ready(function () {
             $('.button-collapse').sideNav();
             $('select').material_select();
             $('categoryType').material_select();
-
-
-            // ClassicEditor.create(document.querySelector('#editor')).then(editor => {
-            //editor.plugins: [Essentials, Markdown, Paragraph,Bold, Italic, Underline, Strikethrough, Code, Alignment, Autoformat, Table, TableToolbar],  
-            // language: 'en',  
-            //    toolbar: ['bold', 'italic', 'alignment', 'insertTable',],
-            //   blockToolbar: ['paragraph', 'heading1', 'heading2', 'heading3','|','bulletedList', 'numberedList','|','blockQuote', 'imageUpload'],
-            //    table: {
-            //   toolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
-            // },
-            // image: {
-            //  toolbar: ['bold', 'italic', 'underline', 'strikethrough', 'code', 'imageTextAlternative' |  'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight'],
-            //  styles: ['full','alignLeft', 'alignRight']
-            //}
-            //   })
-            //     .catch(error => {
-            //       console.error(error);
-            //     });
-
-
             // tinymce.init({ selector: 'textarea' });
             var elem = document.querySelector('.slider');
             var instance = M.Slider.init(elem, options);
@@ -831,15 +824,8 @@ $(document).ready(function () {
     $(document).ready(() => {
         window.onload = function () {
             if (window.location.href.indexOf("add") > -1 || window.location.href.indexOf("edit") > -1) {
-               ClassicEditor
-                    .create(document.querySelector('#editor'))
-                    .then(editor => {
-                        console.log(editor);
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
-                
+
+               
                 $(document).ready(function () {
                     $('.fixed-action-btn').floatingActionButton();
                 });
@@ -873,7 +859,7 @@ $(document).ready(function () {
                         if (window.location.href.indexOf("dashboard") > -1) {
                             if (dashboard === 'fixed') {
                                 $('#footerfloat').css({ right: "80%" })
-                                
+
                                 $(document).ready(function () {
                                     $('.fixed-action-btn').floatingActionButton();
                                 });
@@ -932,43 +918,6 @@ $(document).ready(function () {
         });
     });
 </script>
-<script>
-   // let deferredPrompt;
-   // var btnAdd = document.getElementById("btnAdd");
-   // window.addEventListener('beforeinstallprompt', function (e) {
-     //   console.log('beforeinstallprompt Event fired');
-      //  e.preventDefault();
-
-        // Stash the event so it can be triggered later.
-      //  deferredPrompt = e;
-
-        //return false;
-    //});
-
- //   btnAdd.addEventListener('click', function () {
-   //     if (deferredPrompt !== undefined) {
-            // The user has had a postive interaction with our app and Chrome
-            // has tried to prompt previously, so let's show the prompt.
-     //       deferredPrompt.prompt();
-
-            // Follow what the user has done with the prompt.
-       //     deferredPrompt.userChoice.then(function (choiceResult) {
-
-         //       console.log(choiceResult.outcome);
-
-           //     if (choiceResult.outcome == 'dismissed') {
-             //       console.log('User cancelled home screen install');
-               // }
-              //  else {
-               //     console.log('User added to home screen');
-              //  }
-
-                // We no longer need the prompt.  Clear it up.
-           //     deferredPrompt = null;
-         //   });
-     //   }
-   // });
-</script>
 <script type='application/ld+json'>{"@context":"http:\/\/schema.org",
 "@type":"WebSite",
 "url":window.location.href,
@@ -977,12 +926,14 @@ $(document).ready(function () {
 "target":window.location.href+"\/?story={search_term}",
 "query-input":"required name=search_term"}
 }</script>
-{{!-- <script src="/js/stripe-main.js"></script> --}}
+{{!--
+<script src="/js/stripe-main.js"></script> --}}
 
 <script type="text/javascript" src="/app.js"></script>
 {{!--
 <script type="text/javascript" src="./second.js"></script> --}}
 <script src="//images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
-{{!-- <script>!function (e, t, a, n, g) { e[n] = e[n] || [], e[n].push({ "gtm.start": (new Date).getTime(), event: "gtm.js" }); var m = t.getElementsByTagName(a)[0], r = t.createElement(a); r.async = !0, r.src = "https://www.googletagmanager.com/gtm.js?id=GTM-N3R4GMN", m.parentNode.insertBefore(r, m) }(window, document, "script", "dataLayer")</script>
+{{!--
+<script>!function (e, t, a, n, g) { e[n] = e[n] || [], e[n].push({ "gtm.start": (new Date).getTime(), event: "gtm.js" }); var m = t.getElementsByTagName(a)[0], r = t.createElement(a); r.async = !0, r.src = "https://www.googletagmanager.com/gtm.js?id=GTM-N3R4GMN", m.parentNode.insertBefore(r, m) }(window, document, "script", "dataLayer")</script>
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-N3R4GMN" style="display:none;visibility:hidden"
         width="0"></iframe></noscript> --}}

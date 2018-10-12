@@ -111,9 +111,10 @@ function showRefreshUI(subscription) {
     // This demo creates and injects a button.
 
     var button = document.createElement('button');
-    button.style.position = 'absolute';
+    button.style.position = 'relative';
     button.style.bottom = '24px';
     button.style.left = '24px';
+    button.style.backgroundColor ="#999";
     button.textContent = 'This site has updated. Please click to see changes.';
 
     button.addEventListener('click', function () {
