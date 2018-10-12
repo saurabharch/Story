@@ -9,7 +9,8 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const compression = require('compression');
 const cors = require('cors');
-const csrf = require('csurf')
+const csrf = require('csurf');
+const secure = require('express-force-https');
 // const cluster = require('cluster');
 // Load  Model
 require('./models/User');
@@ -88,6 +89,7 @@ var limiter = new RateLimit({
     delayMs: 0 // disable delaying - full speed until the max limit is reached 
 });
 const app = express();
+app.use(secure);
 app.use(limiter);
 app.use(cors());
 // app.use(helmet({
