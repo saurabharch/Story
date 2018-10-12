@@ -32,8 +32,8 @@ const api = require('./routes/api');
 // const categories = require('./routes/categories');
 // Load Keys
 const keys = require('./config/keys');
-const helmet = require('helmet');
-const RateLimit = require('express-rate-limit');
+// const helmet = require('helmet');
+// const RateLimit = require('express-rate-limit');
 //Handlebars Helpers
 const {
     truncate,
@@ -82,21 +82,21 @@ mongoose.connect(keys.mongoURI, {
     })
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
-var limiter = new RateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes 
-    max: 1000, // limit each IP to 100 requests per windowMs 
-    delayMs: 0 // disable delaying - full speed until the max limit is reached 
-});
+// var limiter = new RateLimit({
+//     windowMs: 15 * 60 * 1000, // 15 minutes 
+//     max: 1000, // limit each IP to 100 requests per windowMs 
+//     delayMs: 0 // disable delaying - full speed until the max limit is reached 
+// });
 const app = express();
-app.use(limiter);
+// app.use(limiter);
 app.use(cors());
-app.use(helmet({
-    frameguard: {
-        action: 'deny'
-    }
-}));
+// app.use(helmet({
+//     frameguard: {
+//         action: 'deny'
+//     }
+// }));
 app.use(compression());
-app.set('x-powered-by','RainDigi');
+app.disable('x-powered-by');
 // in order to serve files, you should add the two following middlewares
 app.set('trust proxy', true);
 app.use(Raven.requestHandler());
