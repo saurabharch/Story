@@ -20,8 +20,7 @@ const myPlugin = {
                 // Note: `newResponse.bodyUsed` is `true` when this is called,
                 // meaning the body has already been read. If you need access to
                 // the body of the fresh response, use a technique like:
-                const freshResponse = await caches.match(request, {cacheName});
-                return freshResponse;
+                // const freshResponse = await caches.match(request, {cacheName});
             },
             cachedResponseWillBeUsed: async ({
                     cacheName,
@@ -282,7 +281,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "app.js",
-    "revision": "eb3915b2706811e8244ac46ccd82aa7b"
+    "revision": "e5589b2f2847d4571d78409a42b25ac6"
   },
   {
     "url": "browserconfig.xml",
@@ -342,7 +341,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "css/style.css",
-    "revision": "77ced16867eb2eb3a4dde8fb37367c1e"
+    "revision": "1348922ccf7fea66f784e7bfa8d7e883"
   },
   {
     "url": "fallback.json",
@@ -355,6 +354,26 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "fonts/genericons-regular-webfont.woff",
     "revision": "388f97352ced79c3a2280c8de4552d15"
+  },
+  {
+    "url": "fonts/MaterialIcons-Regular.woff2",
+    "revision": "570eb83859dc23dd0eec423a49e147fe"
+  },
+  {
+    "url": "fonts/MaterualIcons/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2",
+    "revision": "658dde714e624426b1f0f9976f031513"
+  },
+  {
+    "url": "fonts/Nunito/XRXV3I6Li01BKofINeaB.woff2",
+    "revision": "fe67e10445323683dab69663f6a4718a"
+  },
+  {
+    "url": "fonts/Nunito/XRXV3I6Li01BKofIO-aBXso.woff2",
+    "revision": "2b9944df551d16a9b94f2d4b50ed9fc5"
+  },
+  {
+    "url": "fonts/Nunito/XRXV3I6Li01BKofIOuaBXso.woff2",
+    "revision": "6f841f92fcd4a1c1020120fe92ff983f"
   },
   {
     "url": "fonts/roboto/Roboto-Light.woff",
