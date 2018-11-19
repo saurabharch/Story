@@ -50,8 +50,8 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
                             })
                     }
                 })
-                //    // When the user asks to refresh the UI, we'll need to reload the window
-                //    var preventDevToolsReloadLoop;
+                   // When the user asks to refresh the UI, we'll need to reload the window
+                    var preventDevToolsReloadLoop;
                    navigator.serviceWorker.addEventListener('controllerchange', function (event) {
                        // Ensure refresh is only called once.
                        // This works around a bug in "force update on reload".

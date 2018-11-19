@@ -2,6 +2,12 @@
 
 *This is a Simple Story Blog page with google & facebook auth service api*
 
+
+## Sounds good? Give it a try!
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/surabharch/Story)
+
+"My instance is deployed, what now?"
+
 ### Steps
 
 1. ```npm install```
