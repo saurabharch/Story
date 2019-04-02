@@ -5,6 +5,7 @@
 
 ## Sounds good? Give it a try!
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/surabharch/Story)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsaurabharch%2FStory.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsaurabharch%2FStory?ref=badge_shield)
 
 "My instance is deployed, what now?"
 
@@ -41,3 +42,6 @@
 1. ```Open url in browser at http://localhost:5000```
 
 ##### Note: Reference Education Purpose only and facebook authenctication is only success at https://
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsaurabharch%2FStory.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsaurabharch%2FStory?ref=badge_large)
