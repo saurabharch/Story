@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy": "copyfiles -u 1 src/**/**/* src/**/* src/* build",
     "build": "npm run copy && workbox injectManifest workbox-config.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "Saurabh Kashyap",
   "license": "MIT",
@@ -44,11 +46,13 @@
     "raven": "^2.6.3",
     "siege": "^0.2.0",
     "sw-toolbox": "^3.6.0",
-    "web-push": "^3.3.2"
+    "web-push": "^3.3.2",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "copyfiles": "^1.2.0",
     "workbox-cli": "^3.6.2",
     "loadtest": "*"
-  }
+  },
+  "snyk": true
 }
