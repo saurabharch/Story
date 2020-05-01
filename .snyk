@@ -1,0 +1,18 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - passport-pinterest > lodash:
+        patched: '2020-05-01T07:03:03.389Z'
+    - geoip-lite > async > lodash:
+        patched: '2020-05-01T07:03:03.389Z'
+    - express-handlebars > handlebars > async > lodash:
+        patched: '2020-05-01T07:03:03.389Z'
+    - handlebars-helpers > handlebars > async > lodash:
+        patched: '2020-05-01T07:03:03.389Z'
+    - geoip-lite > save > async > lodash:
+        patched: '2020-05-01T07:03:03.389Z'
+    - appmetrics-dash > appmetrics > ibmapm-embed > ibmapm-restclient > kubernetes-client > async > lodash:
+        patched: '2020-05-01T07:03:03.389Z'
