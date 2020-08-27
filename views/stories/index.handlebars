@@ -32,14 +32,14 @@
        <div class="col s12 center pb-5 grey lighten-4" style="border-radius:20px;">
             {{#each stories}}
             <div class="col s12 m6">
-                {{!-- onclick="location.href='./stories/show/{{id}}'" --}}
+                {{!-- onclick="location.href='./show/{{id}}'" --}}
                 <div class="card heartbeat border-radius-6 indigo min-height-250 z-depth-1" style="box-shadow: 5px 5px 5px 0px #82a2bd;padding:1rem .8rem 1rem .8rem;">
                     <div class="card-image">
                         <span class="{{checkNew date}}"></span>
                         {{#if user}} {{{editIcon user.id ../user.id id}}} {{/if}}
                     </div>
                     <div class="card-content center vertical-align-center white blue-grey-text text-darken-3 mt-3 pt-2">
-                        <h5 class="lighten-4" onclick="location.href='./stories/show/{{id}}'">{{title}} </span>
+                        <h5 class="lighten-4" onclick="location.href='./show/{{id}}'">{{title}} </span>
                         </h5>
                         {{#if body}}
                         <small>
