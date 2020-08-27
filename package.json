@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "copyfiles": "1.2.0",
-    "workbox-cli": "3.6.2",
+    "workbox-cli": "3.6.3",
     "loadtest": "*"
   },
   "snyk": true
