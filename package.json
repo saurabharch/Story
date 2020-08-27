@@ -14,7 +14,7 @@
   "author": "Saurabh Kashyap",
   "license": "MIT",
   "dependencies": {
-    "appmetrics-dash": "^4.0.0",
+    "appmetrics-dash": "^5.0.0",
     "aws-sdk": "^2.315.0",
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
