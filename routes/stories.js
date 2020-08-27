@@ -197,7 +197,7 @@ router.get('/show/:id', (req, res) => {
                     generator: 'Story Book MetaTag Generator v.1.0',
                     author: story.user.firstName + " " + story.user.lastName
                 };
-                res.render('stories/show', {
+                res.render('/show', {
                     story: story,
                     likescount: story.likes,
                     dislikecount: story.dislikes,
