@@ -14,7 +14,7 @@
   "author": "Saurabh Kashyap",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.315.0",
+    "aws-sdk": "^2.728.0",
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "compression": "^1.7.3",
