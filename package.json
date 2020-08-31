@@ -45,7 +45,7 @@
     "raven": "^2.6.3",
     "siege": "^0.2.0",
     "sw-toolbox": "^3.6.0",
-    "web-push": "^3.3.2",
+    "web-push": "^3.4.4",
     "snyk": "^1.385.0"
   },
   "devDependencies": {
