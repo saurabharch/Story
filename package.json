@@ -46,7 +46,7 @@
     "siege": "^0.2.0",
     "sw-toolbox": "^3.6.0",
     "web-push": "^3.4.4",
-    "snyk": "^1.385.0"
+    "snyk": "^1.465.0"
   },
   "devDependencies": {
     "copyfiles": "2.3.0",
