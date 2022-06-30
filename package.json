@@ -35,7 +35,7 @@
     "mongoose-paginate": "^5.0.3",
     "multer": "^1.3.1",
     "multer-s3": "^2.7.0",
-    "passport": "^0.4.0",
+    "passport": "^0.6.0",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth20": "^1.0.0",
     "passport-instagram": "^1.0.0",
