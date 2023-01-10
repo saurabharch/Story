@@ -29,7 +29,7 @@
     "geoip-lite": "^1.4.0",
     "handlebars-helpers": "^0.10.0",
     "helmet": "^4.0.0",
-    "method-override": "^2.3.10",
+    "method-override": "^3.0.0",
     "moment": "^2.21.0",
     "mongoose": "^5.9.27",
     "mongoose-paginate": "^5.0.3",
@@ -46,7 +46,7 @@
     "siege": "^0.2.0",
     "sw-toolbox": "^3.6.0",
     "web-push": "^3.4.4",
-    "snyk": "^1.385.0"
+    "snyk": "^1.518.0"
   },
   "devDependencies": {
     "copyfiles": "2.3.0",
