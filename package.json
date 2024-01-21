@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.728.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.18.2",
     "compression": "^1.7.3",
     "cookie-parser": "^1.4.3",
@@ -46,7 +46,7 @@
     "siege": "^0.2.0",
     "sw-toolbox": "^3.6.0",
     "web-push": "^3.4.4",
-    "snyk": "^1.385.0"
+    "snyk": "^1.996.0"
   },
   "devDependencies": {
     "copyfiles": "2.3.0",
