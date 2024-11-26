@@ -31,7 +31,7 @@
     "helmet": "^4.0.0",
     "method-override": "^2.3.10",
     "moment": "^2.21.0",
-    "mongoose": "^5.9.27",
+    "mongoose": "^5.12.3",
     "mongoose-paginate": "^5.0.3",
     "multer": "^1.3.1",
     "multer-s3": "^2.7.0",
@@ -46,7 +46,7 @@
     "siege": "^0.2.0",
     "sw-toolbox": "^3.6.0",
     "web-push": "^3.4.4",
-    "snyk": "^1.385.0"
+    "snyk": "^1.518.0"
   },
   "devDependencies": {
     "copyfiles": "2.3.0",
