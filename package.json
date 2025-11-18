@@ -29,7 +29,7 @@
     "geoip-lite": "^1.4.0",
     "handlebars-helpers": "^0.10.0",
     "helmet": "^4.0.0",
-    "method-override": "^2.3.10",
+    "method-override": "^3.0.0",
     "moment": "^2.21.0",
     "mongoose": "^5.9.27",
     "mongoose-paginate": "^5.0.3",
